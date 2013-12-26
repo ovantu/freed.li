@@ -1,0 +1,17 @@
+= simple_form_for(@feed) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :goal
+    = f.input :rule1
+    = f.input :rule2
+    = f.input :rule3
+    = f.input :rule4
+    = f.input :rule5
+    = f.input :misc
+    = f.input :description
+    = f.input :lang
+    = f.input :status
+
+  .form-actions
+    = f.button :submit

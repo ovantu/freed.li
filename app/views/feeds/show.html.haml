@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Goal:
+  = @feed.goal
+%p
+  %b Rule1:
+  = @feed.rule1
+%p
+  %b Rule2:
+  = @feed.rule2
+%p
+  %b Rule3:
+  = @feed.rule3
+%p
+  %b Rule4:
+  = @feed.rule4
+%p
+  %b Rule5:
+  = @feed.rule5
+%p
+  %b Misc:
+  = @feed.misc
+%p
+  %b Description:
+  = @feed.description
+%p
+  %b Lang:
+  = @feed.lang
+%p
+  %b Status:
+  = @feed.status
+
+= link_to 'Edit', edit_feed_path(@feed)
+\|
+= link_to 'Back', feeds_path

@@ -1,0 +1,37 @@
+%h1 Listing feeds
+
+%table
+  %tr
+    %th Goal
+    %th Rule1
+    %th Rule2
+    %th Rule3
+    %th Rule4
+    %th Rule5
+    %th Misc
+    %th Description
+    %th Lang
+    %th Status
+    %th
+    %th
+    %th
+
+  - @feeds.each do |feed|
+    %tr
+      %td= feed.goal
+      %td= feed.rule1
+      %td= feed.rule2
+      %td= feed.rule3
+      %td= feed.rule4
+      %td= feed.rule5
+      %td= feed.misc
+      %td= feed.description
+      %td= feed.lang
+      %td= feed.status
+      %td= link_to 'Show', feed
+      %td= link_to 'Edit', edit_feed_path(feed)
+      %td= link_to 'Destroy', feed, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Feed', new_feed_path

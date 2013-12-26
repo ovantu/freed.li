@@ -1,0 +1,11 @@
+= simple_form_for(@post) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :content
+    = f.input :creator_id
+    = f.input :feed_id
+    = f.input :status
+
+  .form-actions
+    = f.button :submit

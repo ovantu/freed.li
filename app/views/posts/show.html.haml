@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Content:
+  = @post.content
+%p
+  %b Creator:
+  = @post.creator_id
+%p
+  %b Feed:
+  = @post.feed_id
+%p
+  %b Status:
+  = @post.status
+
+= link_to 'Edit', edit_post_path(@post)
+\|
+= link_to 'Back', posts_path

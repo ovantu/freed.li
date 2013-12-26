@@ -3,9 +3,8 @@
 
   .form-inputs
     = f.input :content
-    = f.input :creator_id
-    = f.input :feed_id
-    = f.input :status
+    = f.hidden_field :creator_id, value: current_user.id
+    = f.hidden_field :feed_id, value: params[:feed_id]
 
   .form-actions
     = f.button :submit

@@ -1,36 +1,37 @@
-%p#notice= notice
+.row
+  .large-12.columns
+    %h1=@feed.goal
+.row
+  .large-8.columns
+    = link_to 'New Post', new_post_for_feed_path(@feed.id)
+    - @feed.posts.each do |post|
+      .panel= post.content
+  .large-4.columns
+    %p
+      %b Rule1:
+      = @feed.rule1
+    %p
+      %b Rule2:
+      = @feed.rule2
+    %p
+      %b Rule3:
+      = @feed.rule3
+    %p
+      %b Rule4:
+      = @feed.rule4
+    %p
+      %b Rule5:
+      = @feed.rule5
+    %p
+      %b Misc:
+      = @feed.misc
+    %p
+      %b Description:
+      = @feed.description
+    %p
+      = link_to 'Edit', edit_feed_path(@feed)
+      \|
+      = link_to 'Back', feeds_path
 
-%p
-  %b Goal:
-  = @feed.goal
-%p
-  %b Rule1:
-  = @feed.rule1
-%p
-  %b Rule2:
-  = @feed.rule2
-%p
-  %b Rule3:
-  = @feed.rule3
-%p
-  %b Rule4:
-  = @feed.rule4
-%p
-  %b Rule5:
-  = @feed.rule5
-%p
-  %b Misc:
-  = @feed.misc
-%p
-  %b Description:
-  = @feed.description
-%p
-  %b Lang:
-  = @feed.lang
-%p
-  %b Status:
-  = @feed.status
 
-= link_to 'Edit', edit_feed_path(@feed)
-\|
-= link_to 'Back', feeds_path
+

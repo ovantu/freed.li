@@ -9,4 +9,6 @@
         %span Menu
   .top-bar-section
     %ul
-      = render 'layouts/navigation_links'
+      %li
+        = link_to t('feeds'), feeds_path
+        = render 'layouts/navigation_links'

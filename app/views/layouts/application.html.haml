@@ -10,10 +10,107 @@
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
   %body
-    %header
-      = render 'layouts/navigation'
-    %main{:role => "main"}
-      = render 'layouts/messages'
-      = yield
-    -# Foundation 5 won't work when application.js is included in HEAD
-    = javascript_include_tag "application"
+    .off-canvas-wrap
+      .inner-wrap
+        %nav.top-bar.hide-for-small
+          %ul.title-area
+            %li.name
+              %h1
+                %a{href: "http://foundation.zurb.com/"} Foundation
+          %section.top-bar-section.right
+            %ul
+              %li.divider
+              %li.has-dropdown.not-click
+                %a{href: "http://foundation.zurb.com/learn/features.html"} Learn
+                %ul.dropdown
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/features.html"} Features
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/faq.html"} FAQ
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/case-washington-post.html"} Case Studies
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/website-examples.html"} Website Examples
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/video-started-with-foundation.html"} Videos
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/training.html"} Training
+                  %li
+                    %a{href: "http://foundation.zurb.com/learn/about.html"} About
+              %li.divider
+              %li.has-dropdown.not-click
+                %a{href: "http://foundation.zurb.com/templates.html"} Develop
+                %ul.dropdown
+                  %li
+                    %a{href: "http://foundation.zurb.com/templates.html"} Add-ons
+                  %li
+                    %a{href: "http://foundation.zurb.com/docs"} Docs
+                  %li
+                    %a{href: "http://foundation.zurb.com/develop/download.html"} Download
+                  %li
+                    %a{href: "http://foundation.zurb.com/develop/contribute.html"} Contribute
+                  %li
+                    %a{href: "http://foundation.zurb.com/develop/tools.html"} Tools
+              %li.divider
+              %li.has-dropdown.not-click
+                %a{href: "http://foundation.zurb.com/support/forum.html"} Support
+                %ul.dropdown
+                  %li
+                    %a{href: "http://foundation.zurb.com/support/support.html"} Support Channels
+                  %li
+                    %a{href: "http://foundation.zurb.com/forum"} Foundation Forum
+                  %li
+                    %a{href: "http://foundation.zurb.com/support/images-and-badges.html"} Images & Badges
+              %li.divider
+              %li
+                %a{href: "http://foundation.zurb.com/business/services.html"} Business
+              %li.divider
+              %li
+                %a{href: "http://foundation.zurb.com/docs"} Docs
+        %nav.tab-bar.show-for-small
+          %a.left-off-canvas-toggle.menu-icon
+            %span Foundation
+        %aside.left-off-canvas-menu
+          %ul.off-canvas-list
+            %li
+              %label.first Foundation
+            %li
+              %a{href: "http://foundation.zurb.com"} Home
+          %hr/
+          %ul.off-canvas-list
+            %li
+              %label Setup
+            %li
+              %a{href: "#css"} CSS
+            %li
+              %a{href: "../sass.html"} Sass
+            %li
+              %a{href: "#rails"} Rails
+            %li
+              %a{href: "global.html"} Global Styles
+            %li
+              %a{href: "#upgrading"} Upgrading
+            %hr/
+            %li
+              %label Structure
+            %li
+              %a{href: "#mediaQueries"} Media Queries
+            %li
+              %a{href: "grid.html"} Grid
+            %li
+              %a{href: "block_grid.html"} Block Grid
+            %li
+              %a{href: "interchange.html"}
+                Interchange Responsive Content
+                %span.label JS
+            %li
+              %a{href: "thumbnails.html"} Thumbnails
+            %li
+              %a{href: "#utilityClasses"} Utility Classes
+            %li
+              %a{href: "#rtl"} Right-to-Left Support
+        %a.exit-off-canvas{href: "#"}
+        %section{role: "main"}
+          = yield
+        -# Foundation 5 won't work when application.js is included in HEAD
+  = javascript_include_tag "application"

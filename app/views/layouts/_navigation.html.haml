@@ -4,11 +4,25 @@
   %ul.title-area
     %li.name
       = link_to 'Home', root_path
-    %li.toggle-topbar.menu-icon
-      %a{:href => "#"}
-        %span Menu
-  .top-bar-section
+  .top-bar-section.right
     %ul
       %li
         = link_to t('feeds'), feeds_path
         = render 'layouts/navigation_links'
+
+
+%nav.tab-bar.show-for-small
+  %a.left-off-canvas-toggle
+    Menu
+  <!-- Off Canvas Menu -->
+  %aside.left-off-canvas-menu
+    <!-- whatever you want goes here -->
+    %ul.off-canvas-list
+      %li
+        %a href="#">Lucy
+      %li
+        %a href="#">Luis
+
+
+  <!-- close the off-canvas menu -->
+  %a.exit-off-canvas

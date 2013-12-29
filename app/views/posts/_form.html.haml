@@ -3,8 +3,8 @@
 
   .form-inputs
     = f.input :content
-    = f.hidden_field :creator_id, value: current_user.id
-    = f.hidden_field :feed_id, value: params[:feed_id]
+    = f.hidden_field :creator_id
+    = f.hidden_field :feed_id
 
   .form-actions
-    = f.button :submit
+    = f.button :submit, class: "button radius success"

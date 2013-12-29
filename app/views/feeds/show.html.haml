@@ -3,10 +3,10 @@
     %h1=@feed.goal
 .row
   .large-8.columns
-    = link_to 'New Post', new_post_for_feed_path(@feed.id)
     - @feed.posts.each do |post|
       .panel= post.content
   .large-4.columns
+    = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
     %p
       %b Rule1:
       = @feed.rule1

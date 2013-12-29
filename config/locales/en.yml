@@ -21,3 +21,4 @@
 
 en:
   hello: "Hello world"
+  goal_placeholder: "Please enter a specific goal for this freed"

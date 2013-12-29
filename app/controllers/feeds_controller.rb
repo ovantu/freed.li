@@ -14,7 +14,7 @@ class FeedsController < ApplicationController
 
   # GET /feeds/new
   def new
-    @feed = Feed.new
+    @feed = Feed.new(creator_id: current_user.id)
   end
 
   # GET /feeds/1/edit

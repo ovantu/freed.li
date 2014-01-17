@@ -15,67 +15,64 @@
         %nav.top-bar.hide-for-small
           %ul.title-area
             %li.name
-              %h1
-                %a{href: "http://foundation.zurb.com/"} Foundation
+              %h1= link_to "freed.ly", root_path
           %section.top-bar-section.right
             %ul
-              %li.divider
-              %li.has-dropdown.not-click
-                %a{href: "http://foundation.zurb.com/learn/features.html"} Learn
-                %ul.dropdown
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/features.html"} Features
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/faq.html"} FAQ
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/case-washington-post.html"} Case Studies
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/website-examples.html"} Website Examples
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/video-started-with-foundation.html"} Videos
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/training.html"} Training
-                  %li
-                    %a{href: "http://foundation.zurb.com/learn/about.html"} About
-              %li.divider
-              %li.has-dropdown.not-click
-                %a{href: "http://foundation.zurb.com/templates.html"} Develop
-                %ul.dropdown
-                  %li
-                    %a{href: "http://foundation.zurb.com/templates.html"} Add-ons
-                  %li
-                    %a{href: "http://foundation.zurb.com/docs"} Docs
-                  %li
-                    %a{href: "http://foundation.zurb.com/develop/download.html"} Download
-                  %li
-                    %a{href: "http://foundation.zurb.com/develop/contribute.html"} Contribute
-                  %li
-                    %a{href: "http://foundation.zurb.com/develop/tools.html"} Tools
-              %li.divider
-              %li.has-dropdown.not-click
-                %a{href: "http://foundation.zurb.com/support/forum.html"} Support
-                %ul.dropdown
-                  %li
-                    %a{href: "http://foundation.zurb.com/support/support.html"} Support Channels
-                  %li
-                    %a{href: "http://foundation.zurb.com/forum"} Foundation Forum
-                  %li
-                    %a{href: "http://foundation.zurb.com/support/images-and-badges.html"} Images & Badges
+              - if user_signed_in?
+                %li.divider
+                %li.has-dropdown.not-click
+                  %a{href: "#"} My...
+                  %ul.dropdown
+                    %li
+                      %a{href: "#"} ... freeds
+                    %li
+                      %a{href: "#"} ... posts
+                    %li
+                      %a{href: "#"} ... curations
+                    %li
+                      %a{href: "#"} ... contributions
+                      %li
+                        = link_to "profile", user_path(current_user.id)
+              - if user_signed_in?
+                %li.divider
+                %li.has-dropdown.not-click
+                  %a{href: "#"}= current_user.name
+                  %ul.dropdown
+                    %li
+                      = link_to "profile", user_path(current_user.id)
+                    %li
+                      = link_to 'Edit account', edit_user_registration_path
+                    %li
+                      = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+              - else
+                %li.divider
+                %li.has-dropdown.not-click
+                  %a{href: "#"} Login/Signup
+                  %ul.dropdown
+                    %li
+                      = link_to 'Login', new_user_session_path
+                    %li
+                      = link_to 'Sign up', new_user_registration_path 
+
               %li.divider
               %li
                 %a{href: "http://foundation.zurb.com/business/services.html"} Business
               %li.divider
               %li
                 %a{href: "http://foundation.zurb.com/docs"} Docs
+ 
+ 
+ 
+ 
         %nav.tab-bar.show-for-small
           %a.left-off-canvas-toggle.menu-icon
             %span Foundation
         %aside.left-off-canvas-menu
           %ul.off-canvas-list
             %li
-              %label.first Foundation
+              %label.first freedster
             %li
-              %a{href: "http://foundation.zurb.com"} Home
+              %a{href: "#"}
           %hr/
           %ul.off-canvas-list
             %li

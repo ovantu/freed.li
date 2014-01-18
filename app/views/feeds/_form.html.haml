@@ -10,7 +10,7 @@
     = f.input :rule5
     = f.input :misc
     = f.input :description
-    = f.input :lang
+    = f.input :lang, required: true, collection: LANGUAGES_HASH.invert, :include_blank => false
     = f.hidden_field :creator_id
 
   .form-actions

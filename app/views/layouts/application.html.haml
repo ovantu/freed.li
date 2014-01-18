@@ -31,8 +31,11 @@
                       %a{href: "#"} ... curations
                     %li
                       %a{href: "#"} ... contributions
-                      %li
-                        = link_to "profile", user_path(current_user.id)
+                      %li= link_to "profile", user_path(current_user.id)
+                        
+              %li.divider
+              %li= link_to "freeds", feeds_path()
+                    
               - if user_signed_in?
                 %li.divider
                 %li.has-dropdown.not-click
@@ -54,12 +57,6 @@
                     %li
                       = link_to 'Sign up', new_user_registration_path 
 
-              %li.divider
-              %li
-                %a{href: "http://foundation.zurb.com/business/services.html"} Business
-              %li.divider
-              %li
-                %a{href: "http://foundation.zurb.com/docs"} Docs
  
  
  

@@ -46,3 +46,45 @@ main {
   @extend .row;
   margin-top: 20px;
   }*/
+
+
+.top-margin{
+	margin-top: 1em;
+}
+
+.freed_header{
+	text-align:center;
+	font-size: 150%;
+	margin: 1em 0em 2em 0em;
+}
+
+.freed_list{
+	text-align:center;
+	list-style-type: none;
+	margin: 0em;
+}
+
+.freed_entry_box{
+	border: 1px #000 solid;
+	margin: 1em;
+	text-align:center;
+}
+
+.freed_box_title{
+	padding: 0.5em;
+	text-align:center;
+	font-size: 100%;
+}
+
+.freed_box_stats{
+	padding: 0.5em;
+}
+
+.freed_box_stats li{
+	list-style-type: none;
+	font-size: 60%;
+}
+
+.codex_what{
+	font-weight: bold;
+}

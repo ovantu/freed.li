@@ -22,3 +22,4 @@
 en:
   hello: "Hello world"
   goal_placeholder: "Please enter a specific goal for this freed"
+  what: "What needs to be fullfilled:"

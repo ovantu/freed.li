@@ -1,7 +1,28 @@
-.row
-  .large-8.columns
-    - @feeds.each do |feed|
-      = link_to feed.goal, feed_path(feed), class: "button"
+.row.top-margin
   .large-4.columns
+    .freed_header
+      Newest
+    .freed_list
+      - @feeds.each do |feed|
+        .row
+          .small-12.freed_entry_box
+            .row
+              .small-9.columns.freed_box_title
+                = link_to feed.goal, feed_path(feed)
+              .small-3.columns.freed_box_stats
+                %ul
+                  %li
+                    con:
+                    = feed.contributors.count
+                  %li
+                    pos:
+                    = feed.posts.count
+                  %li acitvity
+  .large-4.columns    
+    .freed_header
+      Most active
+  .large-4.columns
+    .freed_header
+      Waiting to kick off
 
 = link_to 'New Feed', new_feed_path

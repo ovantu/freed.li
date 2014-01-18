@@ -22,4 +22,7 @@
 en:
   hello: "Hello world"
   goal_placeholder: "Please enter a specific goal for this freed"
-  what: "What needs to be fullfilled:"
+  codex_how: "How are we going to achieve it?"
+  how_start: "We use info-freed in"
+  how_end: "."
+  codex_what: "What needs to be fullfilled?"

@@ -7,7 +7,14 @@
       .panel= post.content
   .large-4.columns
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
-    .codex_what= t('what')
+    .codex_how
+      = t('codex_how')
+    .codex_how_content
+      = t('how_start')
+      = @feed.lang
+      = t('how_end')
+    %p
+    .codex_what= t('codex_what')
     %ul
       - if @feed.rule1 != ""
         %li= @feed.rule1

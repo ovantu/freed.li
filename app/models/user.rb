@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable
          
-         
-  has_many :feeds, :class_name => "feed", :foreign_key => "creator_id"       
-  
+  has_many :feeds, :class_name => "feed", :foreign_key => "creator_id"   
+  has_many :evaluations    
+  has_many :eval_posts, :through => :evaluations, :source => :post
   
 end

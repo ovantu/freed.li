@@ -4,7 +4,8 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @feeds = Feed.all
+    @active_feeds = Feed.all_actives
+    @toddler_feeds = Feed.all_toddlers
   end
 
   # GET /feeds/1
@@ -26,7 +27,7 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
-
+    @feed.status = "toddler"
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: 'Feed was successfully created.' }

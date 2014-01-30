@@ -1,0 +1,14 @@
+.row
+  .small-12.freed_entry_box
+    .row
+      .small-9.columns.freed_box_title
+        = link_to feed.goal, feed_path(feed)
+      .small-3.columns.freed_box_stats
+        %ul
+          %li
+            con:
+            = feed.contributors.count
+          %li
+            pos:
+            = feed.posts.count
+          %li acitvity

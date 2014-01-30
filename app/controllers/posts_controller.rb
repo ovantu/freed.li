@@ -25,7 +25,17 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-
+    
+    # only if more than 5 people have contributed a post will be evaluated
+    if @post.feed.contributors.count < 5
+      # all posts created with less than 5 contributors will be free until 5 contributors are gathered
+      @post.status = "free"
+    elsif @post.feed.contributors.count == 5
+      # now that we have 5 contributors, all the free posts to this feed will be distributed
+      free_posts = Post.free_posts(@post.feed_id)
+    else
+      # the new post is created and asigned to its evaluators
+    end
     respond_to do |format|
       if @post.save
         format.html { redirect_to feed_path(@post.feed_id), notice: 'Post was successfully created.' }

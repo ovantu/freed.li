@@ -10,3 +10,10 @@ LANGUAGES_HASH = { de: "deutsch", en: "english", es: "espanol"}
 # for http_accept
 LANGUAGES_STRING = %w(en de es)
 # DON'T FORGET TO CHANGE THE AVAILABLE LANGUAGES IN ROUTES!!!
+
+
+
+
+
+# APP PARAMETERS ------------------------------------------
+MIN_CONTR_LVL1 = 5

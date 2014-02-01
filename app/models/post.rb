@@ -5,5 +5,7 @@ class Post < ActiveRecord::Base
   has_many :evaluators, :through => :evaluations, :source => :user
   
   scope :free_posts, -> (feed_id){where(feed_id: feed_id, status: "free")}
+  scope :active_posts, -> (feed_id){where(feed_id: feed_id, status: "active")}
+  scope :in_evaluation_posts, -> (feed_id){where(feed_id: feed_id, status: "in_evaluaiton")}
   
 end

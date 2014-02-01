@@ -3,20 +3,31 @@
     %h1=@feed.goal
 .row
   .large-8.columns
+    .to_evaluate
+      - current_user.posts_to_be_evaluated_in_feed(params[:id]).each do |post|
+        .panel
+          EVALUATE!!
+          = post.content
+          | status:
+          = post.status
+          | creator:
+          = post.creator_id
+          + evaluations:
+          - post.evaluations.all.each do |ev|
+            = ev.user_id
+            |
     - @feed.posts.each do |post|
       .panel
         = post.content
-        |
+        | status:
         = post.status
-        |
+        | creator:
         = post.creator_id
-        +
+        + evaluations:
         - post.evaluations.all.each do |ev|
           = ev.user_id
           |
-      
-    = MIN_CONTR_LVL1
-    = @contributors
+
   .large-4.columns
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
     .codex_how

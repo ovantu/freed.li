@@ -38,8 +38,10 @@ class PostsController < ApplicationController
           # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
           assign_evaluators(fp, @contributors)
         end
+        
         # change the feed status from toddler to active
-        @post.feed.update(status: "active")
+        # @post.feed.update(status: "active")
+        
       end  
       # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
       assign_evaluators(@post, @contributors)

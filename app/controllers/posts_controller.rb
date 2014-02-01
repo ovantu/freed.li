@@ -32,30 +32,17 @@ class PostsController < ApplicationController
     if @contributors.count < MIN_CONTR_LVL1
       # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors are gathered
       @post.status = "free"
-    elsif @contributors.count == MIN_CONTR_LVL1
-      # now that we have MIN_CONTR_LVL1 (e.g. 6) contributors, all the free posts to this feed will be distributed
-      free_posts = Post.free_posts(@post.feed_id)
-      free_posts.each do |fp|
-        # remove the creator of this one 'free' post
-        possible_evaluators = @contributors - [fp.creator_id]
-        # find a good number of needed_evaluators
-        needed_evaluators = Math.sqrt(EVALUATOR_QUOTE*possible_evaluators.count).round.to_i
-        if needed_evaluators.even?
-          needed_evaluators = max_evaluators -1
-        end
-        # create pending evaluations for all needed_evaluators
-        needed_evaluators.times do |x|
-          # select a random evaluator
-          evaluator = possible_evaluators.sample
-          # set the pending evaluation
-          fp.evaluations.build(user_id: evaluator, status: "pending")
-          # remove the evaluator
-          possible_evaluators.delete(evaluator)
-        end
-      end
-      # TO DO the newly created post needs to be asigned 
     else
-      # the new post is created and asigned to its evaluators
+      if free_posts = Post.free_posts(@post.feed_id)
+        free_posts.each do |fp|
+          # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
+          assign_evaluators(fp, @contributors)
+        end
+        # change the feed status from toddler to active
+        @post.feed.update(status: "active")
+      end  
+      # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
+      assign_evaluators(@post, @contributors)
     end
     respond_to do |format|
       if @post.save
@@ -102,4 +89,28 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:content, :creator_id, :feed_id, :status)
     end
+    
+    def assign_evaluators(entry, contributors)
+      # remove the creator of this one 'free' post
+      possible_evaluators = contributors - [entry.creator_id]
+      # find a good number of needed_evaluators
+      needed_evaluators = Math.sqrt(EVALUATOR_QUOTE*possible_evaluators.count).round.to_i
+      # make sure the evaluator number is odd
+      if needed_evaluators.even?
+        needed_evaluators = needed_evaluators - 1
+      end
+      # create pending evaluations for all needed_evaluators
+      needed_evaluators.times do |x|
+        # select a random evaluator
+        evaluator = possible_evaluators.sample
+        # set the pending evaluation
+        entry.evaluations.build(user_id: evaluator, status: "pending")
+        # remove the evaluator
+        possible_evaluators.delete(evaluator)
+      end  
+      # change the free posts status
+      entry.update( status: "in_evaluation")
+    end
+    
+    
 end

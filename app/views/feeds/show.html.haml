@@ -10,6 +10,13 @@
         = post.status
         |
         = post.creator_id
+        +
+        - post.evaluations.all.each do |ev|
+          = ev.user_id
+          |
+      
+    = MIN_CONTR_LVL1
+    = @contributors
   .large-4.columns
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
     .codex_how

@@ -31,6 +31,8 @@ ActiveRecord::Schema.define(version: 20140130173014) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+  # status: pending, done, skipped
+  # type: web, email
 
   create_table "feeds", force: true do |t|
     t.string   "goal"

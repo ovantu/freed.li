@@ -11,8 +11,15 @@ class Feed < ActiveRecord::Base
   scope :all_toddlers, -> {where(status: "toddler")}
   
   
+  # returns an array with all the user_ids of unique contributors
+  # TO DO methods for "free" and "active" posts
   def contributors
-    posts.select(:creator_id).distinct
+    p = posts.select(:creator_id).distinct
+    c = []
+    p.each do |post|
+      c.push (post.creator_id) 
+    end
+    c
   end
 
 end

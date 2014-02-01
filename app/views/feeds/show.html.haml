@@ -4,7 +4,12 @@
 .row
   .large-8.columns
     - @feed.posts.each do |post|
-      .panel= post.content
+      .panel
+        = post.content
+        |
+        = post.status
+        |
+        = post.creator_id
   .large-4.columns
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
     .codex_how

@@ -17,3 +17,4 @@ LANGUAGES_STRING = %w(en de es)
 
 # APP PARAMETERS ------------------------------------------
 MIN_CONTR_LVL1 = 5
+EVALUATOR_QUOTE = 3.0/2.0

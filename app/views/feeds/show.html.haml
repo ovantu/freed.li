@@ -4,18 +4,15 @@
 .row
   .large-8.columns
     .to_evaluate
-      - current_user.posts_to_be_evaluated_in_feed(params[:id]).each do |post|
-        .panel
-          EVALUATE!!
-          = post.content
-          | status:
-          = post.status
-          | creator:
-          = post.creator_id
-          + evaluations:
-          - post.evaluations.all.each do |ev|
-            = ev.user_id
-            |
+      - @users_evaluations.each do |post|
+        .evaluate_post
+          %p= post.content
+          %p
+            = link_to "accept", accept_post_path(post.id), class: "button small", method: :post
+            = link_to "decline", decline_post_path(post.id), class: "button small alert", method: :delete
+            = link_to "pass", pass_post_path(post.id), class: "button small", method: :put
+            
+
     - @feed.posts.each do |post|
       .panel
         = post.content
@@ -24,9 +21,7 @@
         | creator:
         = post.creator_id
         + evaluations:
-        - post.evaluations.all.each do |ev|
-          = ev.user_id
-          |
+       
 
   .large-4.columns
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"

@@ -1,0 +1,19 @@
+/ NOT IN USE
+
+= simple_form_for(@feed) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :goal, placeholder: t("goal_placeholder")
+    = f.input :rule1
+    = f.input :rule2
+    = f.input :rule3
+    = f.input :rule4
+    = f.input :rule5
+    = f.input :misc
+    = f.input :description
+    = f.input :lang, required: true, collection: LANGUAGES_HASH.invert, :include_blank => false
+    = f.hidden_field :creator_id
+
+  .form-actions
+    = f.button :submit

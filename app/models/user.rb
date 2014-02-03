@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
     e = eval_posts.where(evaluations:{status: "pending"}).where(feed_id: feed_id)
   end
   
+  def posts_in_evaluation(feed_id)
+    e = eval_posts.where(status: "in_evaluation").where(feed_id: feed_id)
+  end
+  
 end

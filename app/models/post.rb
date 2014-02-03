@@ -8,4 +8,14 @@ class Post < ActiveRecord::Base
   scope :active_posts, -> (feed_id){where(feed_id: feed_id, status: "active")}
   scope :in_evaluation_posts, -> (feed_id){where(feed_id: feed_id, status: "in_evaluaiton")}
   
+  def all_evaluators
+    evals = evaluations.all
+    c = []
+    evals.each do |ev|
+      # create an array of all contributor ids
+      c.push (ev.user_id) 
+    end
+    c
+  end
+  
 end

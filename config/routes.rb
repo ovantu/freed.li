@@ -11,5 +11,8 @@ Wispper::Application.routes.draw do
     get "freeds/:feed_id/posts/new" => "posts#new", :as => "new_post_for_feed"
     devise_for :users, :controllers => {:registrations => "registrations"}
     resources :users
+    post "evaluations/:id" => "evaluations#accept_post",  as: "accept_post"
+    delete "evaluations/:id" => "evaluations#decline_post",  as: "decline_post"
+    put "evaluations/:id" => "evaluations#pass_post",  as: "pass_post"
   end
 end

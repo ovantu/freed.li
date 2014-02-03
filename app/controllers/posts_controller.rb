@@ -36,7 +36,7 @@ class PostsController < ApplicationController
       if free_posts = Post.free_posts(@post.feed_id)
         free_posts.each do |fp|
           # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
-          assign_evaluators(fp, @contributors)
+          assign_inital_evaluators(fp, @contributors)
         end
         
         # change the feed status from toddler to active
@@ -44,7 +44,7 @@ class PostsController < ApplicationController
         
       end  
       # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
-      assign_evaluators(@post, @contributors)
+      assign_inital_evaluators(@post, @contributors)
     end
     respond_to do |format|
       if @post.save
@@ -92,7 +92,7 @@ class PostsController < ApplicationController
       params.require(:post).permit(:content, :creator_id, :feed_id, :status)
     end
     
-    def assign_evaluators(entry, contributors)
+    def assign_inital_evaluators(entry, contributors)
       # remove the creator of this one 'free' post
       possible_evaluators = contributors - [entry.creator_id]
       # find a good number of needed_evaluators

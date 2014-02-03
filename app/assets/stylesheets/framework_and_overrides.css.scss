@@ -88,3 +88,8 @@ main {
 .codex_what, .codex_how{
 	font-weight: bold;
 }
+
+.evaluate_post{
+	@extend .panel;
+	border: 1px orange solid;
+}

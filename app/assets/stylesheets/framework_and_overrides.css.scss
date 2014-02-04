@@ -85,7 +85,16 @@ main {
 	font-size: 60%;
 }
 
-.codex_what, .codex_how{
+.codex{
+	border: 1px solid #000;
+}
+
+.codex_why, .codex_what, .codex_how, .codex_misc, .codex_description{
+	margin: 1em 0em 0em 1em;
+}
+
+.codex_why_content, .codex_what_content, .codex_how_content{
+	margin: 0.5em 2em 1.5em 2em;
 	font-weight: bold;
 }
 

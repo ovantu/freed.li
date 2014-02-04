@@ -101,6 +101,7 @@ class PostsController < ApplicationController
       if needed_evaluators.even?
         needed_evaluators = needed_evaluators - 1
       end
+      # TO DO change this times into .sample(needed_evaluators)
       # create pending evaluations for all needed_evaluators
       needed_evaluators.times do |x|
         # select a random evaluator

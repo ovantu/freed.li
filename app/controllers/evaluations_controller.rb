@@ -43,7 +43,7 @@ class EvaluationsController < ApplicationController
     end
     if ac/total >= ACCEPT_QUOTE
       post = Post.find(post_id)
-      post.update(status: "accepted")
+      post.update(status: "active")
       post.too_late_evaluations
     elsif de/total > 1-ACCEPT_QUOTE
       post = Post.find(post_id)

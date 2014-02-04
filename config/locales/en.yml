@@ -22,10 +22,13 @@
 en:
   hello: "Hello world"
   goal_placeholder: "Please enter a specific goal for this freed"
-  codex_how: "How are we going to achieve it?"
+  codex_why: "Why do work on this feed? (GOALS)"
+  codex_how: "How are we going to achieve it? (TOOLS)"
   how_start: "We use info-freed in"
   how_end: "."
-  codex_what: "What needs to be fullfilled?"
+  codex_what: "What needs to be fullfilled? (RULES)"
+  codex_misc: "Further guidelines (OPTIONAL)"
+  codex_description: "Description of the feed"
   
   en: "english"
   de: "german"

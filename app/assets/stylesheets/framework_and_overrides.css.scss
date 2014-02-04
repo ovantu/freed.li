@@ -86,7 +86,12 @@ main {
 }
 
 .codex{
-	border: 1px solid #000;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border: 2px dashed #960000;
+	background-color: #FFFDD1;
+	margin-bottom: 1em;
 }
 
 .codex_why, .codex_what, .codex_how, .codex_misc, .codex_description{

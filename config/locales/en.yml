@@ -30,6 +30,10 @@ en:
   codex_misc: "Further guidelines (OPTIONAL)"
   codex_description: "Description of the feed"
   
+  new_feed: "Create a new feed"
+  new_post: "Create a new post"
+  post_content_placeholder: "You have 160 signs to post something conform to our codex (yellow box!)."
+  
   en: "english"
   de: "german"
   es: "spanish"

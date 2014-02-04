@@ -2,9 +2,10 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :content
+    = f.input :content, placeholder: t("post_content_placeholder"), label: false
     = f.hidden_field :creator_id
     = f.hidden_field :feed_id
 
   .form-actions
     = f.button :submit, class: "button radius success"
+    = link_to 'Back', feed_path(@post.feed_id), class: "button radius alert"

@@ -1,30 +1,9 @@
-.row
-  .large-8.columns
-    %h1 New post
+.row.top-margin
+  .large-7.columns
+    %h1= t('new_post')
     = render 'form'
-    = link_to 'Back', feed_path(@post.feed_id)
-  .large-4.columns
-    %p
-      %b Rule1:
-      = @post.feed.rule1
-    %p
-      %b Rule2:
-      = @post.feed.rule2
-    %p
-      %b Rule3:
-      = @post.feed.rule3
-    %p
-      %b Rule4:
-      = @post.feed.rule4
-    %p
-      %b Rule5:
-      = @post.feed.rule5
-    %p
-      %b Misc:
-      = @post.feed.misc
-    %p
-      %b Description:
-      = @post.feed.description
+  .large-5.columns
+    = render "layouts/codex", feed: @post.feed
 
 
 

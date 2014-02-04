@@ -1,0 +1,32 @@
+.codex
+  .codex_why
+    = t('codex_why')
+  .codex_why_content  
+    =feed.goal
+  .codex_how
+    = t('codex_how')
+  .codex_how_content
+    = t('how_start')
+    = t(feed.lang)
+    = t('how_end')
+  .codex_what= t('codex_what')
+  .codex_what_content
+    %ul.square
+      - if feed.rule1 != ""
+        %li= feed.rule1
+      - if feed.rule2 != ""
+        %li= feed.rule2
+      - if feed.rule3 != ""
+        %li= feed.rule3
+      - if feed.rule4 != ""
+        %li= feed.rule4
+      - if feed.rule5 != ""
+        %li= feed.rule5
+  - if feed.misc.nil?
+    .codex_misc
+      = t('codex_misc')
+      = feed.misc
+  - if feed.description.nil?
+    .codex_description
+      = t('codex_description')
+      = feed.description

@@ -1,10 +1,6 @@
-.row
-  .large-8.columns
-    %h1 New feed
+.row.top-margin
+  .large-7.columns
+    %h1= t('new_feed')
     = render 'form'
-    = link_to 'Back', feeds_path
-  .large-4.columns
-    
-
-
-
+  .large-5.columns
+    = render "layouts/codex", feed: @feed

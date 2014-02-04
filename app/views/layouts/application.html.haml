@@ -105,6 +105,7 @@
               %a{href: "#rtl"} Right-to-Left Support
         %a.exit-off-canvas{href: "#"}
         %section{role: "main"}
+          = render 'layouts/messages'
           = yield
         -# Foundation 5 won't work when application.js is included in HEAD
   = javascript_include_tag "application"

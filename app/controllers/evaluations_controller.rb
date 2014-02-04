@@ -1,8 +1,5 @@
 class EvaluationsController < ApplicationController
   
-  # TO DO method to check if 2/3 have been accepted or declined and change post status
-  
-  
   # POST /evaluations/1
   def accept_post
     evaluation = Evaluation.where(user_id: current_user.id, post_id: params[:id]).first
@@ -30,6 +27,7 @@ class EvaluationsController < ApplicationController
   
   private
   
+  # this method checks if 2/3 of the evaluations are accepted or declined
   def check_evaluation_status(post_id)
     evaluations = Evaluation.where(status: ["accepted", "declined", "pending"]).where(post_id: post_id)
     ac = 0.0
@@ -44,12 +42,17 @@ class EvaluationsController < ApplicationController
       total = total + 1
     end
     if ac/total >= ACCEPT_QUOTE
-      Post.find(post_id).update(status: "accepted")
+      post = Post.find(post_id)
+      post.update(status: "accepted")
+      post.too_late_evaluations
     elsif de/total > 1-ACCEPT_QUOTE
-      Post.find(post_id).update(status: "rejected")
+      post = Post.find(post_id)
+      post.update(status: "rejected")
+      post.too_late_evaluations
     end
   end
   
+  # this method exchanges an evaluator for a new one
   def assign_new_evaluator(entry)
     # remove the creator and other evaluators of this post
     possible_evaluators = entry.feed.contributors - [entry.creator_id] - entry.all_evaluators

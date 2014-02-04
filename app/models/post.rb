@@ -8,6 +8,9 @@ class Post < ActiveRecord::Base
   scope :active_posts, -> (feed_id){where(feed_id: feed_id, status: "active")}
   scope :in_evaluation_posts, -> (feed_id){where(feed_id: feed_id, status: "in_evaluaiton")}
   
+  # this should be nil, becuase accepted or rejected feeds should change all "pending" to "too_late"
+  scope :broken_evaluations, -> {where(status: ["accepted", "rejected"]).joins(:evaluations).where(evaluations:{status: "pending"})}
+  
   def all_evaluators
     evals = evaluations.all
     c = []
@@ -20,6 +23,13 @@ class Post < ActiveRecord::Base
   
   def users_evaluation(user_id)
     evaluations.where(user_id: user_id).first
+  end
+  
+  # all remaining pending evaluations for this post get status "too_late"
+  def too_late_evaluations
+    evaluations.where(status: ["pending"]).each do |ev|
+      ev.update(status: "too_late")
+    end
   end
   
 end

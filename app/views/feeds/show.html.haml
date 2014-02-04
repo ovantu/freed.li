@@ -54,6 +54,11 @@
       = link_to 'Edit', edit_feed_path(@feed)
       \|
       = link_to 'Back', feeds_path
+    %p
+      %b In Evaluation
+      %ul
+        - @evaluated_posts.each do |ep|
+          %li= ep.content + " | " + ep.users_evaluation(current_user.id).status
 
 
 

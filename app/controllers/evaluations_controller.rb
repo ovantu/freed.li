@@ -1,5 +1,8 @@
 class EvaluationsController < ApplicationController
   
+  # TO DO method to check if 2/3 have been accepted or declined and change post status
+  
+  
   # POST /evaluations/1
   def accept_post
     evaluation = Evaluation.where(user_id: current_user.id, post_id: params[:id]).first

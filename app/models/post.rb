@@ -18,4 +18,8 @@ class Post < ActiveRecord::Base
     c
   end
   
+  def users_evaluation(user_id)
+    evaluations.where(user_id: user_id).first
+  end
+  
 end

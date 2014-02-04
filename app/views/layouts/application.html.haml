@@ -39,7 +39,7 @@
               - if user_signed_in?
                 %li.divider
                 %li.has-dropdown.not-click
-                  %a{href: "#"}= current_user.name
+                  %a{href: "#"}= current_user.email
                   %ul.dropdown
                     %li
                       = link_to "profile", user_path(current_user.id)

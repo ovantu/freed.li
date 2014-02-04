@@ -13,6 +13,7 @@ class FeedsController < ApplicationController
   # GET /feeds/1.json
   def show
     @users_evaluations = current_user.posts_to_be_evaluated_in_feed(params[:id])
+    @evaluated_posts = current_user.posts_in_evaluation(params[:id])
   end
 
   # GET /feeds/new

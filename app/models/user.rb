@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
          
-  has_many :feeds, :class_name => "feed", :foreign_key => "creator_id"   
+  has_many :feeds, :class_name => "feed", :foreign_key => "creator_id"
+  has_many :posts, :class_name => "post", :foreign_key => "creator_id"  
   has_many :evaluations    
   has_many :eval_posts, :through => :evaluations, :source => :post
   
@@ -26,5 +27,6 @@ class User < ActiveRecord::Base
   def posts_in_evaluation(feed_id)
     e = eval_posts.where(status: "in_evaluation").where(feed_id: feed_id)
   end
+  
   
 end

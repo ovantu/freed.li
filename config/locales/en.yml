@@ -29,6 +29,9 @@ en:
   codex_what: "What needs to be fullfilled? (RULES)"
   codex_misc: "Further guidelines (OPTIONAL)"
   codex_description: "Description of the feed"
+  accept_eval: "codex conform"
+  decline_eval: "needs rework"
+  pass_eval: "can't decide"
   
   new_feed: "Create a new feed"
   new_post: "Create a new post"

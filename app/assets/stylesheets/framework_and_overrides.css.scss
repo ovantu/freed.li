@@ -91,7 +91,7 @@ main {
 	-webkit-border-radius: 10px; 
 	border: 2px dashed #960000;
 	background-color: #FFFDD1;
-	margin-bottom: 1em;
+	margin: 1em 0em;
 }
 
 .codex_why, .codex_what, .codex_how, .codex_misc, .codex_description{
@@ -103,7 +103,59 @@ main {
 	font-weight: bold;
 }
 
+.active_post{
+	padding: 1em;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 2px solid #5768BA;
+	background-color: #D4DFFF;
+	margin: 1em 0em;
+	font: 120% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+
 .evaluate_post{
-	@extend .panel;
-	border: 1px orange solid;
+	padding: 1em;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	border: 2px dashed #960000;
+	background-color: #FFFDD1;
+	margin: 1em 0em;
+	background-color: #FFFDD1;
+}
+
+.evaluation_content{
+	font: 120% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	color: #000;
+}
+
+.pass_evaluation_button, .acces_evaluation_button, .decline_evaluation_button{
+	padding: 0.5em 1.2em;
+	border-radius: 5px; 
+	-moz-border-radius: 5px; 
+	-webkit-border-radius: 5px; 
+	border: 1px solid #FFCB70;
+	background-color: #fff;
+	font: 120% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	color: #666;
+}
+
+.acces_evaluation_button:hover{
+	background-color: #C4FFCA;	
+	border: 1px solid #4CB332;
+	color: #666;
+}
+
+.decline_evaluation_button:hover{
+	background-color: #FFDEDE;	
+	border: 1px solid #FF3D3D;
+	color: #666;
+}
+
+.pass_evaluation_button:hover{
+	background-color: #E6E3DA;	
+	border: 1px solid #6E6C68;
+	color: #666;
 }

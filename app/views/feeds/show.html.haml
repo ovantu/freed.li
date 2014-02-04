@@ -1,23 +1,19 @@
-.row.top-margin
+.row
   .large-7.columns
     .to_evaluate
       - @users_evaluations.each do |post|
         .evaluate_post
-          %p= post.content
-          %p
-            = link_to "accept", accept_post_path(post.id), class: "button small", method: :post
-            = link_to "decline", decline_post_path(post.id), class: "button small alert", method: :delete
-            = link_to "pass", pass_post_path(post.id), class: "button small", method: :put
-            
+          %p.evaluation_content= post.content
+          .evaluation_button_list
+            = link_to t("accept_eval"), accept_post_path(post.id), class: "acces_evaluation_button", method: :post
+            = link_to t("decline_eval"), decline_post_path(post.id), class: "decline_evaluation_button", method: :delete
+            = link_to t("pass_eval"), pass_post_path(post.id), class: "pass_evaluation_button", method: :put
+          
 
     - @posts.each do |post|
-      .panel
+      .active_post
         = post.content
-        | status:
-        = post.status
-        | creator:
-        = post.creator_id
-        + evaluations:
+  
        
 
   .large-5.columns

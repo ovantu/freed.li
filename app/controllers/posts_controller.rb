@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params).eager_load(:feed)
+    @post = Post.new(post_params)
     if @post.feed.status == "toddler"
       # get all unique contributors of the feed belonging to the post in creation
       @contributors = @post.feed.contributors("toddler")

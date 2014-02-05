@@ -1,10 +1,10 @@
-- if !@users_posts.nil?
+- if !@users_posts.empty?
   %p
-    %h4= t('users_posts_in_evaluation')
+    %h5= t('users_posts_in_evaluation')
     - @users_posts.each do |ep|
       .waiting_posts= ep.content
-- if !@evaluated_posts.nil?
+- if !@evaluated_posts.empty?
   %p
-    %h4= t('posts_user_evaluated')
+    %h5= t('posts_user_evaluated')
     - @evaluated_posts.each do |ep|
       .evaluated_posts= ep.content + " | " + ep.evaluations.first.status

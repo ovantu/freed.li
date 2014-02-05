@@ -5,16 +5,24 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @active_feeds = Feed.all_actives
+    @adolescent_feeds = Feed.all_adolescent
     @toddler_feeds = Feed.all_toddlers
   end
 
   # GET /feeds/1
   # GET /feeds/1.json
   def show
-    @users_evaluations = current_user.posts_to_be_evaluated_in_feed(params[:id])
-    @evaluated_posts = current_user.posts_in_evaluation(params[:id])
-    @posts = @feed.posts.where(status: "active")
+    # posts the user has to evaluate
+    # @users_evaluations = current_user.posts_to_be_evaluated_in_feed(params[:id])  FROM user model
+    @users_evaluations = Post.joins(:evaluations).where(evaluations:{status:"pending"}).where(creator_id: current_user.id, feed_id: params[:id])
+    # user's posts which are still in_evaluation
+    # @users_posts = current_user.own_posts_in_evaluation_and_feed(params[:id])
+    @users_posts = Post.where(status: "in_evaluation", creator_id: current_user.id, feed_id: params[:id])
+    # posts the user evaluated (accepted or declined) but are still in_evaluation
+    # @evaluated_posts = current_user.posts_in_evaluation(params[:id])
+    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations)
+    # all active posts (TO DO: check is eager_load is better for SQL server)
+    @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator)
   end
 
   # GET /feeds/new

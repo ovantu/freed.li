@@ -7,19 +7,33 @@ class Feed < ActiveRecord::Base
   validates :rule4, length: { in: 0..160 }
   validates :rule5, length: { in: 0..160 }
   
-  scope :all_actives, -> {where(status: "active")}
+  scope :all_adolescent, -> {where(status: "adolescent")}
   scope :all_toddlers, -> {where(status: "toddler")}
   
   
-  # returns an array with all the user_ids of unique contributors of "active" or "free" posts
-  def contributors
-    p = posts.where(status: ["active", "free"]).select(:creator_id).distinct
+  # returns an array with all the user_ids of unique contributors depending on the past status of the feed
+  def contributors(status)
+    if status == "toddler"
+      stati = ["active", "free", "in_evaluation"]
+    elsif status == "adolescent"
+      stati = "active"
+    end
+    p = posts.where(status: stati).select(:creator_id).distinct
     c = []
     p.each do |post|
       # create an array of all contributor ids
       c.push (post.creator_id) 
     end
     c
+  end
+  
+
+  # This method updates the status of the feed if necessary from toddler to adolescent; USED IN evaluations_controller
+  def check_status
+    c = posts.where(status: "active").select(:creator_id).distinct.count
+    if c >= MIN_CONTR_LVL1
+      self.update(status: "adolescent")
+    end
   end
 
 end

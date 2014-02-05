@@ -1,18 +1,27 @@
 .row
   .large-7.columns
-    .to_evaluate
-      - @users_evaluations.each do |post|
-        .evaluate_post
-          %p.evaluation_content= post.content
-          .evaluation_button_list
-            = link_to t("accept_eval"), accept_post_path(post.id), class: "acces_evaluation_button", method: :post
-            = link_to t("decline_eval"), decline_post_path(post.id), class: "decline_evaluation_button", method: :delete
-            = link_to t("pass_eval"), pass_post_path(post.id), class: "pass_evaluation_button", method: :put
+    - if @users_evaluations.nil?
+      .to_evaluate
+        - @users_evaluations.each do |post|
+          .evaluate_post
+            %p.evaluation_content
+              = post.content
+              %ul.button-group.radius.evaluation_button_list
+                %li= link_to t("accept_eval"), accept_post_path(post.id), class: "button small acces_evaluation_button", method: :post
+                %li= link_to t("decline_eval"), decline_post_path(post.id), class: "button small decline_evaluation_button", method: :delete
+                %li= link_to t("pass_eval"), pass_post_path(post.id), class: "button small pass_evaluation_button", method: :put
           
 
     - @posts.each do |post|
       .active_post
-        = post.content
+        .row
+          .large-12.columns.post_content
+            = post.content
+        .row
+          .large-6.columns.post_footer.post_creator
+            = post.creator.name
+          .large-4.columns.post_footer.post_datetime
+            = l(post.updated_at, format: :long)
   
        
 
@@ -20,11 +29,7 @@
     = render "layouts/codex", feed: @feed
     
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
-    %p
-      %b In Evaluation
-      %ul
-        - @evaluated_posts.each do |ep|
-          %li= ep.content + " | " + ep.users_evaluation(current_user.id).status
+    = render "waiting_posts"
 
 
 

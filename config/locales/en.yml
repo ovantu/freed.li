@@ -32,6 +32,13 @@ en:
   accept_eval: "codex conform"
   decline_eval: "needs rework"
   pass_eval: "can't decide"
+  users_posts_in_evaluation: "Posts you created in evaluation:"
+  posts_user_evaluated: "Posts you evaluated:"
+  post_accepted: "EVALUATION: You accept this post."
+  post_declined: "EVALUATION: You decline this post."
+  post_passed: 'EVALUATION: You passed this post over to another evaluator.'
+  post_activated: 'ACTIVATION: Your vote activated the post!!!'
+  post_rejected: "REJECTION: This post did not pass the codex evaluation!"
   
   new_feed: "Create a new feed"
   new_post: "Create a new post"

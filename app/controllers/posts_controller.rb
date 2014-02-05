@@ -25,26 +25,29 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-    # get all unique contributors of the feed belonging to the post in creation
-    @contributors = @post.feed.contributors
-    # check how many contributors are already in the feed
-    if @contributors.count < MIN_CONTR_LVL1
-      # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors are gathered
-      @post.status = "free"
-    else
-      if free_posts = Post.free_posts(@post.feed_id)
-        free_posts.each do |fp|
-          # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
-          assign_inital_evaluators(fp, @contributors)
-        end
-        
-        # change the feed status from toddler to active
-        # @post.feed.update(status: "active")
-        
-      end  
+    @post = Post.new(post_params).eager_load(:feed)
+    if @post.feed.status == "toddler"
+      # get all unique contributors of the feed belonging to the post in creation
+      @contributors = @post.feed.contributors("toddler")
+      # check how many contributors are already in the feed
+      if @contributors.count < MIN_CONTR_LVL1
+        # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors are gathered
+        @post.status = "free"
+      else
+        if free_posts = Post.free_posts(@post.feed_id)
+          free_posts.each do |fp|
+            # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
+            assign_inital_evaluators(fp, @contributors)
+          end
+        end  
+      end
+    elsif @post.feed.status == "adolescent"
+      # get all unique contributors of the feed belonging to the post in creation
+      @contributors = @post.feed.contributors("adolescent")
       # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
       assign_inital_evaluators(@post, @contributors)
+    else
+      # ERROR forbidden
     end
     respond_to do |format|
       if @post.save

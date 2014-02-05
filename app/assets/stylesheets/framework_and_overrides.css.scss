@@ -4,11 +4,11 @@
 // override for the 'Home' navigation link
 .top-bar .name {
   font-size: rem-calc(13);
-  line-height: 45px; }
+  line-height: 410px; }
 .top-bar .name a {
   font-weight: normal;
   color: white;
-  padding: 0 15px; }
+  padding: 0 110px; }
 
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
@@ -49,24 +49,24 @@ main {
 
 
 .top-margin{
-	margin-top: 1em;
+	margin-top: 10px;
 }
 
 .freed_header{
 	text-align:center;
 	font-size: 150%;
-	margin: 1em 0em 2em 0em;
+	margin: 10px 0px 2em 0px;
 }
 
 .freed_list{
 	text-align:center;
 	list-style-type: none;
-	margin: 0em;
+	margin: 0px;
 }
 
 .freed_entry_box{
 	border: 1px #000 solid;
-	margin: 1em;
+	margin: 10px;
 	text-align:center;
 }
 
@@ -91,11 +91,11 @@ main {
 	-webkit-border-radius: 10px; 
 	border: 2px dashed #960000;
 	background-color: #FFFDD1;
-	margin: 1em 0em;
+	margin: 10px 0px;
 }
 
 .codex_why, .codex_what, .codex_how, .codex_misc, .codex_description{
-	margin: 1em 0em 0em 1em;
+	margin: 10px 0px 0px 10px;
 }
 
 .codex_why_content, .codex_what_content, .codex_how_content{
@@ -104,58 +104,85 @@ main {
 }
 
 .active_post{
-	padding: 1em;
-	border-radius: 5px; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
-	border: 2px solid #5768BA;
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+/*	border: 2px solid #5768BA;*/
 	background-color: #D4DFFF;
-	margin: 1em 0em;
+	margin: 10px 0px;
 	font: 120% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+}
+
+.post_content{
+	margin: 10px;
+}
+
+.post_footer{
+	font: 60% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	color: #666;
+	margin: 3px 10px 3px 10px;
+}
+
+.post_creator{
+	text-align: left;
+}
+
+.post_datetime{
+	text-align: right;
 }
 
 
 .evaluate_post{
-	padding: 1em;
 	border-radius: 10px; 
 	-moz-border-radius: 10px; 
 	-webkit-border-radius: 10px; 
-	border: 2px dashed #960000;
+/*	border: 2px dashed #960000;*/
 	background-color: #FFFDD1;
-	margin: 1em 0em;
+	margin: 10px 0px;
 	background-color: #FFFDD1;
 }
 
 .evaluation_content{
 	font: 120% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 	color: #000;
+	margin: 10px;
+}
+
+.evaluation_button_list{
+	margin: 0px 10px;
 }
 
 .pass_evaluation_button, .acces_evaluation_button, .decline_evaluation_button{
-	padding: 0.5em 1.2em;
-	border-radius: 5px; 
-	-moz-border-radius: 5px; 
-	-webkit-border-radius: 5px; 
 	border: 1px solid #FFCB70;
-	background-color: #fff;
-	font: 120% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
+	background-color: #FFF48F;
 	color: #666;
 }
 
 .acces_evaluation_button:hover{
 	background-color: #C4FFCA;	
-	border: 1px solid #4CB332;
+/*	border: 1px solid #4CB332;*/
 	color: #666;
 }
 
 .decline_evaluation_button:hover{
 	background-color: #FFDEDE;	
-	border: 1px solid #FF3D3D;
+/*	border: 1px solid #FF3D3D;*/
 	color: #666;
 }
 
 .pass_evaluation_button:hover{
 	background-color: #E6E3DA;	
-	border: 1px solid #6E6C68;
+/*	border: 1px solid #6E6C68;*/
 	color: #666;
+}
+
+.waiting_posts, .evaluated_posts{
+		border-radius: 10px; 
+		-moz-border-radius: 10px; 
+		-webkit-border-radius: 10px; 
+	/*	border: 2px solid #5768BA;*/
+		background-color: #E6E3DA;
+		margin: 10px 0px;
+		padding: 10px;
+		font: 90% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 }

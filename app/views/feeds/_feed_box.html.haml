@@ -7,7 +7,7 @@
         %ul
           %li
             con:
-            = feed.contributors.count
+            = feed.contributors(feed.status).count
           %li
             pos:
             = feed.posts.count

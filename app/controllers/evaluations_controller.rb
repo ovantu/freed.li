@@ -4,16 +4,20 @@ class EvaluationsController < ApplicationController
   def accept_post
     evaluation = Evaluation.where(user_id: current_user.id, post_id: params[:id]).first
     evaluation.update(status: "accepted")
+    # This notice appears if you accept, but the post remains in_evaluation
+    @notice = t('post_accepted')
     check_evaluation_status(params[:id])
-    redirect_to feed_path(evaluation.post.feed.id), notice: 'Post was accepted.'
+    redirect_to feed_path(evaluation.post.feed.id), notice: @notice
   end
   
   # DELETE /evaluations/1
   def decline_post
     evaluation = Evaluation.where(user_id: current_user.id, post_id: params[:id]).first
     evaluation.update(status: "declined")
+    # This notice appears if you decline, but the post remains in_evaluation
+    @notice = t('post_declined')
     check_evaluation_status(params[:id])
-    redirect_to feed_path(evaluation.post.feed.id), notice: 'Post was declined.'
+    redirect_to feed_path(evaluation.post.feed.id), notice: @notice
   end
   
   # PUT /evaluations/1
@@ -22,7 +26,7 @@ class EvaluationsController < ApplicationController
     evaluation = Evaluation.where(user_id: current_user.id, post_id: post.id).first
     evaluation.update(status: "passed")
     assign_new_evaluator(post)
-    redirect_to feed_path(post.feed.id), notice: 'Post was passed on.'
+    redirect_to feed_path(post.feed.id), notice: t('post_passed')
   end
   
   private
@@ -43,11 +47,16 @@ class EvaluationsController < ApplicationController
     end
     if ac/total >= ACCEPT_QUOTE
       post = Post.find(post_id)
+      # here a post becomes active
       post.update(status: "active")
+      @notice = t('post_activated')
       post.too_late_evaluations
+      # changes status to adolescent if enough active posts
+      post.feed.check_status
     elsif de/total > 1-ACCEPT_QUOTE
       post = Post.find(post_id)
       post.update(status: "rejected")
+      @notice = t('post_rejected')
       post.too_late_evaluations
     end
   end
@@ -55,7 +64,7 @@ class EvaluationsController < ApplicationController
   # this method exchanges an evaluator for a new one
   def assign_new_evaluator(entry)
     # remove the creator and other evaluators of this post
-    possible_evaluators = entry.feed.contributors - [entry.creator_id] - entry.all_evaluators
+    possible_evaluators = entry.feed.contributors(feed.status) - [entry.creator_id] - entry.all_evaluators
     # select a random evaluator
     evaluator = possible_evaluators.sample
     # set the pending evaluation

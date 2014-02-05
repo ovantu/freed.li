@@ -103,6 +103,15 @@ main {
 	font-weight: bold;
 }
 
+.feed_stats{
+	border-radius: 10px; 
+	-moz-border-radius: 10px; 
+	-webkit-border-radius: 10px; 
+	background-color: #FFFDD1;
+	margin: 10px 0px;
+	padding: 10px;
+}
+
 .active_post{
 	border-radius: 10px; 
 	-moz-border-radius: 10px; 
@@ -130,7 +139,6 @@ main {
 .post_datetime{
 	text-align: right;
 }
-
 
 .evaluate_post{
 	border-radius: 10px; 

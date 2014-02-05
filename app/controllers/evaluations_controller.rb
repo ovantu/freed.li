@@ -51,8 +51,12 @@ class EvaluationsController < ApplicationController
       post.update(status: "active")
       @notice = t('post_activated')
       post.too_late_evaluations
-      # changes status to adolescent if enough active posts
-      post.feed.check_status
+      if post.feed.status == "toddler"
+        # changes status to adolescent if enough active posts
+        if post.feed.check_status
+          @notice = t('feed_matured')
+        end
+      end
     elsif de/total > 1-ACCEPT_QUOTE
       post = Post.find(post_id)
       post.update(status: "rejected")

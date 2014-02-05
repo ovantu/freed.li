@@ -1,0 +1,19 @@
+.feed_stats
+  - if @feed.status == "toddler"
+    .row
+      .small-12.columns
+        = @feed.contributors("adolescent").count
+  .row
+    .small-4.columns
+      Con:
+      = @feed.contributors(@feed.status).count
+    .small-4.columns
+      Pos:
+      = @feed.active_posts.count
+      &frasl;
+      = @feed.posts.count
+    .small-4.columns
+      Ev:
+      = Evaluation.not_pending_evaluations_of_feed(@feed.id).count
+      &frasl;
+      = Evaluation.all_evaluations_of_feed(@feed.id).count

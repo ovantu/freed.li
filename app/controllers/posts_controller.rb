@@ -26,9 +26,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    # get all unique contributors (depending on "toddler" or "adolescent") of the feed belonging to the post in creation
+    @contributors = @post.feed.contributors(@post.feed.status)
     if @post.feed.status == "toddler"
-      # get all unique contributors of the feed belonging to the post in creation
-      @contributors = @post.feed.contributors("toddler")
       # check how many contributors are already in the feed
       if @contributors.count < MIN_CONTR_LVL1
         # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors are gathered
@@ -41,14 +41,9 @@ class PostsController < ApplicationController
           end
         end  
       end
-    elsif @post.feed.status == "adolescent"
-      # get all unique contributors of the feed belonging to the post in creation
-      @contributors = @post.feed.contributors("adolescent")
-      # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
-      assign_inital_evaluators(@post, @contributors)
-    else
-      # ERROR forbidden
     end
+    # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
+    assign_inital_evaluators(@post, @contributors)
     respond_to do |format|
       if @post.save
         format.html { redirect_to feed_path(@post.feed_id), notice: 'Post was successfully created.' }

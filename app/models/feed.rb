@@ -36,4 +36,9 @@ class Feed < ActiveRecord::Base
     end
   end
 
+  def active_posts
+    posts.where(status: "active")
+  end
+  
+
 end

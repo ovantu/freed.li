@@ -1,6 +1,6 @@
 .row
   .large-7.columns
-    - if @users_evaluations.nil?
+    - if !@users_evaluations.empty?
       .to_evaluate
         - @users_evaluations.each do |post|
           .evaluate_post
@@ -26,6 +26,7 @@
        
 
   .large-5.columns
+    = render "feed_stats"
     = render "layouts/codex", feed: @feed
     
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"

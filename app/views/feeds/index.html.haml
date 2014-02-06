@@ -1,20 +1,24 @@
 .row.top-margin
   .large-4.columns
     .freed_header
-      Newest
+      = t('my_feeds')
     .freed_list
       - @adolescent_feeds.each do |feed|
         = render "feed_box", feed: feed
   .large-4.columns    
     .freed_header
-      Most active
+      = t('most_active_feeds')
+    .freed_list
+      - @adolescent_feeds.each do |feed|
+        = render "feed_box", feed: feed
   .large-4.columns
     .freed_header
-      Waiting to kick off
+      = t("toddler_feeds")
     .freed_list
       - @toddler_feeds.each do |feed|
         = render "feed_box", feed: feed
 
-= link_to 'New Feed', new_feed_path
+= link_to 'New Feed', new_feed_path, class: "button radius"
+
 
 

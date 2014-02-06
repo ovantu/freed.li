@@ -7,7 +7,7 @@
             %p.evaluation_content
               = post.content
               %ul.button-group.radius.evaluation_button_list
-                %li= link_to t("accept_eval"), accept_post_path(post.id), class: "button small acces_evaluation_button", method: :post
+                %li= link_to t("accept_eval"), accept_post_path(post.id), class: "button small accept_evaluation_button", method: :post
                 %li= link_to t("decline_eval"), decline_post_path(post.id), class: "button small decline_evaluation_button", method: :delete
                 %li= link_to t("pass_eval"), pass_post_path(post.id), class: "button small pass_evaluation_button", method: :put
           

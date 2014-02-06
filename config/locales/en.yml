@@ -21,6 +21,9 @@
 
 en:
   hello: "Hello world"
+  my_feeds: "My contributions"
+  most_active_feeds: "Most active"
+  toddler_feeds: "Kindergarden"
   goal_placeholder: "Please enter a specific goal for this freed"
   codex_why: "Why do work on this feed? (GOALS)"
   codex_how: "How are we going to achieve it? (TOOLS)"
@@ -41,7 +44,7 @@ en:
   post_rejected: "REJECTION: This post did not pass the codex evaluation!"
   feed_matured: "FEED STATUS: This post changed the feed status to adolescent!!!"
   toddler_start_header: "Toddler feed: needs any kind of contributors"
-  toddler_puberty_header: "Toddler in puberty: needs accepted contributors"
+  toddler_puberty_header: "Feed in puberty: needs accepted contributors"
   
   new_feed: "Create a new feed"
   new_post: "Create a new post"

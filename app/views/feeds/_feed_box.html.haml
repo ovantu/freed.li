@@ -1,14 +1,18 @@
-.row
-  .small-12.freed_entry_box
-    .row
-      .small-9.columns.freed_box_title
-        = link_to feed.goal, feed_path(feed)
-      .small-3.columns.freed_box_stats
-        %ul
-          %li
-            con:
-            = feed.contributors(feed.status).count
-          %li
-            pos:
-            = feed.posts.count
-          %li acitvity
+.freed_entry_box        
+  .row
+    .small-12.columns.freed_box_title
+      = link_to feed.goal, feed_path(feed)
+  .row
+    .small-4.columns.freed_box_stats
+      Con:
+      = feed.contributors(feed.status).count
+    .small-4.columns.freed_box_stats
+      Pos:
+      = feed.active_posts.count
+      &frasl;
+      = feed.posts.count
+    .small-4.columns.freed_box_stats
+      Ev:
+      = Evaluation.not_pending_evaluations_of_feed(feed.id).count
+      &frasl;
+      = Evaluation.all_evaluations_of_feed(feed.id).count

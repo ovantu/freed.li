@@ -40,6 +40,8 @@ en:
   post_activated: 'ACTIVATION: Your vote activated the post!!'
   post_rejected: "REJECTION: This post did not pass the codex evaluation!"
   feed_matured: "FEED STATUS: This post changed the feed status to adolescent!!!"
+  toddler_start_header: "Toddler feed: needs any kind of contributors"
+  toddler_puberty_header: "Toddler in puberty: needs accepted contributors"
   
   new_feed: "Create a new feed"
   new_post: "Create a new post"

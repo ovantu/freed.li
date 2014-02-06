@@ -31,19 +31,23 @@ class PostsController < ApplicationController
     if @post.feed.status == "toddler"
       # check how many contributors are already in the feed
       if @contributors.count < MIN_CONTR_LVL1
-        # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors are gathered
+        # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors
         @post.status = "free"
       else
         if free_posts = Post.free_posts(@post.feed_id)
           free_posts.each do |fp|
             # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
             assign_inital_evaluators(fp, @contributors)
-          end
-        end  
-      end
+          end # .each
+        end # if free_post
+        # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
+        assign_inital_evaluators(@post, @contributors)
+      end # @contributors.count
+    elsif @post.feed.status == "adolescent"
+      # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
+      assign_inital_evaluators(@post, @contributors)
     end
-    # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
-    assign_inital_evaluators(@post, @contributors)
+
     respond_to do |format|
       if @post.save
         format.html { redirect_to feed_path(@post.feed_id), notice: 'Post was successfully created.' }

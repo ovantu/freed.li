@@ -5,8 +5,9 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @adolescent_feeds = Feed.all_adolescent
-    @toddler_feeds = Feed.all_toddlers
+    @adolescent_feeds = Feed.all_adolescent.first(5)
+    @toddler_feeds = Feed.all_toddlers.first(5)
+    @users_feeds = Feed.all_users_feeds(current_user.id).first(5)
   end
 
   # GET /feeds/1

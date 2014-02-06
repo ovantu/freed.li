@@ -9,6 +9,7 @@ class Feed < ActiveRecord::Base
   
   scope :all_adolescent, -> {where(status: "adolescent")}
   scope :all_toddlers, -> {where(status: "toddler")}
+  scope :all_users_feeds, -> (user_id){joins(:posts).where(posts:{creator_id: user_id}).distinct}
   
   
   # returns an array with all the user_ids of unique contributors depending on the past status of the feed

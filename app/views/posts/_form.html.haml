@@ -2,7 +2,8 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :content, placeholder: t("post_content_placeholder"), label: false
+    .new_post_content
+      = f.input :content, placeholder: t("post_content_placeholder"), label: t("new_post_label")
     = f.hidden_field :creator_id
     = f.hidden_field :feed_id
 

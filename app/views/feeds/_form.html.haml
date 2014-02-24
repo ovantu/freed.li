@@ -2,17 +2,21 @@
   = f.error_notification
 
   .form-inputs
-    = f.input :goal, placeholder: t("goal_placeholder")
-    = f.input :rule1
-    = f.input :rule2
-    = f.input :rule3
-    = f.input :rule4
-    = f.input :rule5
-    = f.input :misc
-    = f.input :description
-    = f.input :lang, required: true, collection: LANGUAGES_HASH.invert, :include_blank => false
-    = f.hidden_field :creator_id
+    .new_feed_why
+      = f.input :goal, placeholder: t("goal_placeholder"), label: t("goal_label")
+    .new_feed_how
+      = f.input :lang, collection: LANGUAGES_HASH.invert, :include_blank => false, label: t("lang_label")
+    .new_feed_what
+      = f.input :rule1, placeholder: t("needed_rule_placeholder"), label: t("rules_label")
+      = f.input :rule2, placeholder: t("needed_rule_placeholder"), label: false
+      = f.input :rule3, placeholder: t("rules_placeholder"), label: false
+      = f.input :rule4, placeholder: t("rules_placeholder"), label: false
+      = f.input :rule5, placeholder: t("rules_placeholder"), label: false
+    .new_feed_rest
+      = f.input :misc, placeholder: t("misc_placeholder"), label: t("misc_label")
+      = f.input :description, placeholder: t("description_placeholder"), label: t("description_label")
+      = f.hidden_field :creator_id
 
   .form-actions
-    = f.button :submit
-    = link_to 'Back', feeds_path
+    = f.button :submit, class: "button radius success"
+    = link_to 'Back', feeds_path, class: "button radius alert"

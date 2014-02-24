@@ -22,11 +22,13 @@
         %li= feed.rule4
       - if feed.rule5 != ""
         %li= feed.rule5
-  - if feed.misc.nil?
+  - if feed.misc != ""
     .codex_misc
       = t('codex_misc')
+    .codex_misc_content
       = feed.misc
-  - if feed.description.nil?
+  - if feed.description != ""
     .codex_description
       = t('codex_description')
+    .codex_description_content
       = feed.description

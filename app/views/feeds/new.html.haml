@@ -1,6 +1,6 @@
 .row.top-margin
   .large-7.columns
-    %h1= t('new_feed')
+    %h3= t('new_feed')
     = render 'form'
   .large-5.columns
-    = render "layouts/codex", feed: @feed
+    = render "new_feed_codex"

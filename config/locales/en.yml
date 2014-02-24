@@ -36,14 +36,14 @@ en:
   pass_eval: "pass on"
   users_posts_in_evaluation: "Posts you created waiting for evaluation:"
   posts_user_evaluated: "Posts you evaluated, but still in evaluation:"
-  post_accepted: "EVALUATION: You accept this post."
-  post_declined: "EVALUATION: You decline this post."
+  post_accepted: "EVALUATION: You accepted this post."
+  post_declined: "EVALUATION: You declined this post."
   post_passed: 'EVALUATION: You passed this post over to another evaluator.'
   post_activated: 'ACTIVATION: Your vote activated the post!!'
   post_rejected: "REJECTION: This post did not pass the codex evaluation!"
   user_accepted: "accepted"
   user_declined: "declined"
-  user_passed_on: "passed to somebody else"
+  user_passed_on: "passed on"
   feed_matured: "FEED STATUS: This post changed the feed status to adolescent!!!"
   toddler_start_header: "Toddler feed: needs any kind of contributors"
   toddler_puberty_header: "Feed in puberty: needs accepted contributors"
@@ -64,7 +64,7 @@ en:
   new_feed_what1: "The specific rules have to be short and understandable"
   new_feed_what2: "Rules can e.g. tell the format or content of a post"
   new_feed_what3: "Rules should always be answerable with yes or no"
-  new_feed_misc: "Any other and not so important rule or guidelines which can not strictly be evaluated with yes or no can be listed here as plain text or bulleted list (separated by commas)."
+  new_feed_misc: "Any other and not so important rule or guideline which can not strictly be evaluated with yes or no can be listed here as plain text or bulleted list (separated by commas)."
   new_feed_description: "Feeds should enable the users to post information based on a feed-specific goal, tools and set of rules. This will make the posts evaluable by other contributors independently of their beliefs, opinions or interests. Therefore a certain level of quality can be achieved."
   
   new_post: "Create a new post"

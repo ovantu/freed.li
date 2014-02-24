@@ -6,17 +6,28 @@
         .evaluated_post_content= ep.content 
         -if ep.evaluations.first.status == "accepted"
           .evaluated_post_status.accepted
-            = t("user_accepted")
-            .progress.small-6.radius
-              .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
+            .row
+              .small-4.columns
+                = t("user_accepted")
+              .small-8.columns
+                .progress.radius
+                  .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
         -elsif ep.evaluations.first.status == "declined"
           .evaluated_post_status.declined
-            = t("user_declined")
-            .progress.small-6.radius
-              .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
+            .row
+              .small-4.columns
+                = t("user_declined")
+              .small-8.columns
+                .progress.radius
+                  .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
         -elsif ep.evaluations.first.status == "passed"
           .evaluated_post_status.passed
-            = t("user_passed_on")
+            .row
+              .small-4.columns
+                = t("user_passed_on")
+              .small-8.columns
+                .progress.radius
+                  .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
 - if !@users_posts.empty?
   %p
     %h5= t('users_posts_in_evaluation')

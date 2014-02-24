@@ -30,7 +30,7 @@ class Feed < ActiveRecord::Base
   
 
   # This method updates the status of the feed if necessary from toddler to adolescent; USED IN evaluations_controller
-  def check_status
+  def check_status_change_to_adolescence
     c = posts.where(status: "active").select(:creator_id).distinct.count
     if c >= MIN_CONTR_LVL1
       self.update(status: "adolescent")

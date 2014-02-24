@@ -45,6 +45,7 @@ class EvaluationsController < ApplicationController
       end
       total = total + 1
     end
+    # Check if e.g. 2/3 is achieved
     if ac/total >= ACCEPT_QUOTE
       post = Post.find(post_id)
       # here a post becomes active
@@ -53,7 +54,7 @@ class EvaluationsController < ApplicationController
       post.set_too_late_evaluations
       if post.feed.status == "toddler"
         # changes status to adolescent if enough active posts
-        if post.feed.check_status
+        if post.feed.check_status_change_to_adolescence
           @notice = t('feed_matured')
         end
       end

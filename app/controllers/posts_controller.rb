@@ -29,8 +29,14 @@ class PostsController < ApplicationController
     # get all unique contributors (depending on "toddler" or "adolescent") of the feed belonging to the post in creation
     @contributors = @post.feed.contributors(@post.feed.status)
     if @post.feed.status == "toddler"
+      # this check is needed as contributors only become one after saving the new post
+      if !@contributors.include? current_user.id
+        future_contributors = @contributors.count + 1
+      else
+        future_contributors = @contributors.count
+      end
       # check how many contributors are already in the feed
-      if @contributors.count < MIN_CONTR_LVL1 - 1
+      if future_contributors < MIN_CONTR_LVL1
         # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors
         @post.status = "free"
       else

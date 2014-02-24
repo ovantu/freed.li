@@ -33,7 +33,7 @@ class Post < ActiveRecord::Base
   end
   
   def all_evaluated
-    evaluations.where(status: ["accepted", "rejected"])
+    evaluations.where(status: ["accepted", "declined"])
   end
   
 end

@@ -14,14 +14,7 @@
 
     - @posts.each do |post|
       .active_post
-        .row
-          .large-12.columns.post_content
-            = post.content
-        .row
-          .large-6.columns.post_footer.post_creator
-            = post.creator.name
-          .large-4.columns.post_footer.post_datetime
-            = l(post.updated_at, format: :long)
+        = render "post_box", post: post
   
        
 

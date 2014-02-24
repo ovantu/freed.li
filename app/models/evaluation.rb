@@ -5,4 +5,5 @@ class Evaluation < ActiveRecord::Base
   scope :all_evaluations_of_feed, -> (feed_id){joins(:post).where(posts:{feed_id: feed_id}, status: ["accepted", "declined", "passed", "pending"])}
   scope :not_pending_evaluations_of_feed, -> (feed_id){joins(:post).where(posts:{feed_id: feed_id}, status: ["accepted", "declined", "passed"])}
   scope :pending_evaluations_of_feed, -> (feed_id){joins(:post).where(posts:{feed_id: feed_id}, status: "pending")}
+  
 end

@@ -1,10 +1,24 @@
-- if !@users_posts.empty?
-  %p
-    %h5= t('users_posts_in_evaluation')
-    - @users_posts.each do |ep|
-      .waiting_posts= ep.content
 - if !@evaluated_posts.empty?
   %p
     %h5= t('posts_user_evaluated')
     - @evaluated_posts.each do |ep|
-      .evaluated_posts= ep.content + " | " + ep.evaluations.first.status
+      .evaluated_posts
+        .evaluated_post_content= ep.content 
+        -if ep.evaluations.first.status == "accepted"
+          .evaluated_post_status.accepted
+            = t("user_accepted")
+            .progress.small-6.radius
+              .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
+        -elsif ep.evaluations.first.status == "declined"
+          .evaluated_post_status.declined
+            = t("user_declined")
+            .progress.small-6.radius
+              .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
+        -elsif ep.evaluations.first.status == "passed"
+          .evaluated_post_status.passed
+            = t("user_passed_on")
+- if !@users_posts.empty?
+  %p
+    %h5= t('users_posts_in_evaluation')
+    - @users_posts.each do |ep|
+      .waiting_posts= render "post_box", post: ep

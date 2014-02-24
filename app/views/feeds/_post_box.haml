@@ -1,0 +1,9 @@
+.row
+  .large-12.columns.post_content
+    = post.content
+.row
+  .large-6.columns.post_footer.post_creator
+    = post.creator.name
+    = " | " + post.evaluations.count.to_s
+  .large-4.columns.post_footer.post_datetime
+    = l(post.updated_at, format: :long)

@@ -50,7 +50,7 @@ class EvaluationsController < ApplicationController
       # here a post becomes active
       post.update(status: "active")
       @notice = t('post_activated')
-      post.too_late_evaluations
+      post.set_too_late_evaluations
       if post.feed.status == "toddler"
         # changes status to adolescent if enough active posts
         if post.feed.check_status
@@ -61,7 +61,7 @@ class EvaluationsController < ApplicationController
       post = Post.find(post_id)
       post.update(status: "rejected")
       @notice = t('post_rejected')
-      post.too_late_evaluations
+      post.set_too_late_evaluations
     end
   end
   

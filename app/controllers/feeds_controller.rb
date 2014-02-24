@@ -16,13 +16,13 @@ class FeedsController < ApplicationController
     # posts the user has to evaluate
     # @users_evaluations = current_user.posts_to_be_evaluated_in_feed(params[:id])  FROM user model
     @users_evaluations = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id])
-    # user's posts which are still in_evaluation
+    # user's posts which are still in_evaluation to show in a list
     # @users_posts = current_user.own_posts_in_evaluation_and_feed(params[:id])
     @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id])
-    # posts the user evaluated (accepted or declined) but are still in_evaluation
+    # posts the user evaluated (accepted or declined or passed) but are still in_evaluation to show in a list
     # @evaluated_posts = current_user.posts_in_evaluation(params[:id])
-    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations)
-    # all active posts (TO DO: check is eager_load is better for SQL server)
+    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations)
+    # all active posts (TO DO: check is eager_load is better for SQL server) with eager load of their creators (makes one big query instead of a query for each post)
     @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator)
   end
 

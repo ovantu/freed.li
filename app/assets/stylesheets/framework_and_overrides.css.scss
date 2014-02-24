@@ -194,15 +194,55 @@ main {
 	color: #666;
 }
 
-.waiting_posts, .evaluated_posts{
+.waiting_posts{
 		border-radius: 10px; 
 		-moz-border-radius: 10px; 
 		-webkit-border-radius: 10px; 
 	/*	border: 2px solid #5768BA;*/
 		background-color: #CCE6FF;
 		margin: 10px 0px;
-		padding: 10px;
 		font: 90%;
+}
+
+.evaluated_posts{
+	margin: 10px 0px;
+}
+
+.evaluated_post_content{
+		-webkit-border-top-left-radius: 10px;
+		-webkit-border-top-right-radius: 10px;
+		-moz-border-radius-topleft: 10px;
+		-moz-border-radius-topright: 10px;
+		border-top-left-radius: 10px;
+		border-top-right-radius: 10px;
+		background-color: #CCE6FF;
+		padding: 5px 10px;
+}
+
+.evaluated_post_status{
+		-webkit-border-bottom-right-radius: 10px;
+		-webkit-border-bottom-left-radius: 10px;
+		-moz-border-radius-bottomright: 10px;
+		-moz-border-radius-bottomleft: 10px;
+		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 10px;
+		padding: 5px 10px;
+}
+
+.accepted{
+	background-color: #C4FFCA;	
+}
+
+.declined{
+	background-color: #FFDEDE;	
+}
+
+.passed{
+	background-color: #CCE6FF;	
+}
+
+.waiting_posts{
+		background-color: #CCFFFF;
 }
 
 .new_feed_why, .new_feed_how, .new_feed_what, .new_feed_rest, .new_post_content{

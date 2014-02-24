@@ -26,11 +26,14 @@ class Post < ActiveRecord::Base
   end
   
   # all remaining pending evaluations for this post get status "too_late"
-  def too_late_evaluations
+  def set_too_late_evaluations
     evaluations.where(status: ["pending"]).each do |ev|
       ev.update(status: "too_late")
     end
   end
   
+  def all_evaluated
+    evaluations.where(status: ["accepted", "rejected"])
+  end
   
 end

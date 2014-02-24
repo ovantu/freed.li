@@ -73,6 +73,7 @@ class EvaluationsController < ApplicationController
     evaluator = possible_evaluators.sample
     # set the pending evaluation
     entry.evaluations.build(user_id: evaluator, status: "pending")
+    entry.save
   end
   
 end

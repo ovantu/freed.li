@@ -30,7 +30,7 @@ class PostsController < ApplicationController
     @contributors = @post.feed.contributors(@post.feed.status)
     if @post.feed.status == "toddler"
       # check how many contributors are already in the feed
-      if @contributors.count < MIN_CONTR_LVL1
+      if @contributors.count < MIN_CONTR_LVL1 - 1
         # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors
         @post.status = "free"
       else

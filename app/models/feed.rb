@@ -1,4 +1,5 @@
 class Feed < ActiveRecord::Base
+  has_many :evaluations, :class_name => "Evaluation", :foreign_key => "feed_id"
   has_many :posts, :class_name => "Post", :foreign_key => "feed_id"
   validates :goal, length: { in: 10..160 }
   validates :rule1, length: { in: 10..160 }

@@ -115,7 +115,7 @@ class PostsController < ApplicationController
         # select a random evaluator
         evaluator = possible_evaluators.sample
         # set the pending evaluation
-        entry.evaluations.build(user_id: evaluator, status: "pending")
+        entry.evaluations.build(user_id: evaluator, status: "pending", feed_id: entry.feed_id)
         # remove the evaluator
         possible_evaluators.delete(evaluator)
       end  

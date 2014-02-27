@@ -45,8 +45,8 @@ en:
   user_declined: "declined"
   user_passed_on: "passed on"
   feed_matured: "FEED STATUS: This post changed the feed status to adolescent!!!"
-  toddler_start_header: "Toddler feed: needs any kind of contributors"
-  toddler_puberty_header: "Feed in puberty: needs accepted contributors"
+  toddler_needs_contributors: "7 contributors are needed for evaluation proccess"
+  toddler_needs_accepted_contributors: "7 accepted contributors needed for adolescence"
   
   new_feed: "Create a new feed"
   goal_label: "Give us a reason WHY we should participate in this feed"

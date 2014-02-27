@@ -1,5 +1,6 @@
 .row
   .large-7.columns
+    = render "toddler_stats"
     - if !@users_evaluations.empty?
       - @users_evaluations.each do |post|
         .evaluate_post
@@ -13,8 +14,8 @@
        
 
   .large-5.columns
-    = render "feed_stats"
     = render "layouts/codex", feed: @feed
+    = render "feed_stats"
     
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
     = render "waiting_posts"

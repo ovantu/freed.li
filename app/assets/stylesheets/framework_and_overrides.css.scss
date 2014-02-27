@@ -68,14 +68,21 @@ main {
 	margin: 0px;
 }
 
-.freed_entry_box{
+.feed_box{
 	border-radius: 10px; 
 	-moz-border-radius: 10px; 
 	-webkit-border-radius: 10px; 
-	background-color: #CCCCFF;
 	margin: 10px 0px;
 	padding: 10px;
 	text-align:center;
+}
+
+.freed_entry_color{
+	background-color: #CCCCFF;
+}
+
+.toddler_entry_color{
+	background-color: #CCE6FF;
 }
 
 .freed_box_title{

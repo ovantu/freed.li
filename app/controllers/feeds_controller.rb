@@ -9,6 +9,7 @@ class FeedsController < ApplicationController
     @toddler_feeds = Feed.all_toddlers
     @users_feeds = Feed.all_contributed_feeds(current_user.id)
     @created_feeds = Feed.where(creator_id: current_user.id)
+    @feeds_to_evaluate = Feed.all_feeds_user_needs_to_evaluate(current_user.id)
   end
 
   # GET /feeds/1

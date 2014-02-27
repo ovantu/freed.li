@@ -86,7 +86,12 @@ main {
 }
 
 .created_feed{
-	border: 2px dashed #fff;
+/*	border: 2px dashed #FFFFFF;*/
+	font-weight: bold;
+}
+
+.pending_feed{
+	border: 2px dashed #FFFFCC;
 }
 
 .freed_box_title{

@@ -12,6 +12,8 @@ class Feed < ActiveRecord::Base
   scope :all_toddlers, -> {where(status: "toddler")}
   scope :all_contributed_feeds, -> (user_id){joins(:posts).where(posts:{creator_id: user_id}).distinct}
   
+  scope :all_feeds_user_needs_to_evaluate, -> (user_id){joins(:evaluations).where(evaluations:{status: "pending", user_id: user_id})}
+  
   
   # returns an array with all the user_ids of unique contributors depending on the past status of the feed
   def contributors(status)

@@ -1,0 +1,14 @@
+- if user_signed_in?
+  %li.divider
+  %li.has-dropdown.not-click
+    %a{href: "#"} My...
+    %ul.dropdown
+      %li
+        %a{href: "#"} ... freeds
+      %li
+        %a{href: "#"} ... posts
+      %li
+        %a{href: "#"} ... curations
+      %li
+        %a{href: "#"} ... contributions
+        %li= link_to "profile", user_path(current_user.id)

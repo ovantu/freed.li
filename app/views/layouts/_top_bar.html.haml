@@ -1,0 +1,38 @@
+%nav.top-bar.hide-for-small
+  %ul.title-area
+    %li.name
+      %h1= link_to "freed.ly", root_path
+  %section.top-bar-section
+    %ul.left
+      %li.has-form
+        .row.collapse
+          .large-8.small-9.columns
+            %input{placeholder: "Find Stuff", type: "text"}/
+          .large-4.small-3.columns
+            %a.alert.button.expand{href: "#"} Search
+    %ul.right    
+      %li.has-form
+        = link_to "create feed", new_feed_path(), class: "button  radius"
+      %li.divider
+      %li= link_to t("all_feeds"), feeds_path()
+            
+      - if user_signed_in?
+        %li.divider
+        %li.has-dropdown.not-click
+          %a{href: "#"}= current_user.name
+          %ul.dropdown
+            %li
+              = link_to "profile", user_path(current_user.id)
+            %li
+              = link_to 'Edit account', edit_user_registration_path
+            %li
+              = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+      - else
+        %li.divider
+        %li.has-dropdown.not-click
+          %a{href: "#"} Login/Signup
+          %ul.dropdown
+            %li
+              = link_to 'Login', new_user_session_path
+            %li
+              = link_to 'Sign up', new_user_registration_path

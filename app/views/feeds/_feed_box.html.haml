@@ -1,11 +1,16 @@
 - if feed.status == "adolescent"
-  - extra_class = "freed_entry_color"   
-- elsif feed.status == "toddler" 
-  - extra_class = "toddler_entry_color"
-.feed_box{class: extra_class}
+  - status_class = "freed_entry_color"   
+- else 
+  - status_class = "toddler_entry_color"
+  
+- if @created_feeds.include? feed  
+  - status_class << " created_feed"
+  
+.feed_box{class: status_class}
   .row
     .small-12.columns.freed_box_title
       = link_to feed.goal, feed_path(feed)
+
 / .row
 /   .small-4.columns.freed_box_stats
 /     Con:

@@ -5,9 +5,10 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @adolescent_feeds = Feed.all_adolescent.first(5)
-    @toddler_feeds = Feed.all_toddlers.first(5)
-    @users_feeds = Feed.all_users_feeds(current_user.id).first(5)
+    @adolescent_feeds = Feed.all_adolescent
+    @toddler_feeds = Feed.all_toddlers
+    @users_feeds = Feed.all_contributed_feeds(current_user.id)
+    @created_feeds = Feed.where(creator_id: current_user.id)
   end
 
   # GET /feeds/1
@@ -84,6 +85,6 @@ class FeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
-      params.require(:feed).permit(:goal, :rule1, :rule2, :rule3, :rule4, :rule5, :misc, :description, :lang, :status)
+      params.require(:feed).permit(:goal, :rule1, :rule2, :rule3, :rule4, :rule5, :misc, :description, :lang, :status, :creator_id)
     end
 end

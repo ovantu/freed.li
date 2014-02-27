@@ -2,14 +2,14 @@ class Feed < ActiveRecord::Base
   has_many :posts, :class_name => "Post", :foreign_key => "feed_id"
   validates :goal, length: { in: 10..160 }
   validates :rule1, length: { in: 10..160 }
-  validates :rule2, length: { in: 0..160 }
+  validates :rule2, length: { in: 10..160 }
   validates :rule3, length: { in: 0..160 }
   validates :rule4, length: { in: 0..160 }
   validates :rule5, length: { in: 0..160 }
   
   scope :all_adolescent, -> {where(status: "adolescent")}
   scope :all_toddlers, -> {where(status: "toddler")}
-  scope :all_users_feeds, -> (user_id){joins(:posts).where(posts:{creator_id: user_id}).distinct}
+  scope :all_contributed_feeds, -> (user_id){joins(:posts).where(posts:{creator_id: user_id}).distinct}
   
   
   # returns an array with all the user_ids of unique contributors depending on the past status of the feed

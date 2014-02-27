@@ -3,19 +3,19 @@
     .freed_header
       = t('my_feeds')
     .freed_list
-      - @users_feeds.each do |feed|
+      - @users_feeds.first(5).each do |feed|
         = render "feed_box", feed: feed
   .large-4.columns    
     .freed_header
       = t('most_active_feeds')
     .freed_list
-      - @adolescent_feeds.each do |feed|
+      - @adolescent_feeds.first(5).each do |feed|
         = render "feed_box", feed: feed
   .large-4.columns
     .freed_header
       = t("toddler_feeds")
     .freed_list
-      - @toddler_feeds.each do |feed|
+      - @toddler_feeds.first(5).each do |feed|
         = render "feed_box", feed: feed
 
 = link_to 'New Feed', new_feed_path, class: "button radius"

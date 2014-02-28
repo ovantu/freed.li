@@ -1,0 +1,62 @@
+.row.top-margin
+  .large-6.columns
+    .freed_header
+      = t('found_posts')
+    .freed_list
+      - @found_posts.find_each do |post|
+        - if post.feed.status == "adolescent"
+          - status_class = "freed_entry_color"   
+        - else 
+          - status_class = "toddler_entry_color"
+
+        - if @created_feeds.include? post.feed  
+          - status_class << " created_feed"
+
+        - if @feeds_to_evaluate.include? post.feed
+          - status_class << " pending_feed"
+
+        .feed_box{class: status_class}
+          .row
+            .small-12.columns.freed_box_title
+              = link_to post.feed.goal, feed_path(post.feed)
+          .active_post
+            .row
+              .large-12.columns.post_content
+                = highlight(post.content, params[:query])
+            .row
+              .large-6.columns.post_footer.post_creator
+                = post.creator.name
+              .large-4.columns.post_footer.post_datetime
+                = l(post.updated_at, format: :long)
+  .large-6.columns
+    .freed_header
+      = t('found_feeds')
+    .freed_list
+      - @found_feeds.find_each do |feed|
+        - if feed.status == "adolescent"
+          - status_class = "freed_entry_color"   
+        - else 
+          - status_class = "toddler_entry_color"
+
+        - if @created_feeds.include? feed  
+          - status_class << " created_feed"
+
+        - if @feeds_to_evaluate.include? feed
+          - status_class << " pending_feed"
+
+        .feed_box{class: status_class}
+          .row
+            .small-12.columns.freed_box_title
+              = link_to highlight(feed.goal, params[:query]), feed_path(feed)
+          .feed_what_box
+            %ul.square
+              - if feed.rule1 != ""
+                %li= highlight(feed.rule1, params[:query])
+              - if feed.rule2 != ""
+                %li= highlight(feed.rule2, params[:query])
+              - if feed.rule3 != ""
+                %li= highlight(feed.rule3, params[:query])
+              - if feed.rule4 != ""
+                %li= highlight(feed.rule4, params[:query])
+              - if feed.rule5 != ""
+                %li= highlight(feed.rule5, params[:query])

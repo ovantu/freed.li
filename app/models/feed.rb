@@ -14,6 +14,8 @@ class Feed < ActiveRecord::Base
   
   scope :all_feeds_user_needs_to_evaluate, -> (user_id){joins(:evaluations).where(evaluations:{status: "pending", user_id: user_id})}
   
+  scope :search, -> (query){where("goal LIKE ? OR rule1 LIKE ? OR rule2 LIKE ? OR rule3 LIKE ? OR rule4 LIKE ? OR rule5 LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")}
+  
   
   # returns an array with all the user_ids of unique contributors depending on the past status of the feed
   def contributors(status)

@@ -8,6 +8,9 @@ class Post < ActiveRecord::Base
   scope :active_posts, -> (feed_id){where(feed_id: feed_id, status: "active")}
   scope :in_evaluation_posts, -> (feed_id){where(feed_id: feed_id, status: "in_evaluaiton")}
   
+  scope :search, -> (query){where("content LIKE ?", "%#{query}%")}
+  scope :search_active, -> (query){where("content LIKE ?", "%#{query}%").where(status: "active")}
+  
   # this should be nil, becuase accepted or rejected feeds should change all "pending" to "too_late"
   scope :broken_evaluations, -> {where(status: ["accepted", "rejected"]).joins(:evaluations).where(evaluations:{status: "pending"})}
   

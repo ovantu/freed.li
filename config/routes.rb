@@ -6,13 +6,14 @@ Wispper::Application.routes.draw do
         root :to => "feeds#index", :as => "authenticated_root"
       end
     resources :posts
-    resources :feeds, :path => "freeds"
+    resources :feeds, :path => "feeds"
     root :to => "home#index"
-    get "freeds/:feed_id/posts/new" => "posts#new", :as => "new_post_for_feed"
+    get "feeds/:feed_id/posts/new" => "posts#new", :as => "new_post_for_feed"
     devise_for :users, :controllers => {:registrations => "registrations"}
     resources :users
     post "evaluations/:id" => "evaluations#accept_post",  as: "accept_post"
     delete "evaluations/:id" => "evaluations#decline_post",  as: "decline_post"
     put "evaluations/:id" => "evaluations#pass_post",  as: "pass_post"
+    get "search/" => "search#show", as: "search"
   end
 end

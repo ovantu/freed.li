@@ -5,11 +5,12 @@
   %section.top-bar-section
     %ul.left
       %li.has-form
-        .row.collapse
-          .large-8.small-9.columns
-            %input{placeholder: "Find Stuff", type: "text"}/
-          .large-4.small-3.columns
-            %a.alert.button.expand{href: "#"} Search
+        = form_tag search_path, :method => 'get' do
+          .row.collapse
+            .large-8.columns
+              = text_field_tag :query, params[:query]
+            .large-4.columns    
+              = submit_tag "Search", :name => nil, class: "button radius expand"
     %ul.right    
       %li.has-form
         = link_to "create feed", new_feed_path(), class: "button  radius"

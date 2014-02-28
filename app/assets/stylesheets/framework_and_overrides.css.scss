@@ -14,6 +14,7 @@
   color: white;
   padding: 0 110px; }
 
+
 // THESE ARE EXAMPLES YOU CAN MODIFY
 // create mixins using Foundation classes
 @mixin twelve-columns {
@@ -315,4 +316,8 @@ main {
 }
 .new_feed_rest{
 	background-color: #FFFFCC;
+}
+
+.progress{
+	height: 1.2rem !important;
 }

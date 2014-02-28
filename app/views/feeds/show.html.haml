@@ -1,10 +1,10 @@
 .row.top-margin
-  .large-2.columns
+  .medium-2.columns
     = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius success no-bottom-margin"
-  .large-10.columns
+  .medium-10.columns
     %h3= @feed.goal
 .row
-  .large-7.columns
+  .medium-7.columns
     = render "toddler_stats"
     - if !@users_evaluations.empty?
       - @users_evaluations.each do |post|
@@ -18,7 +18,7 @@
   
        
 
-  .large-5.columns
+  .medium-5.columns
     = render "layouts/codex", feed: @feed
     = render "feed_stats"
     

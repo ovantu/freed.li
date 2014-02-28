@@ -6,8 +6,8 @@
 .row
   .medium-7.columns
     = render "toddler_stats"
-    - if !@users_evaluations.empty?
-      - @users_evaluations.each do |post|
+    - if @posts_to_evaluate
+      - @posts_to_evaluate.each do |post|
         .evaluate_post
           = render "evaluate_post_box", post: post
       

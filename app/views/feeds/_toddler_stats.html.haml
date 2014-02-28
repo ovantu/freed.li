@@ -8,10 +8,10 @@
         to
       .small-8.columns
         .progress.small-12.radius
-          .meter{:style => "width: " + ((@feed.contributors("toddler").count.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
+          .meter{:style => "width: " + ((@feed.contributors("toddler").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
       .small-2.columns
         pu
-    - if @feed.contributors("toddler").count >= MIN_CONTR_LVL1
+    - if @feed.contributors("toddler").size >= MIN_CONTR_LVL1
       .row
         .small-12.columns.text-center
           %h5= t("toddler_needs_accepted_contributors")
@@ -20,6 +20,6 @@
           pu
         .small-8.columns
           .progress.small-12.success.radius
-            .meter{:style => "width: " + ((@feed.contributors("adolescent").count.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
+            .meter{:style => "width: " + ((@feed.contributors("adolescent").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
         .small-2.columns
           ad

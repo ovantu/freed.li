@@ -13,7 +13,8 @@
   .row
     .small-12.columns.freed_box_title
       = link_to feed.goal, feed_path(feed)
-
+      - if @feeds_to_evaluate.include? feed
+        .label.pending_evaluation.radius= feed.evaluations.where(user_id: current_user.id, status: "pending").length
 
 / .row
 /   .small-4.columns.freed_box_stats

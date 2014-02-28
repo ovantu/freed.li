@@ -16,8 +16,8 @@ class FeedsController < ApplicationController
   # GET /feeds/1.json
   def show
     # posts the user has to evaluate
-    # @users_evaluations = current_user.posts_to_be_evaluated_in_feed(params[:id])  FROM user model
-    @users_evaluations = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id])
+    # @posts_to_evaluate = current_user.posts_to_be_evaluated_in_feed(params[:id])  FROM user model
+    @posts_to_evaluate = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id])
     # user's posts which are still in_evaluation to show in a list
     # @users_posts = current_user.own_posts_in_evaluation_and_feed(params[:id])
     @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id])

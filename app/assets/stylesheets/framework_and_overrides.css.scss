@@ -96,7 +96,13 @@ main {
 }
 
 .pending_feed{
-	border: 2px dashed #FFFFCC;
+/*	border: 2px dashed #960000;*/
+}
+
+.pending_evaluation{
+	background-color: #FFF48F;
+	color: #960000;
+	font-weight: bold;
 }
 
 .freed_box_title{

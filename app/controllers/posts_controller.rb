@@ -31,9 +31,9 @@ class PostsController < ApplicationController
     if @post.feed.status == "toddler"
       # this check is needed as contributors only become one after saving the new post
       if !@contributors.include? current_user.id
-        future_contributors = @contributors.count + 1
+        future_contributors = @contributors.size + 1
       else
-        future_contributors = @contributors.count
+        future_contributors = @contributors.size
       end
       # check how many contributors are already in the feed
       if future_contributors < MIN_CONTR_LVL1
@@ -48,7 +48,7 @@ class PostsController < ApplicationController
         end # if free_post
         # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
         assign_inital_evaluators(@post, @contributors)
-      end # @contributors.count
+      end # @contributors.size
     elsif @post.feed.status == "adolescent"
       # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
       assign_inital_evaluators(@post, @contributors)
@@ -104,7 +104,7 @@ class PostsController < ApplicationController
       # remove the creator of this one 'free' post
       possible_evaluators = contributors - [entry.creator_id]
       # find a good number of needed_evaluators
-      needed_evaluators = Math.sqrt(EVALUATOR_QUOTE*possible_evaluators.count).round.to_i
+      needed_evaluators = Math.sqrt(EVALUATOR_QUOTE*possible_evaluators.size).round.to_i
       # make sure the evaluator number is odd
       if needed_evaluators.even?
         needed_evaluators = needed_evaluators - 1

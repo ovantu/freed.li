@@ -2,14 +2,14 @@
   .row
     .small-4.columns
       Con:
-      = @feed.contributors(@feed.status).count
+      = @feed.contributors(@feed.status).size
     .small-4.columns
       Pos:
-      = @feed.active_posts.count
+      = @feed.active_posts.size
       &frasl;
-      = @feed.posts.count
+      = @feed.posts.size
     .small-4.columns
       Ev:
-      = Evaluation.not_pending_evaluations_of_feed(@feed.id).count
+      = Evaluation.not_pending_evaluations_of_feed(@feed.id).size
       &frasl;
-      = Evaluation.all_evaluations_of_feed(@feed.id).count
+      = Evaluation.all_evaluations_of_feed(@feed.id).size

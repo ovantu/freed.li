@@ -12,8 +12,10 @@ class Feed < ActiveRecord::Base
   scope :all_toddlers, -> {where(status: "toddler")}
   scope :all_contributed_feeds, -> (user_id){joins(:posts).where(posts:{creator_id: user_id}).distinct}
   
-  scope :all_feeds_user_needs_to_evaluate, -> (user_id){joins(:evaluations).where(evaluations:{status: "pending", user_id: user_id})}
+  # to show the user in the index view
+  scope :all_feeds_user_needs_to_evaluate, -> (user_id){joins(:evaluations).where(evaluations:{status: "pending", user_id: user_id}).distinct(:feed)}
   
+  # for the search controller
   scope :search, -> (query){where("goal LIKE ? OR rule1 LIKE ? OR rule2 LIKE ? OR rule3 LIKE ? OR rule4 LIKE ? OR rule5 LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%", "%#{query}%")}
   
   
@@ -36,7 +38,7 @@ class Feed < ActiveRecord::Base
 
   # This method updates the status of the feed if necessary from toddler to adolescent; USED IN evaluations_controller
   def check_status_change_to_adolescence
-    c = posts.where(status: "active").select(:creator_id).distinct.count
+    c = posts.where(status: "active").select(:creator_id).distinct.size
     if c >= MIN_CONTR_LVL1
       self.update(status: "adolescent")
     end

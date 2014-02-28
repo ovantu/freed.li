@@ -1,3 +1,8 @@
+.row.top-margin
+  .large-2.columns
+    = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius success"
+  .large-10.columns
+    %h3= @feed.goal
 .row
   .large-7.columns
     = render "toddler_stats"
@@ -17,7 +22,6 @@
     = render "layouts/codex", feed: @feed
     = render "feed_stats"
     
-    = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius"
     = render "waiting_posts"
 
 

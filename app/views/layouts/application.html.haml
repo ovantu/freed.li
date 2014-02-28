@@ -2,7 +2,7 @@
 %html
   %head
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-    %title= content_for?(:title) ? yield(:title) : 'Wispper'
+    %title= content_for?(:title) ? yield(:title) : t('page_title')
     %meta{:name => "description", :content => "#{content_for?(:description) ? yield(:description) : 'Wispper'}"}
     = stylesheet_link_tag "application"
     -# Foundation 5 won't work with Rails Turbolinks
@@ -13,7 +13,7 @@
     .off-canvas-wrap
       .inner-wrap
         = render "layouts/top_bar"
-        = render "layouts/off_canvas"
+        = render "layouts/off_canvas", feed: @feed
         %section{role: "main"}
           = render 'layouts/messages'
           = yield

@@ -20,7 +20,8 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  all_feeds: "feeds"
+  feeds: "feeds"
+  all_feeds: "list all feeds"
   my_feeds: "My contributions"
   most_active_feeds: "Most active"
   toddler_feeds: "Kindergarden"

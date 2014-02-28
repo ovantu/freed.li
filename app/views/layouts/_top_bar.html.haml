@@ -15,7 +15,7 @@
       %li.has-form
         = link_to t("new_feed"), new_feed_path(), class: "button  radius"
       %li.divider
-      %li= link_to t("all_feeds"), feeds_path()
+      %li= link_to t("feeds"), feeds_path()
             
       - if user_signed_in?
         %li.divider

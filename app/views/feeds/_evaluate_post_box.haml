@@ -9,7 +9,7 @@
     = l(post.updated_at, format: :long)
 
 .row
-  .small-9.columns.small-centered
+  .small-10.columns.small-centered
     %ul.button-group.radius.evaluation_button_list
       %li= link_to t("accept_eval"), accept_post_path(post.id), class: "button small accept_evaluation_button no-bottom-margin", method: :post
       %li= link_to t("decline_eval"), decline_post_path(post.id), class: "button small decline_evaluation_button no-bottom-margin", method: :delete

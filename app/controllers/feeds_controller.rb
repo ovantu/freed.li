@@ -30,13 +30,13 @@ class FeedsController < ApplicationController
 
   # GET /feeds/new
   def new
-    @feed = Feed.new(creator_id: current_user.id)
-    @feed.lang = I18n.locale
+    @new_feed = Feed.new(creator_id: current_user.id)
+    @new_feed.lang = I18n.locale
   end
 
   # GET /feeds/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /feeds
   # POST /feeds.json

@@ -222,13 +222,14 @@ main {
 }
 
 .evaluation_button_list{
-	margin: 0px 10px;
+	margin: 0px 0px 3px 0px;
 }
 
 .pass_evaluation_button, .accept_evaluation_button, .decline_evaluation_button{
 	border: 1px solid #FFCB70;
 	background-color: #FFF48F;
 	color: #666;
+	padding: 8px !important;
 }
 
 .accept_evaluation_button:hover{

@@ -3,7 +3,7 @@
 
   .form-inputs
     .new_feed_why
-      = f.input :goal, placeholder: t("goal_placeholder"), label: t("goal_label")
+      = f.input :goal, :autofocus => true, placeholder: t("goal_placeholder"), label: t("goal_label")
     .new_feed_how
       = f.input :lang, collection: LANGUAGES_HASH.invert, :include_blank => false, label: t("lang_label")
     .new_feed_what

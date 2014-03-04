@@ -1,10 +1,10 @@
 = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
-  %fieldset
-    %legend= t('register_legend')
-    = f.error_notification
-    = display_base_errors resource
-    = f.input :name, :label => false, :placeholder => "Name"
-    = f.input :email, :required => true, :label => false, :placeholder => "Email"
-    = f.input :password, :required => true, :label => false, :placeholder => "Password"
-    = f.input :password_confirmation, :required => true, :label => false, :placeholder => "Password confirmation"
-    = f.button :submit, 'Sign up', :class => 'button radius success small no-bottom-margin'
+  / %fieldset
+  /   %legend= t('register_legend')
+  = f.error_notification
+  = display_base_errors resource
+  = f.input :name, :label => false, :placeholder => "Name"
+  = f.input :email, :required => true, :label => false, :placeholder => "Email"
+  = f.input :password, :required => true, :label => false, :placeholder => "Password"
+  = f.input :password_confirmation, :required => true, :label => false, :placeholder => "Password confirmation"
+  = f.button :submit, 'Sign up', :class => 'button radius success small no-bottom-margin'

@@ -2,5 +2,15 @@
   .medium-6.large-8.columns
     Test
   .medium-6.large-4.columns
-    = render "devise/sessions/new"
-    = render "devise/registrations/new"
+    %dl.accordion{"data-accordion" => ""}
+      %dd
+        %a.top_accordion{href: "#panel1"}= t('login_legend')
+        #panel1.content.active
+          = render "devise/sessions/new"
+      %dd
+        %a.bottom_accordion{href: "#panel2"}= t("register_legend")
+        #panel2.content
+          = render "devise/registrations/new"
+          
+
+      

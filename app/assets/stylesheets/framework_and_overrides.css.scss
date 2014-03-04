@@ -69,6 +69,21 @@ main {
 	font-size: 75% !important;
 }
 
+.top_accordion{
+	-webkit-border-top-left-radius: 10px;
+	-webkit-border-top-right-radius: 10px;
+	-moz-border-radius-topleft: 10px;
+	-moz-border-radius-topright: 10px;
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+	background-color: #CCCCFF !important;
+	margin-top: 10px;
+}
+
+.bottom_accordion{
+	background-color: #CCE6FF !important;
+}
+
 .freed_header{
 	text-align:center;
 	font-size: 150%;

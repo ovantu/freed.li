@@ -1,4 +1,5 @@
 class EvaluationsController < ApplicationController
+  before_filter :authenticate_user!
   
   # POST /evaluations/1
   def accept_post

@@ -23,17 +23,17 @@
           %a{href: "#"}= current_user.name
           %ul.dropdown
             %li
-              = link_to "profile", user_path(current_user.id)
+              = link_to t("profile_link"), user_path(current_user.id)
             %li
-              = link_to 'Edit account', edit_user_registration_path
+              = link_to t('edit_account_link'), edit_user_registration_path
             %li
-              = link_to 'Logout', destroy_user_session_path, :method=>'delete'
+              = link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
       - else
         %li.divider
         %li.has-dropdown.not-click
           %a{href: "#"} Login/Signup
           %ul.dropdown
             %li
-              = link_to 'Login', new_user_session_path
+              = link_to t('login_link'), new_user_session_path
             %li
-              = link_to 'Sign up', new_user_registration_path
+              = link_to t('sign_up_link'), new_user_registration_path

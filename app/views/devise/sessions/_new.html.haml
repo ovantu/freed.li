@@ -1,7 +1,12 @@
-%h2 Sign in
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'form-vertical' }) do |f|
-  = f.input :email, :autofocus => true
-  = f.input :password
-  = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-  = f.button :submit, "Sign in", :class => 'btn-primary'
-= render "devise/shared/links"
+= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => 'home_form' }) do |f|
+  %fieldset.no-bottom-padding
+    %legend= t('login_legend')
+    = f.input :email, :autofocus => true, :label => false, :placeholder => "Email"
+    = f.input :password, :label => false, :placeholder => "Password"
+    .row
+      .medium-7.medium-push-5.columns
+        = link_to "Forgot your password?", new_password_path(resource_name), class: "small_link" if devise_mapping.recoverable? && controller_name != 'passwords'
+        = f.input :remember_me, :as => :boolean, class: "no-bottom-margin" if devise_mapping.rememberable?
+       
+      .medium-5.medium-pull-7.columns
+        = f.button :submit, "Sign in", :class => 'button radius success small no-bottom-margin'

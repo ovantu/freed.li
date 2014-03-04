@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  page_title: "Whatever"
+  page_title: "freed.li"
   feeds: "feeds"
   all_feeds: "list all feeds"
   codex: "Codex"
@@ -75,6 +75,15 @@ en:
   new_post: "Create a new post"
   new_post_label: "Contribute with a post that fits the codex (yellow box) requirements. Other contributors will evaluate your post on this codex!"
   post_content_placeholder: "You have 160 signs to post something conform to our codex (yellow box!)."
+  
+  profile_link: "Profile"
+  edit_account_link: "Edit account"
+  edit_your_account: "Edit your account details"
+  logout_link: "Logout"
+  login_legend: "Sign in"
+  login_link: "Login"
+  register_legend: "No account? Sign up!"
+  sign_up_link: "Sign up"
   
   
   en: "english"

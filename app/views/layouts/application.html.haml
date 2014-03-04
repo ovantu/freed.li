@@ -15,11 +15,13 @@
         = render "layouts/top_bar"
         = render "layouts/off_canvas", feed: @feed
         %section{role: "main"}
-          = render 'layouts/messages'
+          .row
+            .small-9.small-centered.columns.top-margin
+              = render 'layouts/messages'
           = yield
         -# Foundation 5 won't work when application.js is included in HEAD
   = javascript_include_tag "application"
   :javascript
-     $(".accordion").on("click", "dd", function (event) {
+     $(".accordion").on("click", "a", function (event) {
             $(".content").slideToggle("slow");
       })

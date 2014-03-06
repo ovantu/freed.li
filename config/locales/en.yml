@@ -22,6 +22,8 @@
 en:
   page_title: "freed.li"
   feeds: "feeds"
+  update_button: "Update profile"
+  back_button: "Back"
   all_feeds: "list all feeds"
   codex: "Codex"
   evaluated_posts_list: "Evaluated posts"
@@ -112,3 +114,6 @@ en:
   en: "english"
   de: "german"
   es: "spanish"
+
+  cancel_account: "Cancel my account"
+  unhappy: "Unhappy?"

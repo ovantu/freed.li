@@ -9,4 +9,4 @@
 
   .form-actions
     = f.button :submit, class: "button radius success"
-    = link_to 'Back', feed_path(@post.feed_id), class: "button radius alert"
+    = link_to t("back_button"), feed_path(@post.feed_id), class: "button radius alert"

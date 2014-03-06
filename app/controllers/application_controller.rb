@@ -12,12 +12,6 @@ class ApplicationController < ActionController::Base
   # reads out the params locale automatically out of URL or browser setting and compare to the available languages
   def set_locale
     if current_user
-      # needs to save a first language
-      if current_user.lang == nil
-        # Save english in case no language can be determined
-        current_user.lang = http_accept_language.compatible_language_from(LANGUAGES_STRING) || "en"
-        current_user.save
-      end
       # sets users page langauge
       I18n.locale = current_user.lang
     else

@@ -6,11 +6,13 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @adolescent_feeds = Feed.all_adolescent
-    @toddler_feeds = Feed.all_toddlers
+    @adolescent_feeds = Feed.all_adolescent.where(lang: I18n.locale).order(created_at: :desc).first(20)
+    @toddler_feeds = Feed.all_toddlers.where(lang: I18n.locale).order(created_at: :desc).first(20)
     @users_feeds = Feed.all_contributed_feeds(current_user.id)
     @created_feeds = Feed.where(creator_id: current_user.id)
     @feeds_to_evaluate = Feed.all_feeds_user_needs_to_evaluate(current_user.id)
+    
+    # render stream: true
   end
 
   # GET /feeds/1
@@ -27,6 +29,8 @@ class FeedsController < ApplicationController
     @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations)
     # all active posts (TO DO: check is eager_load is better for SQL server) with eager load of their creators (makes one big query instead of a query for each post)
     @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator)
+    
+    # render stream: true
   end
 
   # GET /feeds/new

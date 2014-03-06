@@ -50,8 +50,8 @@ en:
   user_declined: "declined"
   user_passed_on: "passed on"
   feed_matured: "FEED STATUS: This post changed the feed status to adolescent!!!"
-  toddler_needs_contributors: "7 contributors are needed for evaluation proccess"
-  toddler_needs_accepted_contributors: "7 accepted contributors needed for adolescence"
+  toddler_needs_contributors: "7 contributors are needed for next level"
+  toddler_needs_accepted_contributors: "7 accepted contributors needed for next level"
   
   new_feed: "Create a new feed"
   goal_label: "Give us a reason WHY we should participate in this feed"
@@ -84,7 +84,10 @@ en:
   login_link: "Login"
   register_legend: "No account? Sign up!"
   sign_up_link: "Sign up"
-  
+
+  feed_lvl0: "Level 0 - Toddler"
+  feed_lvl1: "Level 1 - Adolescent"
+  feed_lvl2: "Level 2 - Adult"
   
   en: "english"
   de: "german"

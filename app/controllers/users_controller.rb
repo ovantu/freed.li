@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @contributed_feeds = Feed.all_contributed_feeds(params[:id])
   end
   
   def update

@@ -89,6 +89,26 @@ en:
   feed_lvl1: "Level 1 - Adolescent"
   feed_lvl2: "Level 2 - Adult"
   
+  user_feed_stats: "Your feed statistics"
+  created_feeds: "Created:"
+  contributor_in_feeds: "Contributor status:"
+  toddler_feeds: "Children:"
+  adolescent_feeds: "Grown ups:"
+  
+  user_post_stats: "Your posts statistics"
+  created_posts: "Created posts:"
+  active_posts: "Active posts:"
+  posts_in_evaluation: "Waiting for evaluation:"
+  rejected_posts: "Rejected posts:"
+  
+  user_evaluation_stats: "Your evaluation statistics"
+  evaluated_posts: "Posts evaluated:"
+  accepted_posts: "Posts accepted:"
+  pending_posts: "Pending evaluations:"
+  declined_posts: "Posts declined:"
+  passed_posts: "Passed evaluations:"
+  too_late_posts: "Missed evaluations:"
+
   en: "english"
   de: "german"
   es: "spanish"

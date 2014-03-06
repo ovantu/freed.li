@@ -12,8 +12,6 @@ class User < ActiveRecord::Base
   has_many :evaluations    
   has_many :eval_posts, :through => :evaluations, :source => :post
   
-  scope :rated_by, -> (user_id){joins(:questions_ratings).where(questions_ratings:{creator_id: user_id})}
-  
   # shows all evaluations which are still pending
   def pending_evaluations
     e = evaluations.where(status: "pending")

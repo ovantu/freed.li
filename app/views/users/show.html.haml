@@ -1,5 +1,84 @@
-%h3 User
-%p
-  User: #{@user.name}
-%p
-  Email: #{@user.email if @user.email}
+.row.top-margin
+  .large-4.large-offset-1.columns
+    %h1= @user.name
+    %p= @user.email
+  .large-6.end.columns
+    .new_feed_why
+      %h3= t('user_feed_stats')
+      .row
+        .small-5.columns
+          = t("created_feeds")
+        .small-1.columns
+          = @user.feeds.count
+        .small-5.columns
+          = t("contributor_in_feeds")
+        .small-1.columns
+          = @contributed_feeds.count
+      .row
+        .small-5.columns
+          = t("toddler_feeds")
+        .small-1.columns
+          = @user.feeds.where(status: "toddler").length
+        .small-5.columns
+          = t("adolescent_feed")
+        .small-1.columns
+          = @user.feeds.where(status: "adolescent").length
+      
+
+    .new_feed_how
+      %h3= t('user_post_stats')
+      .row
+        .small-5.columns
+          = t("created_posts")
+        .small-1.columns
+          = @user.posts.count
+        .small-5.columns
+          = t("posts_in_evaluation")
+        .small-1.columns
+          = @user.posts.where(status: ["in_evaluation", "free"]).length
+      .row
+        .small-5.columns
+          = t("active_posts")
+        .small-1.columns
+          = @user.posts.where(status: "active").length
+        .small-5.columns
+          = t("rejected_posts")
+        .small-1.columns
+          = @user.posts.where(status: "rejected").length
+
+
+    .new_feed_what
+      %h3= t('user_evaluation_stats')
+      .row
+        .small-5.columns
+          = t("evaluated_posts")
+        .small-1.columns
+          = @user.evaluations.count
+        .small-5.columns
+          = t("pending_posts")
+        .small-1.columns
+          = @user.evaluations.where(status: "pending").length
+      .row
+        .small-5.columns
+          = t("accepted_posts")
+        .small-1.columns
+          = @user.evaluations.where(status: "accepted").length
+        .small-5.columns
+          = t("declined_posts")
+        .small-1.columns
+          = @user.evaluations.where(status: "declined").length
+      .row
+        .small-5.columns
+          = t("passed_posts")
+        .small-1.columns
+          = @user.evaluations.where(status: "passed").length
+        .small-5.columns
+          = t("too_late_posts")
+        .small-1.columns
+          = @user.evaluations.where(status: "too_late").length
+
+
+
+
+
+

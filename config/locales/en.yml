@@ -83,6 +83,7 @@ en:
   leave_blank: "Leave it blank if you don't want to change it"
   needed_password: "Enter current password to confirm your changes"
   edit_your_account: "Edit your account details"
+  lang_page: "Which language should the page be in?"
   select_feed_languages: "Select feed languages"
   logout_link: "Logout"
   login_legend: "Sign in"

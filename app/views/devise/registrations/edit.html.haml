@@ -6,7 +6,7 @@
       = display_base_errors resource
       = f.input :name, :autofocus => true
       = f.input :email, :required => true
-      = f.input :lang, collection: LANGUAGES_HASH.invert, :include_blank => false, label: t("lang_label")
+      = f.input :lang, collection: LANGUAGES_HASH.invert, :include_blank => false, label: t("lang_page")
       = f.input :password, :autocomplete => "off", :placeholder => t("leave_blank"), :required => false
       = f.input :password_confirmation, :required => false
     

@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   validates :name, presence: true
+  validates :feedlang, presence: true
   
   serialize :feedlang
          

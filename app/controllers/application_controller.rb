@@ -11,7 +11,15 @@ class ApplicationController < ActionController::Base
 
   # reads out the params locale automatically out of URL or browser setting and compare to the available languages
   def set_locale
-    I18n.locale = params[:locale] || http_accept_language.compatible_language_from(LANGUAGES_STRING)
+    if current_user
+      if current_user.lang == nil
+        current_user.lang = params[:locale] || http_accept_language.compatible_language_from(LANGUAGES_STRING)
+        current_user.save
+      end
+      I18n.locale = current_user.lang
+    else
+      I18n.locale = params[:locale] || http_accept_language.compatible_language_from(LANGUAGES_STRING)
+    end
    # I18n.locale = params[:locale] || I18n.default_locale
   end
   

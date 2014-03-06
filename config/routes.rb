@@ -1,6 +1,6 @@
 Wispper::Application.routes.draw do
   # for niçe URL with locale as parameter. locale is not necesary and goes first to en than to de
-  scope "(:locale)", locale: /en|de|es/ do
+  scope "(:locale)", locale: /es|de|en/ do
     authenticated :user do
         # Rails 4 users must specify the 'as' option to give it a unique name
         root :to => "feeds#index", :as => "authenticated_root"

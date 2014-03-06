@@ -22,7 +22,6 @@
 en:
   page_title: "freed.li"
   feeds: "feeds"
-  update_button: "Update profile"
   back_button: "Back"
   all_feeds: "list all feeds"
   codex: "Codex"
@@ -80,7 +79,9 @@ en:
   
   profile_link: "Profile"
   edit_account_link: "Edit account"
+  update_profile_button: "Update profile"
   edit_your_account: "Edit your account details"
+  select_feed_languages: "Select feed languages"
   logout_link: "Logout"
   login_legend: "Sign in"
   login_link: "Login"

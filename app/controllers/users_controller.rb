@@ -31,4 +31,10 @@ class UsersController < ApplicationController
       redirect_to users_path, :notice => "Can't delete yourself."
     end
   end
+  
+  def change_feed_language
+    user = User.find(params[:id])
+    
+  end
+  
 end

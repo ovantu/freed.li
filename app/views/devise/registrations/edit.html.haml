@@ -1,6 +1,6 @@
 .row 
-  .medium-6.columns
-    %h2= t('edit_your_account')
+  .medium-5.columns
+    %h3.top-margin= t('edit_your_account')
     = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f|
       = f.error_notification
       = display_base_errors resource
@@ -11,9 +11,18 @@
       = f.input :password_confirmation, :required => false
     
       = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
-      = f.button :submit, t('update_button'), :class => 'btn-primary button radius success'
+      = f.button :submit, t('update_profile_button'), :class => 'btn-primary button radius success'
       = link_to t("back_button"), :back, class: "button radius alert"
     %p
       = t("unhappy") 
       = link_to t("cancel_account"), registration_path(resource_name), :data => { :confirm => "Are you sure?" }, :method => :delete
       
+  .medium-5.offset-medium-2.columns
+    %h3.top-margin= t('select_feed_languages')
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f|
+      - LANGUAGES_HASH.each do |short, long|
+        %p
+          = check_box_tag long, short
+          = long
+      = f.button :submit, t('update_profile_button'), :class => 'btn-primary button radius success'
+      = link_to t("back_button"), :back, class: "button radius alert"

@@ -80,6 +80,8 @@ en:
   profile_link: "Profile"
   edit_account_link: "Edit account"
   update_profile_button: "Update profile"
+  leave_blank: "Leave it blank if you don't want to change it"
+  needed_password: "Enter current password to confirm your changes"
   edit_your_account: "Edit your account details"
   select_feed_languages: "Select feed languages"
   logout_link: "Logout"

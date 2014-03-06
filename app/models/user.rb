@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   validates :name, presence: true
+  
+  serialize :feedlang
          
   has_many :feeds, :class_name => "Feed", :foreign_key => "creator_id"
   has_many :posts, :class_name => "Post", :foreign_key => "creator_id"  

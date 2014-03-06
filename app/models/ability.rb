@@ -10,6 +10,7 @@ class Ability
       # All users, except guests:
       can :create, [Feed, Post]  
       can :read, [Feed, Post]  
+      # can :update, User, :id => user.id 
     end
   end
 end

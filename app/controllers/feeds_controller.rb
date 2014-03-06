@@ -6,8 +6,8 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @adolescent_feeds = Feed.all_adolescent.where(lang: I18n.locale).order(created_at: :desc).first(20)
-    @toddler_feeds = Feed.all_toddlers.where(lang: I18n.locale).order(created_at: :desc).first(20)
+    @adolescent_feeds = Feed.all_adolescent.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
+    @toddler_feeds = Feed.all_toddlers.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
     @users_feeds = Feed.all_contributed_feeds(current_user.id)
     @created_feeds = Feed.where(creator_id: current_user.id)
     @feeds_to_evaluate = Feed.all_feeds_user_needs_to_evaluate(current_user.id)

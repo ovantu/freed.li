@@ -7,10 +7,10 @@
       = f.input :name, :autofocus => true
       = f.input :email, :required => true
       = f.input :lang, collection: LANGUAGES_HASH.invert, :include_blank => false, label: t("lang_label")
-      = f.input :password, :autocomplete => "off", :hint => "leave it blank if you don't want to change it", :required => false
+      = f.input :password, :autocomplete => "off", :placeholder => t("leave_blank"), :required => false
       = f.input :password_confirmation, :required => false
     
-      = f.input :current_password, :hint => "we need your current password to confirm your changes", :required => true
+      = f.input :current_password, :placeholder => t("needed_password"), :required => true
       = f.button :submit, t('update_profile_button'), :class => 'btn-primary button radius success'
       = link_to t("back_button"), :back, class: "button radius alert"
     %p
@@ -19,10 +19,13 @@
       
   .medium-5.offset-medium-2.columns
     %h3.top-margin= t('select_feed_languages')
-    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put, :class => 'form-vertical' }) do |f|
+    = form_tag(set_feed_languages_path, method: :put) do
       - LANGUAGES_HASH.each do |short, long|
         %p
-          = check_box_tag long, short
-          = long
-      = f.button :submit, t('update_profile_button'), :class => 'btn-primary button radius success'
+          %label.lang_select
+            = check_box_tag 'lang[]', short, current_user.feedlang.include?(short.to_s) ? true : false
+            = long
+      = button_tag t('update_profile_button'), :class => 'btn-primary button radius success'
       = link_to t("back_button"), :back, class: "button radius alert"
+      
+

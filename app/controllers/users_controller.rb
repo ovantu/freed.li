@@ -32,9 +32,18 @@ class UsersController < ApplicationController
     end
   end
   
-  def change_feed_language
-    user = User.find(params[:id])
-    
+  def set_feed_languages
+    # authorize! :update, current_user, :message => 'Not authorized as an administrator.'
+    if params[:id]
+      user = User.find(params[:id])
+    else
+      user = current_user
+    end
+    if user.update(feedlang: params[:lang])
+      redirect_to feeds_path, :notice => "Languages for feed updated."
+    else
+      redirect_to edit_user_registration_path, :alert => "Unable to update user."
+    end
   end
   
 end

@@ -1,27 +1,28 @@
-.toddler_stats
-  - if @feed.status == "toddler" and @feed.contributors("toddler").size < MIN_CONTR_LVL1
-    .row
-      .small-3.columns
-        = image_tag("level0.1.png", size: "80x80", :alt => t("feed_lvl0"))
-      .small-6.columns
-        .row
-          .small-12.columns.text-center
-            = t("toddler_needs_contributors")
-        .row
-          .progress.small-12.success.radius
-            .meter{:style => "width: " + ((@feed.contributors("toddler").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
-      .small-3.columns
-        = image_tag("level1.png", size: "80x80", :alt => t("feed_lvl1"))
-  - if @feed.status == "toddler" and @feed.contributors("toddler").size >= MIN_CONTR_LVL1
-    .row
-      .small-3.columns
-        = image_tag("level1.png", size: "80x80", :alt => t("feed_lvl1"))
-      .small-6.columns
-        .row
-          .small-12.columns.text-center
-            = t("toddler_needs_accepted_contributors")
-        .row
-          .progress.small-12.success.radius
-            .meter{:style => "width: " + ((@feed.contributors("adolescent").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
-      .small-3.columns
-        = image_tag("level2.png", size: "80x80", :alt => t("feed_lvl2"))
+- if @feed.status == "toddler"
+  .toddler_stats
+    - if @feed.contributors("toddler").size < MIN_CONTR_LVL1
+      .row
+        .small-3.columns
+          = image_tag("level0.1.png", size: "80x80", :alt => t("feed_lvl0"))
+        .small-6.columns
+          .row
+            .small-12.columns.text-center
+              = t("toddler_needs_contributors")
+          .row
+            .progress.small-12.success.radius
+              .meter{:style => "width: " + ((@feed.contributors("toddler").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
+        .small-3.columns
+          = image_tag("level1.png", size: "80x80", :alt => t("feed_lvl1"))
+    - if @feed.contributors("toddler").size >= MIN_CONTR_LVL1
+      .row
+        .small-3.columns
+          = image_tag("level1.png", size: "80x80", :alt => t("feed_lvl1"))
+        .small-6.columns
+          .row
+            .small-12.columns.text-center
+              = t("toddler_needs_accepted_contributors")
+          .row
+            .progress.small-12.success.radius
+              .meter{:style => "width: " + ((@feed.contributors("adolescent").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
+        .small-3.columns
+          = image_tag("level2.png", size: "80x80", :alt => t("feed_lvl2"))

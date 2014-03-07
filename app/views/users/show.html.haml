@@ -16,13 +16,13 @@
           = @contributed_feeds.count
       .row
         .small-5.columns
-          = t("toddler_feeds")
+          = t("free_feeds")
         .small-1.columns
-          = @user.feeds.where(status: "toddler").length
+          = @user.feeds.where(status: "free").length
         .small-5.columns
-          = t("adolescent_feed")
+          = t("active_feed")
         .small-1.columns
-          = @user.feeds.where(status: "adolescent").length
+          = @user.feeds.where(status: "active").length
       
 
     .new_feed_how

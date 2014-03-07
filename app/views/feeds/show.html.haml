@@ -5,7 +5,7 @@
     %h3= @feed.goal
 .row
   .medium-7.large-5.large-offset-2.columns
-    = render "toddler_stats"
+    = render "free_stats"
     - if @posts_to_evaluate
       - @posts_to_evaluate.each do |post|
         .evaluate_post

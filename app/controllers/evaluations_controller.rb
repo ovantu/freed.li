@@ -53,8 +53,8 @@ class EvaluationsController < ApplicationController
       post.update(status: "active")
       @notice = t('post_activated')
       post.set_too_late_evaluations
-      if post.feed.status == "toddler"
-        # changes status to adolescent if enough active posts
+      if post.feed.status == "free"
+        # changes status to active if enough active posts
         if post.feed.check_status_change_to_adolescence
           @notice = t('feed_matured')
         end

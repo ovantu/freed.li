@@ -6,8 +6,8 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @adolescent_feeds = Feed.all_adolescent.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
-    @toddler_feeds = Feed.all_toddlers.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
+    @active_feeds = Feed.all_active.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
+    @free_feeds = Feed.all_free.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
     @users_feeds = Feed.all_contributed_feeds(current_user.id)
     @created_feeds = Feed.where(creator_id: current_user.id)
     @feeds_to_evaluate = Feed.all_feeds_user_needs_to_evaluate(current_user.id)
@@ -47,10 +47,11 @@ class FeedsController < ApplicationController
   # POST /feeds.json
   def create
     @feed = Feed.new(feed_params)
-    @feed.status = "toddler"
+    # a freshly created feed is "free" like the posts in it; later it becomes "active" and the posts "in_evaluation" 
+    @feed.status = "free"
     respond_to do |format|
       if @feed.save
-        format.html { redirect_to @feed, notice: 'Feed was successfully created.' }
+        format.html { redirect_to @feed, notice: t('feed_create_success') }
         format.json { render action: 'show', status: :created, location: @feed }
       else
         format.html { render action: 'new' }

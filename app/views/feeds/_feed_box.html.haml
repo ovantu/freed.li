@@ -1,7 +1,7 @@
-- if feed.status == "adolescent"
+- if feed.status == "active"
   - status_class = "freed_entry_color"   
 - else 
-  - status_class = "toddler_entry_color"
+  - status_class = "free_entry_color"
   
 - if @created_feeds.include? feed  
   - status_class << " created_feed"

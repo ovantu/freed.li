@@ -27,9 +27,9 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
-    # get all unique contributors (depending on "toddler" or "adolescent") of the feed belonging to the post in creation
+    # get all unique contributors (depending on "free" or "active") of the feed belonging to the post in creation
     @contributors = @post.feed.contributors(@post.feed.status)
-    if @post.feed.status == "toddler"
+    if @post.feed.status == "free"
       # this check is needed as contributors only become one after saving the new post
       if !@contributors.include? current_user.id
         future_contributors = @contributors.size + 1
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
         # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
         assign_inital_evaluators(@post, @contributors)
       end # @contributors.size
-    elsif @post.feed.status == "adolescent"
+    elsif @post.feed.status == "active"
       # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
       assign_inital_evaluators(@post, @contributors)
     end

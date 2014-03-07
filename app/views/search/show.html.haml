@@ -4,10 +4,10 @@
       = t('found_posts')
     .freed_list
       - @found_posts.find_each do |post|
-        - if post.feed.status == "adolescent"
+        - if post.feed.status == "active"
           - status_class = "freed_entry_color"   
         - else 
-          - status_class = "toddler_entry_color"
+          - status_class = "free_entry_color"
 
         - if @created_feeds.include? post.feed  
           - status_class << " created_feed"
@@ -33,10 +33,10 @@
       = t('found_feeds')
     .freed_list
       - @found_feeds.find_each do |feed|
-        - if feed.status == "adolescent"
+        - if feed.status == "active"
           - status_class = "freed_entry_color"   
         - else 
-          - status_class = "toddler_entry_color"
+          - status_class = "free_entry_color"
 
         - if @created_feeds.include? feed  
           - status_class << " created_feed"

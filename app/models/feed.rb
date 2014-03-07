@@ -8,8 +8,8 @@ class Feed < ActiveRecord::Base
   validates :rule4, length: { in: 0..160 }
   validates :rule5, length: { in: 0..160 }
   
-  scope :all_adolescent, -> {where(status: "adolescent")}
-  scope :all_toddlers, -> {where(status: "toddler")}
+  scope :all_active, -> {where(status: "active")}
+  scope :all_free, -> {where(status: "free")}
   scope :all_contributed_feeds, -> (user_id){joins(:posts).where(posts:{creator_id: user_id}).distinct}
   
   # to show the user in the index view
@@ -21,9 +21,9 @@ class Feed < ActiveRecord::Base
   
   # returns an array with all the user_ids of unique contributors depending on the past status of the feed
   def contributors(status)
-    if status == "toddler"
+    if status == "free"
       stati = ["active", "free", "in_evaluation"]
-    elsif status == "adolescent"
+    elsif status == "active"
       stati = "active"
     end
     p = posts.where(status: stati).select(:creator_id).distinct
@@ -36,11 +36,11 @@ class Feed < ActiveRecord::Base
   end
   
 
-  # This method updates the status of the feed if necessary from toddler to adolescent; USED IN evaluations_controller
+  # This method updates the status of the feed if necessary from free to active; USED IN evaluations_controller
   def check_status_change_to_adolescence
     c = posts.where(status: "active").select(:creator_id).distinct.size
     if c >= MIN_CONTR_LVL1
-      self.update(status: "adolescent")
+      self.update(status: "active")
     end
   end
 

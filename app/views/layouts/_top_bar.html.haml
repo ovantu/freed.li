@@ -10,7 +10,7 @@
             .small-9.columns
               = text_field_tag :query, params[:query]
             .small-3.columns    
-              = submit_tag "Search", :name => nil, class: "button radius expand"
+              = submit_tag t("search_button"), :name => nil, class: "button radius expand"
     %ul.right    
       %li.has-form
         = link_to t("new_feed"), new_feed_path(), class: "button  radius"
@@ -28,12 +28,3 @@
               = link_to t('edit_account_link'), edit_user_registration_path
             %li
               = link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
-      - else
-        %li.divider
-        %li.has-dropdown.not-click
-          %a{href: "#"} Login/Signup
-          %ul.dropdown
-            %li
-              = link_to t('login_link'), new_user_session_path
-            %li
-              = link_to t('sign_up_link'), new_user_registration_path

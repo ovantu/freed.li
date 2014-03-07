@@ -11,7 +11,7 @@
     = csrf_meta_tags
   %body
     .row
-      .small-offset-10.small-2.coulmns.top-margin
+      .small-offset-8.small-4.medium-offset-10.medium-2.columns.top-margin
         = form_tag(root_path, method: :get) do
           = select_tag('lang_change', options_from_collection_for_select(LANGUAGES_HASH, :first, :last, I18n.locale))
     

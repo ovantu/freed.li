@@ -24,6 +24,8 @@ en:
   feeds: "feeds"
   back_button: "Back"
   all_feeds: "list all feeds"
+  search_label: "Search"
+  search_button: "search"
   codex: "Codex"
   evaluated_posts_list: "Evaluated posts"
   waiting_posts_list: " Waiting posts"

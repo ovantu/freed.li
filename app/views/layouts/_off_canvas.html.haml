@@ -12,14 +12,14 @@
 %aside.left-off-canvas-menu
   %ul.off-canvas-list
     %li
-      %label Search
+      %label= t("search_label")
     %li
       = form_tag search_path, :method => 'get' do
         .row.collapse
           .small-9.columns
             = text_field_tag :query, params[:query]
           .small-3.columns    
-            = submit_tag "Search", :name => nil, class: "button radius postfix"
+            = submit_tag t("search_button"), :name => nil, class: "button radius postfix"
     %li
       %label Feeds
     %li= link_to t("new_feed"), new_feed_path()
@@ -29,19 +29,16 @@
       %li
         %label= current_user.name
       %li
-        = link_to "profile", user_path(current_user.id)
+        = link_to t("profile_link"), user_path(current_user.id)
       %li
-        = link_to 'Edit account', edit_user_registration_path
+        = link_to t('edit_account_link'), edit_user_registration_path
       %li
-        = link_to 'Logout', destroy_user_session_path, :method=>'delete'
-    - else
-      %li.has-dropdown.not-click
-        %a{href: "#"} Login/Signup
-        %ul.dropdown
-          %li
-            = link_to 'Login', new_user_session_path
-          %li
-            = link_to 'Sign up', new_user_registration_path
+        = link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
+
+
+
+-# The right off-canvas for the codex
+
 -if feed
   %aside.right-off-canvas-menu
     %ul.off-canvas-list

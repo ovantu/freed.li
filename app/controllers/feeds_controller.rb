@@ -6,9 +6,17 @@ class FeedsController < ApplicationController
   # GET /feeds
   # GET /feeds.json
   def index
-    @active_feeds = Feed.all_active.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
-    @free_feeds = Feed.all_free.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
-    @users_feeds = Feed.all_contributed_feeds(current_user.id)
+    case params[:index_type]
+    when "free"
+      @feeds = Feed.all_free.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
+    when "contributed"
+      @feeds = Feed.all_contributed_feeds(current_user.id)
+    when "active"
+      @feeds = Feed.all_active.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
+    else
+      @feeds = Feed.all.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
+    end
+
     @created_feeds = Feed.where(creator_id: current_user.id)
     @feeds_to_evaluate = Feed.all_feeds_user_needs_to_evaluate(current_user.id)
     

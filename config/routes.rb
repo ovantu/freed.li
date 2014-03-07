@@ -7,6 +7,7 @@ Wispper::Application.routes.draw do
       end
     resources :posts
     resources :feeds, :path => "feeds"
+    get "feeds/all/:index_type" => "feeds#index", :as => "all_feeds_of_type"
     root :to => "home#index"
     get "feeds/:feed_id/posts/new" => "posts#new", :as => "new_post_for_feed"
     devise_for :users, :controllers => {:registrations => "registrations"}

@@ -23,7 +23,10 @@
     %li
       %label Feeds
     %li= link_to t("new_feed"), new_feed_path()
-    %li= link_to t("all_feeds"), feeds_path()
+    %li= link_to t("all_feeds_list"), feeds_path()      
+    %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")
+    %li= link_to t("active_feed_list"), all_feeds_of_type_path(index_type: "active")
+    %li= link_to t("free_feed_list"), all_feeds_of_type_path(index_type: "free")
 
     - if user_signed_in?
       %li

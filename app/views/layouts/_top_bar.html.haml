@@ -15,16 +15,18 @@
       %li.has-form
         = link_to t("new_feed"), new_feed_path(), class: "button  radius"
       %li.divider
-      %li= link_to t("feeds"), feeds_path()
-            
+      %li.has-dropdown.not-click
+        = link_to t("all_feeds_list"), feeds_path()
+        %ul.dropdown              
+          %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")
+          %li= link_to t("active_feed_list"), all_feeds_of_type_path(index_type: "active")
+          %li= link_to t("free_feed_list"), all_feeds_of_type_path(index_type: "free")
+          
+          
       - if user_signed_in?
         %li.divider
         %li.has-dropdown.not-click
-          %a{href: "#"}= current_user.name
-          %ul.dropdown
-            %li
-              = link_to t("profile_link"), user_path(current_user.id)
-            %li
-              = link_to t('edit_account_link'), edit_user_registration_path
-            %li
-              = link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
+          = link_to current_user.name, user_path(current_user.id) 
+          %ul.dropdown              
+            %li= link_to t('edit_account_link'), edit_user_registration_path
+            %li= link_to t('logout_link'), destroy_user_session_path, :method=>'delete'

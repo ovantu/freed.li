@@ -1,22 +1,15 @@
 .row.top-margin
-  .large-4.columns
+  .large-12.columns
     .freed_header
       = t('my_feeds')
-    .freed_list
-      - @users_feeds.each do |feed|
-        = render "feed_box", feed: feed
-  .large-4.columns    
-    .freed_header
-      = t('most_active_feeds')
-    .freed_list
-      - @active_feeds.each do |feed|
-        = render "feed_box", feed: feed
-  .large-4.columns
-    .freed_header
-      = t("free_feed_list")
-    .freed_list
-      - @free_feeds.each do |feed|
-        = render "feed_box", feed: feed
+
+  - @feeds.each_slice(3) do |tripplets|
+    .row
+      - tripplets.each_with_index do |feed, i|
+        .large-4.columns{class: ("end" if i == tripplets.size-1)}  
+          .freed_list
+            = render "feed_box", feed: feed
+    
 
 
 

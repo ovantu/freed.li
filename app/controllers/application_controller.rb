@@ -14,6 +14,9 @@ class ApplicationController < ActionController::Base
     if current_user
       # sets users page langauge
       I18n.locale = current_user.lang
+    elsif LANGUAGES_STRING.include? params[:lang_change]  #checks on the Home page for language change
+      I18n.locale = params[:lang_change]
+      redirect_to root_path  # for a nicer URL
     else
       I18n.locale = params[:locale] || http_accept_language.compatible_language_from(LANGUAGES_STRING)
     end

@@ -10,18 +10,22 @@
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
   %body
-    .off-canvas-wrap
-      .inner-wrap
-        = render "layouts/top_bar"
-        = render "layouts/off_canvas", feed: @feed
-        %section{role: "main"}
-          .row
-            .small-9.small-centered.columns.top-margin
-              = render 'layouts/messages'
-          = yield
+    .row
+      .small-offset-10.small-2.coulmns.top-margin
+        = form_tag(root_path, method: :get) do
+          = select_tag('lang_change', options_from_collection_for_select(LANGUAGES_HASH, :first, :last, I18n.locale))
+    
+    .top-margin= yield
+  
   -# Foundation 5 won't work when application.js is included in HEAD
   = javascript_include_tag "application"
   :javascript
-     $(document).ready(function() {
-       $("#hide").delay(2000).slideUp(500);
-     });
+    $(document).ready(function() {
+      $("#hide").delay(2000).slideUp(500);
+      $(".accordion").on("click", "a", function (event) {
+        $(".content").slideToggle("slow");
+      });
+      $('#lang_change').change(function() {
+        this.form.submit();
+      });
+    });

@@ -28,23 +28,23 @@ class FeedsController < ApplicationController
   def show
     # posts the user has to evaluate
     # @posts_to_evaluate = current_user.posts_to_be_evaluated_in_feed(params[:id])  FROM user model
-    @posts_to_evaluate = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id])
+    @posts_to_evaluate = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id]).order(:created_at)
     # user's posts which are still in_evaluation to show in a list
     # @users_posts = current_user.own_posts_in_evaluation_and_feed(params[:id])
-    @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id])
+    @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id]).order(:created_at)
     # posts the user evaluated (accepted or declined or passed) but are still in_evaluation to show in a list
     # @evaluated_posts = current_user.posts_in_evaluation(params[:id])
-    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations)
+    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations).order(:created_at)
     # all active posts (TO DO: check is eager_load is better for SQL server) with eager load of their creators (makes one big query instead of a query for each post)
-    @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator)
+    @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator).order(:created_at)
     
     # render stream: true
   end
 
   # GET /feeds/new
   def new
-    @new_feed = Feed.new(creator_id: current_user.id)
-    @new_feed.lang = I18n.locale
+    @feed_for_form = Feed.new(creator_id: current_user.id)
+    @feed_for_form.lang = I18n.locale
   end
 
   # GET /feeds/1/edit
@@ -100,6 +100,6 @@ class FeedsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def feed_params
-      params.require(:feed).permit(:goal, :rule1, :rule2, :rule3, :rule4, :rule5, :misc, :description, :lang, :status, :creator_id)
+      params.require(:feed).permit(:goal, :rule1, :rule2, :rule3, :rule4, :rule5, :misc, :description, :lang, :anonymity, :status, :creator_id)
     end
 end

@@ -8,6 +8,14 @@
   .codex_how_content
     = t('how_start')
     = t(feed.lang)
+    = t("and")
+    - case feed.anonymity
+    - when "all"
+      = t("all_anonymous")
+    - when "choice"
+      = t("choice_anonymous")
+    - when "nobody"
+      = t("nobody_anonymous")
     = t('how_end')
   .codex_what= t('codex_what')
   .codex_what_content

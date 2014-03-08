@@ -1,4 +1,4 @@
-= simple_form_for(@new_feed) do |f|
+= simple_form_for(@feed_for_form) do |f|
   = f.error_notification
 
   .form-inputs
@@ -6,6 +6,7 @@
       = f.input :goal, :autofocus => true, placeholder: t("goal_placeholder"), label: t("goal_label")
     .new_feed_how
       = f.input :lang, collection: LANGUAGES_HASH.invert, :include_blank => false, label: t("lang_label")
+      = f.input :anonymity, collection: {all: t("all_anonymous"), choice: t("choice_anonymous"), nobody: t("nobody_anonymous") }.invert, :include_blank => false, label: t("anonymity_feed_label")
     .new_feed_what
       = f.input :rule1, placeholder: t("needed_rule_placeholder"), label: t("rules_label")
       = f.input :rule2, placeholder: t("needed_rule_placeholder"), label: false

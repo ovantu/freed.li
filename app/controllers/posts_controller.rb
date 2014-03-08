@@ -27,6 +27,12 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(post_params)
+    case @post.feed.anonymity
+    when "all"
+      @post.anonymity = "hidden"
+    when "nobody"
+      @post.anonymity = "visible"
+    end
     # get all unique contributors (depending on "free" or "active") of the feed belonging to the post in creation
     @contributors = @post.feed.contributors(@post.feed.status)
     if @post.feed.status == "free"
@@ -98,7 +104,7 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:content, :creator_id, :feed_id, :status)
+      params.require(:post).permit(:content, :creator_id, :feed_id, :status, :anonymity)
     end
     
     def assign_inital_evaluators(entry, contributors)

@@ -3,6 +3,6 @@
     = post.content
 .row
   .large-6.columns.post_footer.post_creator
-    = post.creator.name
+    = post.creator.name if post.anonymity == "visible"
   .large-4.columns.post_footer.post_datetime
     = l(post.updated_at, format: :long)

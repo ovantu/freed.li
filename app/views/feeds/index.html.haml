@@ -12,10 +12,13 @@
         = t("all_feeds_list")
   .large-4.medium-6.columns
     = t("in")
-    - current_user.feedlang.each_with_index do |l,i|
-      = LANGUAGES_HASH[l.to_sym].humanize
-      = "," if i < current_user.feedlang.size - 2 
-      = t("and") if i == current_user.feedlang.size - 2
+    - if current_user.feedlang.kind_of?(Array)
+      - current_user.feedlang.each_with_index do |l,i|
+        = LANGUAGES_HASH[l.to_sym].humanize
+        = "," if i < current_user.feedlang.size - 2 
+        = t("and") if i == current_user.feedlang.size - 2
+    - else
+      = LANGUAGES_HASH[current_user.feedlang.to_sym].humanize
     .change_lang= link_to t("change_feed_lang"), edit_user_registration_path
 
 

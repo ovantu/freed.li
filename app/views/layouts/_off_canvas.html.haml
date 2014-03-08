@@ -21,7 +21,7 @@
           .small-3.columns    
             = submit_tag t("search_button"), :name => nil, class: "button radius postfix"
     %li
-      %label Feeds
+      %label= t("feeds_drop")
     %li= link_to t("new_feed"), new_feed_path()
     %li= link_to t("all_feeds_list"), feeds_path()      
     %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")

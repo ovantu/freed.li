@@ -3,6 +3,7 @@ en:
   page_title: "freed.li"
   feeds: "feeds"
   back_button: "Back"
+  feeds_drop: "Feeds"
   all_feeds_list: "All feeds"
   search_label: "Search"
   search_button: "search"

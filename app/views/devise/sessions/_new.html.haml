@@ -5,8 +5,13 @@
   = f.input :password, :label => false, :placeholder => "Password"
   .row
     .medium-7.medium-push-5.columns
-      = link_to "Forgot your password?", new_password_path(resource_name), class: "small_link" if devise_mapping.recoverable? && controller_name != 'passwords'
       = f.input :remember_me, :as => :boolean, class: "no-bottom-margin" if devise_mapping.rememberable?
      
     .medium-5.medium-pull-7.columns
       = f.button :submit, "Sign in", :class => 'button radius success small no-bottom-margin'
+  .row
+    .small-12.columns
+      = link_to t("password_forgotten"), new_password_path(resource_name), class: "small_link" if devise_mapping.recoverable? && controller_name != 'passwords'
+  .row
+    .small-12.columns    
+      = link_to t("no_confirmation_email"), new_confirmation_path(resource_name), class: "small_link" if devise_mapping.confirmable? && controller_name != 'confirmations'

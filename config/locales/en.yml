@@ -7,6 +7,9 @@ en:
   search_button: "search"
   codex: "Codex"
   
+  password_forgotten: "Forgot your password?"
+  no_confirmation_email: "Didn't receive confirmation email yet?"
+  
   feeds_drop: "Feeds"
   all_feeds_list: "All feeds"
   evaluated_posts_list: "Evaluated posts"

@@ -1,34 +1,35 @@
-%nav.top-bar.hide-for-small
-  %ul.title-area
-    %li.name
-      %h1= link_to t("page_title"), root_path
-  %section.top-bar-section
-    %ul.left
-      %li.has-form
-        = form_tag search_path, :method => 'get' do
-          .row.collapse
-            .small-9.columns
-              = text_field_tag :query, params[:query]
-            .small-3.columns    
-              = submit_tag t("search_button"), :name => nil, class: "button radius expand"
-    %ul.right    
-      %li.has-form
-        = link_to t("new_feed"), new_feed_path(), class: "button  radius"
-      %li.divider
-      %li.has-dropdown.not-click
-        %a{href: "#"}= t("feeds_drop")
-        %ul.dropdown    
-          %li= link_to t("all_feeds_list"), feeds_path()          
-          %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")
-          %li= link_to t("active_feed_list"), all_feeds_of_type_path(index_type: "active")
-          %li= link_to t("free_feed_list"), all_feeds_of_type_path(index_type: "free")
-          
-          
-      - if user_signed_in?
+.contain-to-grid.sticky{"data-options" => "sticky_on: large"}
+  %nav.hide-for-small.top-bar{"data-topbar" => ""}
+    %ul.title-area
+      %li.name
+        %h1= link_to t("page_title"), root_path
+    %section.top-bar-section
+      %ul.left
+        %li.has-form
+          = form_tag search_path, :method => 'get' do
+            .row.collapse
+              .small-9.columns
+                = text_field_tag :query, params[:query]
+              .small-3.columns    
+                = submit_tag t("search_button"), :name => nil, class: "button radius expand"
+      %ul.right    
+        %li
+          = link_to t("new_feed"), new_feed_path(), class: "button  radius"
         %li.divider
-        %li.has-dropdown.not-click
-          %a{href: "#"}= current_user.name
-          %ul.dropdown
-            %li= link_to t("profile_link"), user_path(current_user.id) 
-            %li= link_to t('edit_account_link'), edit_user_registration_path
-            %li= link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
+        %li.has-dropdown
+          %a{href: "#"}= t("feeds_drop")
+          %ul.dropdown    
+            %li= link_to t("all_feeds_list"), feeds_path()          
+            %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")
+            %li= link_to t("active_feed_list"), all_feeds_of_type_path(index_type: "active")
+            %li= link_to t("free_feed_list"), all_feeds_of_type_path(index_type: "free")
+          
+          
+        - if user_signed_in?
+          %li.divider
+          %li.has-dropdown
+            %a{href: "#"}= current_user.name
+            %ul.dropdown
+              %li= link_to t("profile_link"), user_path(current_user.id) 
+              %li= link_to t('edit_account_link'), edit_user_registration_path
+              %li= link_to t('logout_link'), destroy_user_session_path, :method=>'delete'

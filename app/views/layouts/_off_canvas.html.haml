@@ -48,9 +48,9 @@
       %li
         %label= t('codex')
       = render "layouts/codex", feed: @feed
-      - if @evaluated_posts
+      - if @evaluated_posts.size > 0
         %li
-          %label= t("evaluated_posts_list")
+          %label= t("evaluated_posts_list") 
           - @evaluated_posts.each do |ep|
             %li
               .evaluated_post_content= ep.content 
@@ -78,7 +78,7 @@
                     .small-8.columns
                       .progress.radius.no-bottom-margin
                         .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
-      - if @users_posts
+      - if @users_posts.size > 0
         %li
           %label= t("waiting_posts_list")
         - @users_posts.each do |ep|

@@ -10,9 +10,9 @@
     = javascript_include_tag "vendor/modernizr"
     = csrf_meta_tags
   %body
+    = render "layouts/top_bar"
     .off-canvas-wrap
       .inner-wrap
-        = render "layouts/top_bar"
         = render "layouts/off_canvas", feed: @feed
         %section{role: "main"}
           .row

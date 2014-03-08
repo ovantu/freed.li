@@ -3,16 +3,22 @@ en:
   page_title: "freed.li"
   feeds: "feeds"
   back_button: "Back"
-  feeds_drop: "Feeds"
-  all_feeds_list: "All feeds"
   search_label: "Search"
   search_button: "search"
   codex: "Codex"
+  
+  feeds_drop: "Feeds"
+  all_feeds_list: "All feeds"
   evaluated_posts_list: "Evaluated posts"
   waiting_posts_list: " Waiting posts"
   contributed_feed_list: "My contributions"
   active_feed_list: "Active feeds"
   free_feed_list: "Youngsters"
+  change_feed_lang: "Change displayed languages"
+
+  in: "in"
+  and: "and"
+  
   codex_why: "Why do work on this feed? (GOALS)"
   codex_how: "How are we going to achieve it? (TOOLS)"
   how_start: "We use info-feed in"
@@ -82,7 +88,7 @@ en:
   user_feed_stats: "Your feed statistics"
   created_feeds: "Created:"
   contributor_in_feeds: "Contributor status:"
-  free_feeds: "Children:"
+  free_feeds: "Youngsters:"
   active_feeds: "Grown ups:"
   
   user_post_stats: "Your posts statistics"

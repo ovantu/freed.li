@@ -1,15 +1,31 @@
 .row.top-margin
-  .large-12.columns
+  .large-8.medium-6.columns
     .freed_header
-      = t('my_feeds')
+      - case params[:index_type]
+      - when "free"
+        = t("free_feed_list")
+      - when "contributed"
+        = t("contributed_feed_list")
+      - when "active"
+        = t("active_feed_list")
+      - else
+        = t("all_feeds_list")
+  .large-4.medium-6.columns
+    = t("in")
+    - current_user.feedlang.each_with_index do |l,i|
+      = LANGUAGES_HASH[l.to_sym].humanize
+      = "," if i < current_user.feedlang.size - 2 
+      = t("and") if i == current_user.feedlang.size - 2
+    .change_lang= link_to t("change_feed_lang"), edit_user_registration_path
 
-  - @feeds.each_slice(3) do |tripplets|
-    .row
-      - tripplets.each_with_index do |feed, i|
-        .large-4.columns{class: ("end" if i == tripplets.size-1)}  
-          .freed_list
-            = render "feed_box", feed: feed
-    
+
+- @feeds.each_slice(3) do |tripplets|
+  .row
+    - tripplets.each_with_index do |feed, i|
+      .large-4.large-offset-0.medium-offset-2.medium-8.columns{class: ("end" if i == tripplets.size-1)}  
+        .freed_list
+          = render "feed_box", feed: feed
+  
 
 
 

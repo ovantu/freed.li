@@ -16,6 +16,12 @@ LANGUAGES_STRING = %w(en de es)
 
 
 # APP PARAMETERS ------------------------------------------
-MIN_CONTR_LVL1 = 7
+# stages up to the value e.g. STAGE_2 goes from 7 up to 30
+STAGE_0_1 = 7
+STAGE_2 = 30
+STAGE_3 = 100
+STAGE_4 = 300
+# STAGE 5 goes to infinity
+# Parameters for the evaluators calculation
 EVALUATOR_QUOTE = 1.5
 ACCEPT_QUOTE = 2.0/3.0

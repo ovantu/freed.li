@@ -35,11 +35,35 @@ class Feed < ActiveRecord::Base
     c
   end
   
+  def stage
+    con = contributors(self.status).length
+    case 
+    when con >= STAGE_0_1
+      if self.status == "free"
+        1
+      else
+        2
+      end
+    when con >= STAGE_2
+      3
+    when con >= STAGE_3
+      4
+    when con >= STAGE_4
+      5
+    else
+      if self.status == "free"
+        0
+      else
+        1
+      end
+    end
+  end
+  
 
   # This method updates the status of the feed if necessary from free to active; USED IN evaluations_controller
   def check_status_change_to_adolescence
     c = posts.where(status: "active").select(:creator_id).distinct.size
-    if c >= MIN_CONTR_LVL1
+    if c >= STAGE_0_1
       self.update(status: "active")
     end
   end

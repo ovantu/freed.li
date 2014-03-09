@@ -43,8 +43,8 @@ class PostsController < ApplicationController
         future_contributors = @contributors.size
       end
       # check how many contributors are already in the feed
-      if future_contributors < MIN_CONTR_LVL1
-        # all posts created with less than MIN_CONTR_LVL1 contributors will be free until enough contributors
+      if future_contributors < STAGE_0_1
+        # all posts created with less than STAGE_0_1 contributors will be free until enough contributors
         @post.status = "free"
       else
         if free_posts = Post.free_posts(@post.feed_id)

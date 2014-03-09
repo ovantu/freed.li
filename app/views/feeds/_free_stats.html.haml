@@ -1,6 +1,6 @@
 - if @feed.status == "free"
   .free_stats
-    - if @feed.contributors("free").size < MIN_CONTR_LVL1
+    - if @feed.contributors("free").size < STAGE_0_1
       .row
         .small-3.columns
           = image_tag("stage0.png", size: "80x80", :alt => t("feed_lvl0"))
@@ -10,10 +10,10 @@
               = t("free_needs_contributors")
           .row
             .progress.small-12.success.radius
-              .meter{:style => "width: " + ((@feed.contributors("free").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
+              .meter{:style => "width: " + ((@feed.contributors("free").size.to_f/STAGE_0_1.to_f)*100).to_i.to_s + "%"}
         .small-3.columns
           = image_tag("stage1.png", size: "80x80", :alt => t("feed_lvl1"))
-    - if @feed.contributors("free").size >= MIN_CONTR_LVL1
+    - if @feed.contributors("free").size >= STAGE_0_1
       .row
         .small-3.columns
           = image_tag("stage1.png", size: "80x80", :alt => t("feed_lvl1"))
@@ -23,6 +23,6 @@
               = t("free_needs_accepted_contributors")
           .row
             .progress.small-12.success.radius
-              .meter{:style => "width: " + ((@feed.contributors("active").size.to_f/MIN_CONTR_LVL1.to_f)*100).to_i.to_s + "%"}
+              .meter{:style => "width: " + ((@feed.contributors("active").size.to_f/STAGE_0_1.to_f)*100).to_i.to_s + "%"}
         .small-3.columns
           = image_tag("stage2.png", size: "80x80", :alt => t("feed_lvl2"))

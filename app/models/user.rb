@@ -64,7 +64,12 @@ class User < ActiveRecord::Base
       end
       total = total + 1
     end
-    [ac.to_f / total.to_f, ac.to_i, re.to_i]
+    if total > 0  # to avoid division by 0
+      trust = ac.to_f / total.to_f
+    else
+      trust = 1.0
+    end
+    [trust, ac.to_i, re.to_i]
   end
   
 end

@@ -1,6 +1,6 @@
 .row
   .large-12.columns.post_content
-    = post.content
+    = simple_format(post.content.html_safe)
 
 .row
   .small-10.columns.small-centered

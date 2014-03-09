@@ -17,5 +17,6 @@ Wispper::Application.routes.draw do
     put "evaluations/:id" => "evaluations#pass_post",  as: "pass_post"
     get "search/" => "search#show", as: "search"
     put "feedlang/" => "users#set_feed_languages", as: "set_feed_languages"
+    get "explain/trust" => "home#trust", as: "explain_trust"
   end
 end

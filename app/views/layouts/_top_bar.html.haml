@@ -16,11 +16,11 @@
         %li
           - if @feed
             - if current_user.trustworthiness[0] > TRUST_STAGE[@feed.stage]
-              = link_to trustworthiness_in_precent, user_path(current_user.id),  class: "user_trustworthiness trusted"
+              = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness trusted"
             - else
-              = link_to trustworthiness_in_precent, user_path(current_user.id),  class: "user_trustworthiness not_trusted"
+              = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness not_trusted"
           - else
-            = link_to trustworthiness_in_precent, user_path(current_user.id),  class: "user_trustworthiness"
+            = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness"
         %li
           = link_to t("new_feed"), new_feed_path(), class: "button  radius nav_button"
 

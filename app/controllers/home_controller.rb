@@ -4,5 +4,8 @@ class HomeController < ApplicationController
     render :layout => "home"
   end
 
+  def trust
+    render :layout => "application"
+  end
   
 end

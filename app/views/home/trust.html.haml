@@ -1,0 +1,59 @@
+.row
+  .medium-4.columns
+    %h3= t("trustwothiness_explain_title")
+    %p= t("trustwothiness_explain_text")
+
+  .medium-6.columns.medium-offset-2
+    .profile_trustworthiness
+      .row
+        .small-12.columns
+          %h3
+            = t("user_trustworthiness")
+            = trustworthiness_in_precent
+      .row
+        .small-4.columns
+          = t("active_posts")
+        .small-2.columns
+          = current_user.trustworthiness[1]
+        .small-4.columns
+          = t("rejected_posts")
+        .small-2.columns
+          = current_user.trustworthiness[2]
+          
+    .profile_trustworthiness
+      .row
+        .small-12.columns
+          %h3
+            = t("stage_needed_trust")
+      .row
+        .small-3.columns
+          = t("stage_0")
+        .small-3.columns
+          = t("everybody")
+        .small-3.columns
+          = t("stage_3")
+        .small-3.columns
+          = (TRUST_3*100).to_i.to_s + "%"
+
+
+      .row
+        .small-3.columns
+          = t("stage_1")
+        .small-3.columns
+          = (TRUST_1*100).to_i.to_s + "%"
+        .small-3.columns
+          = t("stage_4")
+        .small-3.columns
+          = (TRUST_4*100).to_i.to_s + "%"
+      
+      .row
+        .small-3.columns
+          = t("stage_2")
+        .small-3.columns
+          = (TRUST_2*100).to_i.to_s + "%"
+
+        .small-3.columns
+          = t("stage_5")
+        .small-3.columns
+          = (TRUST_5*100).to_i.to_s + "%"
+     

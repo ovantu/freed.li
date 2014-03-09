@@ -97,6 +97,9 @@ en:
   feed_lvl2: "Level 2 - Adult"
   
   user_trustworthiness: "Your trustworthiness: "
+  stage_needed_trust: "Which trust the feed stages expect:"
+  trustwothiness_explain_title: "Why trustworthiness?"
+  trustwothiness_explain_text: "freed.li is designed to work mostly without admins and moderators. In order to keep the workload for each user to a minimum we had to develop a mechanism which prevents the users from posting wrong posts. Based on your posting behaviour freed.li calculates your trustworthiness and its consequences."
   
   user_feed_stats: "Your feed statistics"
   created_feeds: "Created:"

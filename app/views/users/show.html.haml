@@ -1,9 +1,28 @@
 .row.top-margin
-  .large-4.large-offset-1.columns
+  .large-3.large-offset-2.columns
     %h1= @user.name
     %p= @user.email
+
+    
   .large-6.end.columns
-    .new_feed_why
+  
+    .profile_trustworthiness
+      .row
+        .small-12.columns
+          %h3
+            = t("user_trustworthiness")
+            = trustworthiness_in_precent
+      .row
+        .small-5.columns
+          = t("active_posts")
+        .small-1.columns
+          = @user.trustworthiness[1]
+        .small-5.columns
+          = t("rejected_posts")
+        .small-1.columns
+          = @user.trustworthiness[2]
+  
+    .profile_feeds
       %h3= t('user_feed_stats')
       .row
         .small-5.columns
@@ -25,7 +44,7 @@
           = @user.feeds.where(status: "active").length
       
 
-    .new_feed_how
+    .profile_posts
       %h3= t('user_post_stats')
       .row
         .small-5.columns
@@ -40,14 +59,14 @@
         .small-5.columns
           = t("active_posts")
         .small-1.columns
-          = @user.posts.where(status: "active").length
+          = @user.active_posts.length
         .small-5.columns
           = t("rejected_posts")
         .small-1.columns
-          = @user.posts.where(status: "rejected").length
+          = @user.rejected_posts.length
 
 
-    .new_feed_what
+    .profile_evaluations
       %h3= t('user_evaluation_stats')
       .row
         .small-5.columns

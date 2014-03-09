@@ -66,7 +66,7 @@ class PostsController < ApplicationController
         format.html { redirect_to feed_path(@post.feed_id), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', notice: @post.errors[:base]}
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end

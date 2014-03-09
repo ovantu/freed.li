@@ -30,6 +30,16 @@ class User < ActiveRecord::Base
     e = eval_posts.where(evaluations:{status: "pending"}).where(feed_id: feed_id)
   end
   
+  # shows all posts user created and are active
+  def active_posts
+    posts.where(status: "active")
+  end
+  
+  # shows all posts user created and are declined
+  def rejected_posts
+    posts.where(status: "rejected")
+  end
+  
   # shows all posts of a FEED that the user has to evaluate and are in_evaluation
   def posts_in_evaluation(feed_id)
     e = eval_posts.where(status: "in_evaluation").where(feed_id: feed_id)
@@ -37,6 +47,24 @@ class User < ActiveRecord::Base
   
   def own_posts_in_evaluation_and_feed(feed_id)
     p = posts.where(status: "free", feed_id: feed_id)
+  end
+  
+  def trustworthiness(amount = TRUST_POST_NUMBER.to_i)
+     # LIMIT geht irgednwie nicht
+    # post_stati = posts.where(status: ["active","rejected"]).group(:status).last(amount).count
+    last_posts = posts.where(status: ["active","rejected"]).last(amount)
+    ac = 0.0
+    re = 0.0
+    total = 0.0
+    last_posts.each do |lp|
+      if lp.status == "active"
+        ac = ac + 1
+      elsif lp.status == "rejected"
+        re = re + 1
+      end
+      total = total + 1
+    end
+    [ac.to_f / total.to_f, ac.to_i, re.to_i]
   end
   
 end

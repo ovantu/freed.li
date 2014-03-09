@@ -76,6 +76,7 @@ en:
   anonymity_label: "You can choose to stay anonymous"
   visible_creator: "Your name will be visible"
   hidden_creator: "Your name will be hidden"
+  no_save_not_trustworthy: "You have not enough trustworthiness to post into this feed"
   
   profile_link: "Profile"
   edit_account_link: "Edit account"
@@ -94,6 +95,8 @@ en:
   feed_lvl0: "Level 0 - Toddler"
   feed_lvl1: "Level 1 - Adolescent"
   feed_lvl2: "Level 2 - Adult"
+  
+  user_trustworthiness: "Your trustworthiness: "
   
   user_feed_stats: "Your feed statistics"
   created_feeds: "Created:"

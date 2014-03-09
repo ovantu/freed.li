@@ -1,6 +1,6 @@
 .row.top-margin
   .small-4.large-2.columns
-    = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius success no-bottom-margin"
+    = link_to 'New Post', new_post_for_feed_path(@feed.id), class: "button radius success no-bottom-margin" if current_user.trustworthiness[0] > TRUST_STAGE[@feed.stage]
   .small-8.large-10.columns
     %h3= @feed.goal
 .row

@@ -72,6 +72,19 @@ main {
 	padding-bottom: 0px !important;
 }
 
+.user_trustworthiness{
+	font-weight: bold !important;
+	font-size: 120% !important;
+}
+
+.trusted{
+	color: #7AFF7A !important;
+}
+
+.not_trusted{
+	color: #FF7A7A !important;
+}
+
 .small_link{
 	font-size: 75% !important;
 }
@@ -336,6 +349,7 @@ main {
 		background-color: #CCFFFF;
 }
 
+
 .new_feed_why, .new_feed_how, .new_feed_what, .new_feed_rest, .new_post_content{
 		border-radius: 10px; 
 		-moz-border-radius: 10px; 
@@ -345,7 +359,6 @@ main {
 		margin: 10px 0px;
 		padding: 10px;
 }
-
 
 .new_feed_why, .new_post_content{
 	background-color: #CCCCFF;
@@ -360,6 +373,30 @@ main {
 	background-color: #FFFFCC;
 }
 
+
 .progress{
 	height: 1.2rem !important;
+}
+
+.profile_feeds, .profile_posts, .profile_evaluations, .profile_trustworthiness{
+		border-radius: 10px; 
+		-moz-border-radius: 10px; 
+		-webkit-border-radius: 10px; 
+	/*	border: 2px dashed #960000;*/
+		background-color: #FFFFCC;
+		margin: 10px 0px;
+		padding: 10px;
+}
+
+.profile_trustworthiness{
+	background-color: #FFFFCC;
+}
+.profile_feeds{
+	background-color: #CCCCFF;
+}
+.profile_posts{
+	background-color: #CCE6FF;
+}
+.profile_evaluations{
+	background-color: #CCFFFF;
 }

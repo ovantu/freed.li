@@ -4,6 +4,11 @@ class Post < ActiveRecord::Base
   has_many :evaluations
   has_many :evaluators, :through => :evaluations, :source => :user
   
+  validates :content, length: { in: 10..160 }
+  validates_uniqueness_of :content
+  validates_presence_of :anonymity
+  validate :not_trustworthy
+  
   scope :free_posts, -> (feed_id){where(feed_id: feed_id, status: "free")}
   scope :active_posts, -> (feed_id){where(feed_id: feed_id, status: "active")}
   scope :in_evaluation_posts, -> (feed_id){where(feed_id: feed_id, status: "in_evaluaiton")}
@@ -37,6 +42,12 @@ class Post < ActiveRecord::Base
   
   def all_evaluated
     evaluations.where(status: ["accepted", "declined"])
+  end
+  
+  def not_trustworthy
+    if creator.trustworthiness[0] < TRUST_STAGE[feed.stage]
+      errors.add(:base, 'no_save_not_trustworthy')
+    end 
   end
   
 end

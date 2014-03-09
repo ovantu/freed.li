@@ -11,5 +11,10 @@ module ApplicationHelper
     HTML
     html.html_safe
   end
+  
+  
+  def trustworthiness_in_precent
+    (current_user.trustworthiness[0]*100).to_i.to_s + "%"
+  end
 
 end

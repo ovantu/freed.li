@@ -218,12 +218,18 @@ main {
 
 .post_content{
 	margin: 10px;
+	word-wrap: break-word;
+	width: 95%; 
+}
+
+.post_content p{
+	margin-bottom: 0px;
 }
 
 .post_footer{
 	font: 60% "Lucida Grande", "Trebuchet MS", Verdana, sans-serif;
 	color: #666;
-	margin: 3px 10px 3px 10px;
+	margin: 3px 5px 3px 5px;
 }
 
 .post_creator{

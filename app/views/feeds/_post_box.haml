@@ -1,8 +1,8 @@
 .row
   .large-12.columns.post_content
-    = post.content
+    = simple_format(post.content.html_safe)
 .row
-  .large-6.columns.post_footer.post_creator
+  .small-5.columns.post_footer.post_creator
     = post.creator.name if post.anonymity == "visible"
-  .large-4.columns.post_footer.post_datetime
+  .small-5.columns.post_footer.post_datetime
     = l(post.updated_at, format: :long)

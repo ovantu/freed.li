@@ -1,5 +1,5 @@
 - if feed.status == "active"
-  - status_class = "freed_entry_color"   
+  - status_class = "active_entry_color"   
 - else 
   - status_class = "free_entry_color"
   
@@ -11,8 +11,11 @@
 
 .feed_box{class: status_class}
   .row
-    .small-12.columns.freed_box_title
+    .small-3.columns
+      = image_tag("stage" + feed.stage.to_s + ".png", size: "80x80", :alt => t("feed_lvl0"))
+    .small-7.columns.freed_box_title
       = link_to feed.goal, feed_path(feed)
+    .small-2.columns
       - if @feeds_to_evaluate.include? feed
         .label.pending_evaluation.radius= feed.evaluations.where(user_id: current_user.id, status: "pending").length
 

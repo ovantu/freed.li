@@ -34,7 +34,9 @@
     .codex_misc
       = t('codex_misc')
     .codex_misc_content
-      = feed.misc
+      %ul.square
+        - feed.misc.split(",").each do |m|
+          %li= m
   - if feed.description != ""
     .codex_description
       = t('codex_description')

@@ -1,11 +1,14 @@
 
-en:
+es:
   page_title: "freed.li"
   feeds: "feeds"
   back_button: "Back"
   search_label: "Search"
   search_button: "search"
   codex: "Codex"
+  
+  password_forgotten: "Forgot your password?"
+  no_confirmation_email: "Didn't receive confirmation email yet?"
   
   feeds_drop: "Feeds"
   all_feeds_list: "All feeds"
@@ -48,6 +51,10 @@ en:
   goal_label: "Give us a reason WHY we should participate in this feed"
   goal_placeholder: "NEEDED: Please enter a specific goal for this feed"
   lang_label: "Which should be the main language for this feed?"
+  anonymity_feed_label: "Should the contributors be visible?"
+  all_anonymous: "all contributors are anonymous"
+  choice_anonymous: "each contributor decides on post creation"
+  nobody_anonymous: "all contributors are visible"
   rules_label: "Tell everybody WHAT should be in a post"
   needed_rule_placeholder: "NEEDED: Describe in simple words what the post has to contain"
   rules_placeholder: "Describe in simple words what the post has to contain"
@@ -66,6 +73,10 @@ en:
   new_post: "Create a new post"
   new_post_label: "Contribute with a post that fits the codex (yellow box) requirements. Other contributors will evaluate your post on this codex!"
   post_content_placeholder: "You have 160 signs to post something conform to our codex (yellow box!)."
+  anonymity_label: "You can choose to stay anonymous"
+  visible_creator: "Your name will be visible"
+  hidden_creator: "Your name will be hidden"
+  no_save_not_trustworthy: "You have not enough trustworthiness to post into this feed"
   
   profile_link: "Profile"
   edit_account_link: "Edit account"
@@ -84,6 +95,11 @@ en:
   feed_lvl0: "Level 0 - Toddler"
   feed_lvl1: "Level 1 - Adolescent"
   feed_lvl2: "Level 2 - Adult"
+  
+  user_trustworthiness: "Your trustworthiness: "
+  stage_needed_trust: "Which trust the feed stages expect:"
+  trustwothiness_explain_title: "Why trustworthiness?"
+  trustwothiness_explain_text: "freed.li is designed to work mostly without admins and moderators. In order to keep the workload for each user to a minimum we had to develop a mechanism which prevents the users from posting wrong posts. Based on your posting behaviour freed.li calculates your trustworthiness and its consequences."
   
   user_feed_stats: "Your feed statistics"
   created_feeds: "Created:"

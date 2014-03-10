@@ -127,3 +127,7 @@ en:
 
   cancel_account: "Cancel my account"
   unhappy: "Unhappy?"
+  
+  time:
+     formats:
+       long: "%d.%m.%y - %H:%M"

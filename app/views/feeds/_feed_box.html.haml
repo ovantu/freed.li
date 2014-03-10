@@ -13,11 +13,12 @@
   .row
     .small-3.columns
       = image_tag("stage" + feed.stage.to_s + ".png", size: "80x80", :alt => t("feed_lvl0"))
-    .small-7.columns.freed_box_title
-      = link_to feed.goal, feed_path(feed)
-    .small-2.columns
+      .label.top-margin.radius= feed.lang
       - if @feeds_to_evaluate.include? feed
-        .label.pending_evaluation.radius= feed.evaluations.where(user_id: current_user.id, status: "pending").length
+        .label.top-margin.pending_evaluation.radius= feed.evaluations.where(user_id: current_user.id, status: "pending").length
+    .small-9.columns.freed_box_title
+      = link_to feed.goal, feed_path(feed)
+
 
 
 / .row

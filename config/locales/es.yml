@@ -1,5 +1,5 @@
 
-es:
+en:
   page_title: "freed.li"
   feeds: "feeds"
   back_button: "Back"
@@ -127,3 +127,7 @@ es:
 
   cancel_account: "Cancel my account"
   unhappy: "Unhappy?"
+  
+  time:
+     formats:
+       long: "%d.%m.%y - %H:%M"

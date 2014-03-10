@@ -1,7 +1,7 @@
 class FeedsController < ApplicationController
   before_filter :authenticate_user!
   # load_and_authorize_resource 
-  before_action :set_feed, only: [:show, :edit, :update, :destroy]
+  before_action :set_feed, only: [:show, :update, :destroy]
 
   # GET /feeds
   # GET /feeds.json
@@ -48,8 +48,9 @@ class FeedsController < ApplicationController
   end
 
   # GET /feeds/1/edit
-  # def edit
-  # end
+  def edit
+    @feed_for_form = Feed.find(params[:id])
+  end
 
   # POST /feeds
   # POST /feeds.json
@@ -70,27 +71,27 @@ class FeedsController < ApplicationController
 
   # PATCH/PUT /feeds/1
   # PATCH/PUT /feeds/1.json
-  # def update
-  #   respond_to do |format|
-  #     if @feed.update(feed_params)
-  #       format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
-  #       format.json { head :no_content }
-  #     else
-  #       format.html { render action: 'edit' }
-  #       format.json { render json: @feed.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
+  def update
+    respond_to do |format|
+      if @feed.update(feed_params)
+        format.html { redirect_to @feed, notice: 'Feed was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: 'edit' }
+        format.json { render json: @feed.errors, status: :unprocessable_entity }
+      end
+    end
+  end
 
   # DELETE /feeds/1
   # DELETE /feeds/1.json
-  # def destroy
-  #   @feed.destroy
-  #   respond_to do |format|
-  #     format.html { redirect_to feeds_url }
-  #     format.json { head :no_content }
-  #   end
-  # end
+  def destroy
+    @feed.destroy
+    respond_to do |format|
+      format.html { redirect_to feeds_url }
+      format.json { head :no_content }
+    end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.

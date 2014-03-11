@@ -19,13 +19,3 @@
   
   -# Foundation 5 won't work when application.js is included in HEAD
   = javascript_include_tag "application"
-  :javascript
-    $(document).ready(function() {
-      $("#hide").delay(2000).slideUp(500);
-      $(".accordion").on("click", "a", function (event) {
-        $(".content").slideToggle("slow");
-      });
-      $('#lang_change').change(function() {
-        this.form.submit();
-      });
-    });

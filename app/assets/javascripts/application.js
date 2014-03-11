@@ -16,5 +16,18 @@
 //= require foundation
 //= require_tree .
 $(function() {
+	// foundation startup
   $(document).foundation();
+
+	// Notices disappear
+  $("#hide").delay(2000).slideUp(500);
+
+	// The Login/Registration Menu
+	$(".accordion").on("click", "a", function (event) {
+    $(".content").slideToggle("slow");
+  });
+  $('#lang_change').change(function() {
+    this.form.submit();
+  });
 });
+

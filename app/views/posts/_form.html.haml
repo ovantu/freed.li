@@ -9,5 +9,5 @@
       = f.hidden_field :feed_id
 
   .form-actions
-    = f.button :submit, t("create_post_button"), class: "button radius success"
+    = f.button :submit, t("create_post_button"), class: "button radius success", :data => { :confirm => t('sure_create_post') }
     = link_to t("back_button"), feed_path(@post.feed_id), class: "button radius alert"

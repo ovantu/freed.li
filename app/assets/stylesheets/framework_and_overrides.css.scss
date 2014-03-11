@@ -169,18 +169,13 @@ main {
 	margin: 10px 0px;
 }
 
-.codex_why, .codex_what, .codex_how, .codex_misc, .codex_description{
-	margin: 10px 0px 0px 10px;
-	font-size: 110%;
+.codex_why_content, .codex_what_content{
+	margin: 0.5em 2em 1.5em 2em;
 }
 
-.codex_why_content, .codex_what_content, .codex_how_content{
+.codex_misc_content, .codex_description_content, .codex_how_content{
 	margin: 0.5em 2em 1.5em 2em;
-	font-weight: bold;
-}
-
-.codex_misc_content, .codex_description_content{
-	margin: 0.5em 2em 1.5em 2em;
+	font-weight: normal !important;
 }
 
 .feed_stats{

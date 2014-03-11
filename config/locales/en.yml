@@ -17,7 +17,7 @@ en:
   contributed_feed_list: "My contributions"
   active_feed_list: "Active feeds"
   free_feed_list: "Youngsters"
-  change_feed_lang: "Change displayed languages"
+  change_feed_lang: "Click to select languages for displayed feeds"
 
   in: "in"
   and: "and"
@@ -130,6 +130,8 @@ en:
   
   create_feed_button: "Create feed"
   create_post_button: "Create post"
+  sure_create_post: "Are you sure?/n/nYou WON'T be able to edit or delete this post!"
+  sure_create_feed: "Are you sure?/n/nYou WON'T be able to edit or delete this feed!"
   
   time:
      formats:

@@ -11,15 +11,16 @@
       - else
         = t("all_feeds_list")
   .large-4.medium-6.columns
-    = t("in")
+    - string = t("in") + " "
     - if current_user.feedlang.kind_of?(Array)
       - current_user.feedlang.each_with_index do |l,i|
-        = LANGUAGES_HASH[l.to_sym].humanize
-        = "," if i < current_user.feedlang.size - 2 
-        = t("and") if i == current_user.feedlang.size - 2
+        - string << LANGUAGES_HASH[l.to_sym].humanize
+        - string << ", " if i < current_user.feedlang.size - 2 
+        - string << " " + t("and") + " " if i == current_user.feedlang.size - 2
     - else
-      = LANGUAGES_HASH[current_user.feedlang.to_sym].humanize
-    .change_lang= link_to t("change_feed_lang"), edit_user_registration_path
+      - string << LANGUAGES_HASH[current_user.feedlang.to_sym].humanize
+    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('change_feed_lang')}= link_to string, edit_user_registration_path
+
 
 
 - @feeds.each_slice(3) do |tripplets|

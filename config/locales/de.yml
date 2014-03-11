@@ -17,7 +17,7 @@ de:
   contributed_feed_list: "Meine Beiträge"
   active_feed_list: "Akivierte Feeds"
   free_feed_list: "Jugend"
-  change_feed_lang: "Feedsprachen auswählen"
+  change_feed_lang: "klick um Sprachen der angezeigten Feeds einzustellen"
 
   in: "in"
   and: "und"
@@ -131,6 +131,8 @@ de:
   
   create_feed_button: "Feed erstellen"
   create_post_button: "Post erstellen"
+  sure_create_post: "Bist du sicher? \n \n Du wirst diesen Post NICHT mehr editieren oder löschen können!"
+  sure_create_feed: "Bist du sicher? \n Du wirst diesen Feed NICHT mehr editieren oder löschen können!"
   
   time:
      formats:

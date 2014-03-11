@@ -14,6 +14,7 @@ gem 'paper_trail', '~> 3.0.0'
 gem 'pg'
 gem 'rails'
 gem 'rails_12factor'
+gem 'resque', "~> 1.22.0"
 gem 'rolify'
 gem 'sass-rails', '~> 4.0.0'
 gem 'simple_form'

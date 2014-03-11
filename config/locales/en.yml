@@ -136,3 +136,30 @@ en:
   time:
      formats:
        long: "%d.%m.%y - %H:%M"
+  
+  
+  jr_page_tour: "Explain this page"
+  jr_start_tour: "Start tour!"     
+  jr_next: "next"
+  jr_welcome_page_title: "Welcome to freed.li"
+  jr_welcome_page_text: "You want to collect information and links with the crowd? Create a feed, set up a codex and contribute to other feeds!"
+  
+  jr_feed_header_title: "Freed overview"
+  jr_feed_header_text: "Here you'll find a list of allready existing freeds. Browse the titles for any interesting subject. Feel free to join! \n The Stage indicates the amount of contributors in this freed."
+  
+  jr_feed_change_lang_title: "You speak more than one language?"
+  jr_feed_change_lang_text: "Freeds belong to a particular language. You can choose, in which ones you want to partake."
+  
+  jr_feed_create_feed_title: "You always wanted to..."
+  jr_feed_create_feed_text: "... (let) collect data for a specific topic? Create a freed and let others help you!"
+  
+  jr_trust_title: "The higher the better!"
+  jr_trust_text: "This is your current trustworthiness on freed.li based on your behaviour. This value will be important when creating psots and freeds."
+  
+  jr_profile_title: "Your menu"
+  jr_profile_text: "You can find here your profile, your settings and the logout button ;-)"
+  
+  
+  jr_feed_index_title: "Now you control the feed overview page!"
+  jr_feed_index_text: "Here you can look for topics that interest you. \n Now let's take a look into a freed! \n \n Click on any freed!"
+  jr_to_posts: "To the Freed and beyound!"

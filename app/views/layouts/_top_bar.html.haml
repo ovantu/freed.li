@@ -2,7 +2,7 @@
   %nav.hide-for-small.top-bar{"data-topbar" => ""}
     %ul.title-area
       %li.name
-        %h1= link_to t("page_title"), root_path
+        %h1#top_pagetitle= link_to t("page_title"), root_path
     %section.top-bar-section
       %ul.left
         %li.has-form
@@ -16,16 +16,15 @@
         %li
           - if @feed
             - if current_user.trustworthiness[0] > TRUST_STAGE[@feed.stage]
-              = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness trusted"
+              = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness trusted", id: "jr_trust_link"
             - else
-              = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness not_trusted"
+              = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness not_trusted", id: "jr_trust_link"
           - else
-            = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness"
-        %li
-          = link_to t("new_feed"), new_feed_path(), class: "button  radius nav_button"
+            = link_to trustworthiness_in_precent, explain_trust_path,  class: "user_trustworthiness", id: "jr_trust_link"
+ 
 
         %li.has-dropdown
-          %a{href: "#"}= t("feeds_drop")
+          %a#jr_profile_link{href: "#"}= t("feeds_drop")
           %ul.dropdown    
             %li= link_to t("all_feeds_list"), feeds_path()          
             %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")
@@ -41,3 +40,6 @@
               %li= link_to t("profile_link"), user_path(current_user.id) 
               %li= link_to t('edit_account_link'), edit_user_registration_path
               %li= link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
+              
+        %li
+          %a#jr_start_joyride{href: "#"}= "?"

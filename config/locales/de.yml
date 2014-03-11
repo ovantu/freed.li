@@ -137,3 +137,27 @@ de:
   time:
      formats:
        long: "%d.%m.%y - %H:%M"
+  
+  jr_page_tour: "Erklär mir diese Seite"     
+  jr_start_tour: "Tour starten!"    
+  jr_next: "weiter" 
+  jr_welcome_page_title: "Willkommen bei freed.li"
+  jr_welcome_page_text: "Du möchtest gerne zu einem Thema Informationen oder Links sammeln und dich von der Crowd unterstützen lassen? Erstelle einen Freed, definiere deinen Codex und beteilige dich an anderen Freeds!"
+  jr_feed_header_title: "Alle Freeds auf einen Blick"
+  jr_feed_header_text: "Hier siehst du eine Liste bereits existierender Freeds. Schau mal drüber, ob was interessantes für dich dabei ist. Und dann einfach mit machen! \n Die Stages zeigen ungefähr an, wie viele User sich bereits an dem Freed beteiligen."
+  
+  jr_feed_change_lang_title: "Sprichst du mehr als eine Sprache?"
+  jr_feed_change_lang_text: "Jeder Freed ist einsprachig gehalten. Aber du kannst hier sehen und einstellen, in welchen Sprachen du mitwirken willst."
+  
+  jr_feed_create_feed_title: "Du wolltest schon immer..."
+  jr_feed_create_feed_text: "... alle Informationen zu einem Thema sameln (lassen)? Erstelle hier einen neuen Freed und lass dir dabei helfen!"
+  
+  jr_trust_title: "Desto größer, desto besser!"
+  jr_trust_text: "Hier siehst du deine aktuelle Vertrauenswürdigkeit auf freed.li. Dieser Wert wird später noch wichtig beim Erstellen von Posts und Freeds."
+  
+  jr_profile_title: "Dein Menu"
+  jr_profile_text: "Hier findest du dein Profil, deine Einstellungen und den Logout ;-)"
+  
+  jr_feed_index_title: "Jetzt beherscht du die Freed Übersichtsseite!"
+  jr_feed_index_text: "Hier suchst du nach Themen die dich interessieren und erstellst neue Freeds. \n Lass uns nun mal in einen Freed reinschauen. \n \n Klick auf einen beliebigen Freed!"
+  jr_to_posts: "Zum Freed und noch viel weiter!"

@@ -1,17 +1,16 @@
 .row.top-margin
-  .large-8.medium-6.columns
-    .freed_header
-      - case params[:index_type]
-      - when "free"
-        = t("free_feed_list")
-      - when "contributed"
-        = t("contributed_feed_list")
-      - when "active"
-        = t("active_feed_list")
-      - else
-        = t("all_feeds_list")
-  .large-4.medium-6.columns
+  .small-6.medium-4.columns.freed_header#jr_freed_header
+    - case params[:index_type]
+    - when "free"
+      = t("free_feed_list")
+    - when "contributed"
+      = t("contributed_feed_list")
+    - when "active"
+      = t("active_feed_list")
+    - else
+      = t("all_feeds_list")
     - string = t("in") + " "
+  .small-6.medium-4.columns.freedlang_header
     - if current_user.feedlang.kind_of?(Array)
       - current_user.feedlang.each_with_index do |l,i|
         - string << LANGUAGES_HASH[l.to_sym].humanize
@@ -19,7 +18,10 @@
         - string << " " + t("and") + " " if i == current_user.feedlang.size - 2
     - else
       - string << LANGUAGES_HASH[current_user.feedlang.to_sym].humanize
-    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('change_feed_lang')}= link_to string, edit_user_registration_path
+    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('change_feed_lang')}= link_to string, edit_user_registration_path, id: "jr_change_lang"
+  .small-12.medium-4.columns.end
+    = link_to t("new_feed"), new_feed_path(), class: "button  radius nav_button", id: "jr_create_feed"
+   
 
 
 
@@ -34,3 +36,25 @@
 
 
 
+%ol.joyride-list{"data-joyride" => ""}
+  %li{"data-id" => "top_pagetitle", "data-button" => t("jr_start_tour")}
+    %h4= t('jr_welcome_page_title')
+    %p= t('jr_welcome_page_text')
+  %li{"data-id" => "jr_freed_header", "data-button" => t("jr_next")}
+    %h4= t('jr_feed_header_title')
+    %p= t('jr_feed_header_text')
+  %li{"data-id" => "jr_change_lang", "data-button" => t("jr_next")}
+    %h4= t('jr_feed_change_lang_title')
+    %p= t('jr_feed_change_lang_text')
+  %li{"data-id" => "jr_create_feed", "data-button" => t("jr_next")}
+    %h4= t('jr_feed_create_feed_title')
+    %p= t('jr_feed_create_feed_text')
+  %li{"data-id" => "jr_trust_link", "data-button" => t("jr_next")}
+    %h4= t('jr_trust_title')
+    %p= t('jr_trust_text')
+  %li{"data-id" => "jr_profile_link", "data-button" => t("jr_next")}
+    %h4= t('jr_profile_title')
+    %p= t('jr_profile_text')
+  %li{"data-button" => t("jr_to_posts")}
+    %h4= t('jr_feed_index_title')
+    %p= simple_format(t('jr_feed_index_text'))

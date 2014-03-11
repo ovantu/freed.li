@@ -20,6 +20,13 @@ class FeedsController < ApplicationController
     @created_feeds = Feed.where(creator_id: current_user.id)
     @feeds_to_evaluate = Feed.all_feeds_user_needs_to_evaluate(current_user.id)
     
+    # is automatically set after first time
+    # if params[:no_joyride] == "true"  #if user want to not see the joyride anymore
+    #   key = "no_joyride_for_" + (current_user.id * 9 - 5).to_s
+    #   unless cookies[key] == "true" #check if user is already in cookie
+    #     cookies[key] = "true" #  Create or apend to cookie
+    #   end
+    # end
     # render stream: true
   end
 

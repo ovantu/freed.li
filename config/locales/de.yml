@@ -139,7 +139,9 @@ de:
      formats:
        long: "%d.%m.%y - %H:%M"
   
-  jr_page_tour: "Erklär mir diese Seite"     
+  jr_page_tour: "Erklär mir diese Seite"   
+  jr_help_button_title: "WICHTIGER LINK!"
+  jr_help_button_text: "Dieser Link startet die Tour durch die jeweilige Page."  
   jr_start_tour: "Tour starten!"    
   jr_next: "weiter" 
   jr_welcome_page_title: "Willkommen bei freed.li"

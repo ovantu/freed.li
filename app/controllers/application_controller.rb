@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   before_action :set_locale
+
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
@@ -21,6 +22,7 @@ class ApplicationController < ActionController::Base
       I18n.locale = params[:locale] || http_accept_language.compatible_language_from(LANGUAGES_STRING)
     end
    # I18n.locale = params[:locale] || I18n.default_locale
+
   end
   
   # Automatic setting and insertion of locale in link generation

@@ -140,6 +140,8 @@ en:
   
   
   jr_page_tour: "Explain this page"
+  jr_help_button_title: "IMPORTANT LINK!"
+  jr_help_button_text: "This link will start the explanation tour on each page."
   jr_start_tour: "Start tour!"     
   jr_next: "next"
   jr_welcome_page_title: "Welcome to freed.li"

@@ -24,7 +24,7 @@
  
 
         %li.has-dropdown
-          %a#jr_profile_link{href: "#"}= t("feeds_drop")
+          %a{href: "#"}= t("feeds_drop")
           %ul.dropdown    
             %li= link_to t("all_feeds_list"), feeds_path()          
             %li= link_to t("contributed_feed_list"), all_feeds_of_type_path(index_type: "contributed")
@@ -35,11 +35,9 @@
         - if user_signed_in?
 
           %li.has-dropdown
-            %a{href: "#"}= current_user.name
+            %a#jr_profile_link{href: "#"}= current_user.name
             %ul.dropdown
               %li= link_to t("profile_link"), user_path(current_user.id) 
               %li= link_to t('edit_account_link'), edit_user_registration_path
               %li= link_to t('logout_link'), destroy_user_session_path, :method=>'delete'
               
-        %li
-          %a.jr_start_joyride{href: "#"}= "?"

@@ -18,7 +18,7 @@
         - string << " " + t("and") + " " if i == current_user.feedlang.size - 2
     - else
       - string << LANGUAGES_HASH[current_user.feedlang.to_sym].humanize
-    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('change_feed_lang')}= link_to string, edit_user_registration_path, id: "jr_change_lang"
+    %span.has-tip.tip-bottom{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('change_feed_lang')}= link_to string, edit_user_registration_path, id: "jr_change_lang"
   .small-12.medium-4.columns.end
     = link_to t("new_feed"), new_feed_path(), class: "button  radius nav_button", id: "jr_create_feed"
    
@@ -33,10 +33,11 @@
           = render "feed_box", feed: feed
   
 
-
-
-
 %ol.joyride-list{"data-joyride" => ""}
+  - unless cookies["no_joyride_for_" + (current_user.id * 9 - 6).to_s] == "true"
+    %li{"data-id" => "jr_start_joyride", "data-button" => t("jr_start_tour")}
+      %h4= t('jr_help_button_title')
+      %p= t('jr_help_button_text')
   %li{"data-button" => t("jr_start_tour")}
     %h4= t('jr_welcome_page_title')
     %p= t('jr_welcome_page_text')
@@ -58,3 +59,5 @@
   %li{"data-button" => t("jr_to_posts")}
     %h4= t('jr_feed_index_title')
     %p= simple_format(t('jr_feed_index_text'))
+ 
+    

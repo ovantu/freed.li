@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   validates :feedlang, presence: true
   
   serialize :feedlang
+  serialize :parameters
          
   has_many :feeds, :class_name => "Feed", :foreign_key => "creator_id"
   has_many :posts, :class_name => "Post", :foreign_key => "creator_id"  

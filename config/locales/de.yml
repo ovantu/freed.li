@@ -73,7 +73,7 @@ de:
   
   new_post: "Erstelle einen neuen Post"
   new_post_label: "Beteilige dich mit einem Codex (gelbe Box) konformen Post. Andere Mitwirkende werden diesen anhand des Codex evaluieren!"
-  post_content_placeholder: "Du hast 160 Zeichen für einen Codex (gelbe Box) konformen Post."
+  post_content_placeholder: "Du hast 160 Zeichen für einen Codex (gelbe Box) konformen Post. Falls deine Links zu viel Platz wegnehmen, nutze einen URL shortener wie www.bit.ly oder www.is.gd"
   anonymity_label: "Du kannst über deine Sichtbarkeit wählen"
   visible_creator: "Dein Name ist sichtbar"
   hidden_creator: "Dein Name ist versteckt"
@@ -131,7 +131,7 @@ de:
   
   create_feed_button: "Feed erstellen"
   create_post_button: "Post erstellen"
-  sure_create_post: "Bist du sicher? \n \n Du wirst diesen Post NICHT mehr editieren oder löschen können!"
+  sure_create_post: "Bist du sicher? \n Du wirst diesen Post NICHT mehr editieren oder löschen können!"
   sure_create_feed: "Bist du sicher? \n Du wirst diesen Feed NICHT mehr editieren oder löschen können!"
   
   time:

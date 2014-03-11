@@ -344,6 +344,9 @@ main {
 		background-color: #CCFFFF;
 }
 
+#post_content{
+	min-height: 7em !important;
+}
 
 .new_feed_why, .new_feed_how, .new_feed_what, .new_feed_rest, .new_post_content{
 		border-radius: 10px; 

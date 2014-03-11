@@ -1,9 +1,12 @@
 .row
-  .large-7.columns.top-margin
+  .large-12.columns.top-margin
     %h3= t('new_post')
+.row
+  .medium-5.medium-push-7.columns
+    = render "feeds/codex_short", feed: @post.feed
+  .medium-7.medium-pull-5.columns
     = render 'form'
-  .large-5.columns
-    = render "layouts/codex", feed: @post.feed
+
 
 
 

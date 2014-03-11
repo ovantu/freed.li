@@ -1,6 +1,11 @@
-.row.top-margin
-  .medium-5.medium-push-7.columns
-    = render "new_feed_codex"
-  .medium-7.medium-pull-5.columns
+.row
+  .large-12.columns.top-margin
     %h3= t('new_feed')
+.row
+  .large-5.large-push-7.columns
+    = render "new_feed_codex_short"
+  .large-7.large-pull-5.columns
     = render 'form'
+
+
+

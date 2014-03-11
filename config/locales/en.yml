@@ -128,6 +128,9 @@ en:
   cancel_account: "Cancel my account"
   unhappy: "Unhappy?"
   
+  create_feed_button: "Create feed"
+  create_post_button: "Create post"
+  
   time:
      formats:
        long: "%d.%m.%y - %H:%M"

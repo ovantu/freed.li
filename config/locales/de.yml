@@ -129,6 +129,9 @@ de:
   cancel_account: "Meinen Account löschen"
   unhappy: "Unglücklich?"
   
+  create_feed_button: "Feed erstellen"
+  create_post_button: "Post erstellen"
+  
   time:
      formats:
        long: "%d.%m.%y - %H:%M"

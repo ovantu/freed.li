@@ -1,0 +1,44 @@
+.codex
+  .codex_why_content  
+    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('codex_why')}= feed.goal
+  
+  .codex_how_content
+    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('codex_how')}
+      = t('how_start')
+      = t(feed.lang)
+      = t("and")
+      - case feed.anonymity
+      - when "all"
+        = t("all_anonymous")
+      - when "choice"
+        = t("choice_anonymous")
+      - when "nobody"
+        = t("nobody_anonymous")
+      = t('how_end')
+
+  .codex_what_content
+    %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('codex_what')}
+      %ul.square
+        - if feed.rule1 != ""
+          %li= feed.rule1
+        - if feed.rule2 != ""
+          %li= feed.rule2
+        - if feed.rule3 != ""
+          %li= feed.rule3
+        - if feed.rule4 != ""
+          %li= feed.rule4
+        - if feed.rule5 != ""
+          %li= feed.rule5
+  
+  - if feed.misc != ""
+    .codex_misc_content
+      %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('codex_misc')}
+        %ul.square
+          - feed.misc.split(",").each do |m|
+            %li= m
+
+  - if feed.description != ""
+    .codex_description_content
+      %span.has-tip.tip-bottom.tip-left{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('codex_description')}= feed.description
+
+

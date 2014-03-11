@@ -47,7 +47,7 @@
     %ul.off-canvas-list
       %li
         %label= t('codex')
-      = render "layouts/codex", feed: @feed
+      = render "codex_short", feed: @feed
       - if @evaluated_posts.size > 0
         %li
           %label= t("evaluated_posts_list") 

@@ -10,7 +10,7 @@ class FeedsController < ApplicationController
     when "free"
       @feeds = Feed.all_free.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
     when "contributed"
-      @feeds = Feed.all_contributed_feeds(current_user.id)
+      @feeds = Feed.all_contributed_feeds(current_user.id).order(created_at: :desc).first(20)
     when "active"
       @feeds = Feed.all_active.where(lang: current_user.feedlang).order(created_at: :desc).first(20)
     else

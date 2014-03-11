@@ -22,7 +22,7 @@ class Feed < ActiveRecord::Base
   
   
   # returns an array with all the user_ids of unique contributors depending on the past status of the feed
-  def contributors(status)
+  def contributors(status = self.status)
     if status == "free"
       stati = ["active", "free", "in_evaluation"]
     elsif status == "active"
@@ -38,7 +38,7 @@ class Feed < ActiveRecord::Base
   end
   
   def stage
-    con = contributors(self.status).length
+    con = contributors.length
     case 
     when con >= STAGE_0_1
       if self.status == "free"

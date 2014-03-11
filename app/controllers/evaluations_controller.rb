@@ -70,7 +70,7 @@ class EvaluationsController < ApplicationController
   # this method exchanges an evaluator for a new one
   def assign_new_evaluator(entry)
     # remove the creator and other evaluators of this post
-    possible_evaluators = entry.feed.contributors(entry.feed.status) - [entry.creator_id] - entry.all_evaluators
+    possible_evaluators = entry.feed.contributors - [entry.creator_id] - entry.all_evaluators
     # select a random evaluator
     evaluator = possible_evaluators.sample
     # set the pending evaluation

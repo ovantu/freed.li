@@ -34,7 +34,7 @@ class PostsController < ApplicationController
       @post.anonymity = "visible"
     end
     # get all unique contributors (depending on "free" or "active") of the feed belonging to the post in creation
-    @contributors = @post.feed.contributors(@post.feed.status)
+    @contributors = @post.feed.contributors
     if @post.feed.status == "free"
       # this check is needed as contributors only become one after saving the new post
       if !@contributors.include? current_user.id
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
       # check how many contributors are already in the feed
       if future_contributors < STAGE_0_1
         # all posts created with less than STAGE_0_1 contributors will be free until enough contributors
-        @post.status = "free"
+        @post.status = "free"  # if there are enough contributors it will be assigned with assign_inital_evaluators
       else
         if free_posts = Post.free_posts(@post.feed_id)
           free_posts.each do |fp|
@@ -54,7 +54,7 @@ class PostsController < ApplicationController
           end # .each
         end # if free_post
         # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
-        assign_inital_evaluators(@post, @contributors)
+        assign_inital_evaluators(@post, @contributors)  # instead of the "free" post earlier
       end # @contributors.size
     elsif @post.feed.status == "active"
       # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"

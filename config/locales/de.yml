@@ -72,6 +72,7 @@ de:
 
   
   new_post: "Erstelle einen neuen Post"
+  new_post_button: "Neuer Post"
   new_post_label: "Beteilige dich mit einem Codex (gelbe Box) konformen Post. Andere Mitwirkende werden diesen anhand des Codex evaluieren!"
   post_content_placeholder: "Du hast 160 Zeichen für einen Codex (gelbe Box) konformen Post. Falls deine Links zu viel Platz wegnehmen, nutze einen URL shortener wie www.bit.ly oder www.is.gd"
   anonymity_label: "Du kannst über deine Sichtbarkeit wählen"

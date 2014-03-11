@@ -71,6 +71,7 @@ en:
   new_feed_description: "Feeds should enable the users to post information based on a feed-specific goal, tools and set of rules. This will make the posts evaluable by other contributors independently of their beliefs, opinions or interests. Therefore a certain level of quality can be achieved."
   
   new_post: "Create a new post"
+  new_post_button: "New post"
   new_post_label: "Contribute with a post that fits the codex (yellow box) requirements. Other contributors will evaluate your post on this codex!"
   post_content_placeholder: "You have 160 signs to post something conform to our codex (yellow box!).Use www.bit.ly oder www.is.gd, if your links occupy too much space."
   anonymity_label: "You can choose to stay anonymous"

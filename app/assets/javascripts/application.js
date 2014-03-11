@@ -30,7 +30,7 @@ $(function() {
     this.form.submit();
   });
 
-	$("#jr_start_joyride").on("click", function (event) {
+	$(".jr_start_joyride").on("click", function (event) {
 		$(document).foundation('joyride', 'start');
   });
 });

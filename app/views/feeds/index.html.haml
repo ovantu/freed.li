@@ -20,7 +20,7 @@
       - string << LANGUAGES_HASH[current_user.feedlang.to_sym].humanize
     %span.has-tip.tip-bottom{class: "radius", "data-options" => "disable_for_touch:true", "data-tooltip" => "", title: t('change_feed_lang')}= link_to string, edit_user_registration_path, id: "jr_change_lang"
   .small-12.medium-4.columns.end
-    = link_to t("new_feed"), new_feed_path(), class: "button  radius nav_button", id: "jr_create_feed"
+    = link_to t("new_feed"), new_feed_path(), class: "button success  radius nav_button", id: "jr_create_feed"
    
 
 

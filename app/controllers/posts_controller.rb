@@ -47,7 +47,7 @@ class PostsController < ApplicationController
         # all posts created with less than STAGE_0_1 contributors will be free until enough contributors
         @post.status = "free"  # if there are enough contributors it will be assigned with assign_inital_evaluators
       else
-        if free_posts = Post.free_posts(@post.feed_id)
+        if free_posts = Post.free_posts(@post.feed_id)  # TO DO: maybe change it to a custom method for Feed instances
           free_posts.each do |fp|
             # assign the evaluators and create "pending" evaluations and change status to "in_evaluation"
             assign_inital_evaluators(fp, @contributors)
@@ -63,6 +63,8 @@ class PostsController < ApplicationController
 
     respond_to do |format|
       if @post.save
+        # check and change feeds contributor number and last activity
+        @post.feed.update_stats(current_user.id, @contributors)
         format.html { redirect_to feed_path(@post.feed_id), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else

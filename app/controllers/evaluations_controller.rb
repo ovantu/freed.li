@@ -48,20 +48,24 @@ class EvaluationsController < ApplicationController
     end
     # Check if e.g. 2/3 is achieved
     if ac/total >= ACCEPT_QUOTE
-      post = Post.find(post_id)
+      post = Post.find(post_id)   # could be refractored with the evaluations above (eager_load evaluations and save into variables)
       # here a post becomes active
       post.update(status: "active")
+      # check and updates feeds contributor number and last activity
+      post.feed.update_stats(current_user.id)
       @notice = t('post_activated')
       post.set_too_late_evaluations
       if post.feed.status == "free"
         # changes status to active if enough active posts
-        if post.feed.check_status_change_to_adolescence
+        if post.feed.check_status_change_to_active
           @notice = t('feed_matured')
         end
       end
     elsif de/total > 1-ACCEPT_QUOTE
-      post = Post.find(post_id)
+      post = Post.find(post_id)  # could be refractored with the evaluations above (eager_load evaluations and save into variables)
       post.update(status: "rejected")
+      # check and updates feeds contributor number and last activity
+      post.feed.update_stats(current_user.id)
       @notice = t('post_rejected')
       post.set_too_late_evaluations
     end

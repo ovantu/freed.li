@@ -131,8 +131,8 @@ en:
   
   create_feed_button: "Create feed"
   create_post_button: "Create post"
-  sure_create_post: "Are you sure?/n/nYou WON'T be able to edit or delete this post!"
-  sure_create_feed: "Are you sure?/n/nYou WON'T be able to edit or delete this feed!"
+  sure_create_post: "Are you sure?\n \n You WON'T be able to edit or delete this post!"
+  sure_create_feed: "Are you sure?\n \n You WON'T be able to edit or delete this feed!"
   
   time:
      formats:

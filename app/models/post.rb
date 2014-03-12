@@ -5,9 +5,9 @@ class Post < ActiveRecord::Base
   has_many :evaluators, :through => :evaluations, :source => :user
   
   validates :content, length: { in: 10..160 }
-  validates_uniqueness_of :content
+  validates_uniqueness_of :content, :scope => :feed, on: :create
   validates_presence_of :anonymity
-  validate :not_trustworthy
+  validate :not_trustworthy, on: :create
   
   scope :free_posts, -> (feed_id){where(feed_id: feed_id, status: "free")}
   scope :active_posts, -> (feed_id){where(feed_id: feed_id, status: "active")}

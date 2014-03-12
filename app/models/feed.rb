@@ -1,5 +1,5 @@
 class Feed < ActiveRecord::Base
-  has_paper_trail
+  has_paper_trail :ignore => [:last_activity, :contributor_count, :updated_at, :status]
   has_many :evaluations, :class_name => "Evaluation", :foreign_key => "feed_id"
   has_many :posts, :class_name => "Post", :foreign_key => "feed_id"
   
@@ -61,9 +61,18 @@ class Feed < ActiveRecord::Base
     end
   end
   
+  # checks if the contributor is new; takes the real contributor count (a fresh created "in_evaluation" post does not increase contributor count in active feeeds)
+  # used at post creation (contributors only change on "free" feeds) and post evaluation (acceptance and rejection)
+  def update_stats(user_id, contributor_array = contributors)
+    unless contributor_array.include? user_id
+      self.contributor_count = contributor_array.count
+    end
+    self.last_activity = Time.now
+    self.save
+  end
 
   # This method updates the status of the feed if necessary from free to active; USED IN evaluations_controller
-  def check_status_change_to_adolescence
+  def check_status_change_to_active
     c = posts.where(status: "active").select(:creator_id).distinct.size
     if c >= STAGE_0_1
       self.update(status: "active")

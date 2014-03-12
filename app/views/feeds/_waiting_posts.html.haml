@@ -30,6 +30,8 @@
                   .meter{:style => "width: " + ((ep.all_evaluated.count.to_f/ep.evaluations.count.to_f)*100).to_i.to_s + "%"}
 - if !@users_posts.empty?
   %p
-    %h5= t('users_posts_in_evaluation')
-    - @users_posts.each do |ep|
-      .waiting_posts= render "post_box", post: ep
+    %h5= t('users_posts_not_active')
+    - @users_posts.each do |post|
+      .waiting_posts
+        = render "post_box", post: post if post.status == "free"
+        = render "post_box_bar", post: post if post.status == "in_evaluation"

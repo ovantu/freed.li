@@ -1,0 +1,13 @@
+.row
+  .small-12.columns
+    .post_content
+      = simple_format(post.content.html_safe)
+.row
+  .small-10.small-offset-1.columns.end
+    .progress.radius.no-bottom-margin
+      .meter{:style => "width: " + ((post.all_evaluated.count.to_f/post.evaluations.count.to_f)*100).to_i.to_s + "%"}
+.row
+  .small-5.columns.post_footer.post_creator
+    = t("post_in_evaluation")
+  .small-5.columns.post_footer.post_datetime
+    = l(post.updated_at, format: :long)

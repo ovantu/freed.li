@@ -46,7 +46,7 @@ class FeedsController < ApplicationController
     if @feed.status == "active"
       @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
     elsif @feed.status == "free"
-      @posts = Post.where(status: "free", feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
+      @posts = Post.where(status: ["free", "in_evaluation", "active"], feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
     end
     
     # render stream: true

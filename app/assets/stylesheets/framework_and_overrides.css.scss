@@ -213,7 +213,7 @@ main {
 	padding: 10px;
 }
 
-.active_post, .free_post{
+.active_post, .free_post, .in_evaluation_post{
 	border-radius: 10px; 
 	-moz-border-radius: 10px; 
 	-webkit-border-radius: 10px; 
@@ -227,7 +227,7 @@ main {
 	background-color: #CCFFE6;
 }
 
-.free_post{
+.free_post, .in_evaluation_post{
 	background-color: #FFFFCC;
 }
 

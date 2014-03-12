@@ -2,7 +2,8 @@
   .large-12.columns.post_content
     = simple_format(post.content.html_safe)
 .row
-  .small-5.columns.post_footer.post_creator
-    = post.creator.name if post.anonymity == "visible"
-  .small-5.columns.post_footer.post_datetime
+  .small-6.columns.post_footer.post_creator
+    = post.creator.name if post.anonymity == "visible" and post.status == "active"
+    = t("post_is_free")
+  .small-4.columns.post_footer.post_datetime
     = l(post.updated_at, format: :long)

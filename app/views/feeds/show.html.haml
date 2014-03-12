@@ -13,7 +13,8 @@
         
     - @posts.each do |post|
       %div{class: post.status + "_post"}
-        = render "post_box", post: post
+        = render "post_box", post: post if post.status != "in_evaluation"
+        = render "post_box_bar", post: post if post.status == "in_evaluation"
   
   .medium-5.large-4.large-offset-1.columns.hide-for-small
     = render "codex_short", feed: @feed

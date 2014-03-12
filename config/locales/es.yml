@@ -1,5 +1,5 @@
 
-en:
+es:
   page_title: "freed.li"
   feeds: "feeds"
   back_button: "Back"
@@ -32,7 +32,7 @@ en:
   accept_eval: "codex conform"
   decline_eval: "needs rework"
   pass_eval: "pass on"
-  users_posts_in_evaluation: "Posts you created waiting for evaluation:"
+  users_posts_not_active: "Posts you created waiting for evaluation:"
   posts_user_evaluated: "Posts you evaluated, but still in evaluation:"
   post_accepted: "EVALUATION: You accepted this post."
   post_declined: "EVALUATION: You declined this post."

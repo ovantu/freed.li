@@ -35,7 +35,7 @@ de:
   accept_eval: "akzeptieren"
   decline_eval: "ablehnen"
   pass_eval: "keine Ahnung"
-  users_posts_not_active: "Deine noch nicht aktivierten Posts:"
+  users_posts_not_active: "Deine noch nicht akzeptierten Posts:"
   posts_user_evaluated: "Von dir evaluierte Posts:"
   post_accepted: "EVALUIERUNG: Du hast diesen Post akzeptiert."
   post_declined: "EVALUIERUNG: Du hast diesen Post abgelehnt."
@@ -166,6 +166,8 @@ de:
   jr_feed_index_title: "Jetzt beherscht du die Freed Übersichtsseite!"
   jr_feed_index_text: "Hier suchst du nach Themen die dich interessieren und erstellst neue Freeds. \n Lass uns nun mal in einen Freed reinschauen. \n \n Klick auf einen beliebigen Freed!"
   jr_to_posts: "Zum Freed und noch viel weiter!"
+  
+  send_stage_up: "Hurray, deine Aktion hat den Stage des Freeds erhöht!!\n Warte hier kurz, während wir alle anderen per Email informieren und wir leiten dich gleich weiter."
   
   fns_subject: "Dein Freed ist aufgestiegen!! Stage: "
   fns_hello: "Hallo "

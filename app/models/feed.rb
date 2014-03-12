@@ -1,7 +1,9 @@
 class Feed < ActiveRecord::Base
-  has_paper_trail :ignore => [:last_activity, :contributor_count, :updated_at, :status]
+  has_paper_trail :ignore => [:last_activity, :contributor_count, :updated_at, :status, :stage]
   has_many :evaluations, :class_name => "Evaluation", :foreign_key => "feed_id"
   has_many :posts, :class_name => "Post", :foreign_key => "feed_id"
+  
+  cattr_accessor :stage_up
   
   validates :goal, length: { in: 10..160 }
   validates :rule1, length: { in: 10..160 }
@@ -69,10 +71,24 @@ class Feed < ActiveRecord::Base
   # checks if the contributor is new; takes the real contributor count (a fresh created "in_evaluation" post does not increase contributor count in active feeeds)
   # used at post creation (contributors only change on "free" feeds) and post evaluation (acceptance and rejection)
   def update_stats
-    self.contributor_count = contributors.count
-    self.stage = check_stage(self.contributor_count)
+    return_var = Hash.new
+    if self.contributor_count != contributors.count
+      self.contributor_count = contributors.count
+      return_var[:contributor] = "changed"
+    else
+      return_var[:contributor] = "stayed"
+    end
+    actual_stage = check_stage(self.contributor_count)
+    if self.stage != nil and actual_stage > self.stage   #Stage UP!!
+      self.stage = actual_stage
+      return_var[:stage] = "changed"
+    else
+      return_var[:stage] = "stayed"
+    end
     self.last_activity = Time.now
+    return_var[:activity] = "changed"
     self.save
+    return_var
   end
 
   # This method updates the status of the feed if necessary from free to active; USED IN evaluations_controller

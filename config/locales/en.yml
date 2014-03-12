@@ -32,7 +32,7 @@ en:
   accept_eval: "codex conform"
   decline_eval: "needs rework"
   pass_eval: "pass on"
-  users_posts_not_active: "Not active Posts you created:"
+  users_posts_not_active: "Not yet accepted Posts you created:"
   posts_user_evaluated: "Posts you evaluated, but still in evaluation:"
   post_accepted: "EVALUATION: You accepted this post."
   post_declined: "EVALUATION: You declined this post."
@@ -168,6 +168,8 @@ en:
   jr_feed_index_title: "Now you control the feed overview page!"
   jr_feed_index_text: "Here you can look for topics that interest you. \n Now let's take a look into a freed! \n \n Click on any freed!"
   jr_to_posts: "To the Freed and beyound!"
+  
+  send_stage_up: "Hurray, your action has increased the stage of the freed!!\n Please wait a moment while we inform the other contributors via email. You will automatically be forwarded."  
   
   fns_subject: "Your freed reached the next stage!! Stage: "
   fns_hello: "Hello "

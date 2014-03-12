@@ -52,7 +52,10 @@ class EvaluationsController < ApplicationController
       # here a post becomes active
       post.update(status: "active")
       # check and updates feeds contributor number and last activity
-      post.feed.update_stats
+      feed_stats = post.feed.update_stats
+      if feed_stats[:stage] == "changed" # check if stage up happened
+        flash[:send_stage_notification] = post.feed.id # send a emails with the next action; application controller 
+      end
       @notice = t('post_activated')
       post.set_too_late_evaluations
       if post.feed.status == "free"
@@ -63,9 +66,9 @@ class EvaluationsController < ApplicationController
       end
     elsif de/total > 1-ACCEPT_QUOTE
       post = Post.find(post_id)  # could be refractored with the evaluations above (eager_load evaluations and save into variables)
-      post.update(status: "rejected")
+      post.update(status: "rejected") 
       # check and updates feeds contributor number and last activity
-      post.feed.update_stats
+      post.feed.update_stats  # only stage up can happen so no checking on
       @notice = t('post_rejected')
       post.set_too_late_evaluations
     end

@@ -18,5 +18,6 @@ Wispper::Application.routes.draw do
     get "search/" => "search#show", as: "search"
     put "feedlang/" => "users#set_feed_languages", as: "set_feed_languages"
     get "explain/trust" => "home#trust", as: "explain_trust"
+    get "send/notifications/:id" => "feeds#send_stage_up_notification_email", as: "send_stage_up_notification_email"
   end
 end

@@ -43,10 +43,13 @@ class PostsController < ApplicationController
       if @post.save
         # get all unique contributors (depending on "free" or "active") of the feed belonging to the post in creation
         @contributors = @post.feed.contributors
-        # check and change feeds contributor number and last activity
-        @post.feed.update_stats
         
         if @post.feed.status == "free"
+          # check and change feeds contributor number and last activity; ONLY free posters become automaticaly contributors
+          feed_stats = @post.feed.update_stats
+          if feed_stats[:stage] == "changed" # check if stage up happened
+            flash[:send_stage_notification] = @post.feed.id # send a emails with the next action; application controller 
+          end
           # check how many contributors are already in the feed
           if @contributors.size >= STAGE_0_1  # Stage 1
             if free_posts = Post.free_posts(@post.feed_id)  # TO DO: maybe change it to a custom method for Feed instances
@@ -55,10 +58,7 @@ class PostsController < ApplicationController
                 assign_inital_evaluators(fp, @contributors)
               end # .each
             end # if free_post
-            # SEND NOTIFICATIONS to contributors for change to Stage 1
-            # User.where(id: @contributors).each do |contributor|
-            #   Notifier.feed_next_stage(@post.feed, contributor).deliver
-            # end
+
           end # Stage 1
         elsif @post.feed.status == "active"
           # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"

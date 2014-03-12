@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   before_action :set_locale
+  before_action :check_notifications
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -31,5 +32,16 @@ class ApplicationController < ActionController::Base
     { locale: I18n.locale }
   end
 
+  def check_notifications
+    if flash[:send_stage_notification]
+      # SEND NOTIFICATIONS to contributors for change to higher Stage
+      feed = Feed.find(flash[:send_stage_notification])
+      User.where(id: feed.contributors).each do |contributor|
+        Notifier.feed_next_stage(feed, contributor).deliver
+      end
+      # for testing 0.0.0.0:3000
+      # Notifier.feed_next_stage(feed, User.find(7)).deliver
+    end
+  end
 
 end

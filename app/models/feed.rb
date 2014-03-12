@@ -37,20 +37,9 @@ class Feed < ActiveRecord::Base
     c
   end
   
-  # returns an array with all the user_ids of unique contributors depending on the past status of the feed
-  def contributors(status = self.status)
-    if status == "free"
-      stati = ["active", "free", "in_evaluation"]
-    elsif status == "active"
-      stati = "active"
-    end
-    p = posts.where(status: stati).select(:creator_id).distinct
-    c = []
-    p.each do |post|
-      # create an array of all contributor ids
-      c.push (post.creator_id) 
-    end
-    c
+  # returns an array with all the data (name, email, lang) of unique contributors depending on the past status of the feed
+  def contributor_data
+    User.select(:id, :name, :email, :lang).where(id: contributors)
   end
   
    # returns the Stage based on status and contributors

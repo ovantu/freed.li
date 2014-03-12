@@ -10,10 +10,9 @@
       - @posts_to_evaluate.each do |post|
         .evaluate_post
           = render "evaluate_post_box", post: post
-      
-
+        
     - @posts.each do |post|
-      .active_post
+      %div{class: post.status + "_post"}
         = render "post_box", post: post
   
   .medium-5.large-4.large-offset-1.columns.hide-for-small

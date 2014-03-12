@@ -213,15 +213,22 @@ main {
 	padding: 10px;
 }
 
-.active_post{
+.active_post, .free_post{
 	border-radius: 10px; 
 	-moz-border-radius: 10px; 
 	-webkit-border-radius: 10px; 
 /*	border: 2px solid #5768BA;*/
-	background-color: #CCFFE6;
 	margin: 10px 0px;
 	font: 120%;
 	font-weight: bold;
+}
+
+.active_post{
+	background-color: #CCFFE6;
+}
+
+.free_post{
+	background-color: #FFFFCC;
 }
 
 .feed_box .active_post{

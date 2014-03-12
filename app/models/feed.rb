@@ -43,8 +43,7 @@ class Feed < ActiveRecord::Base
   end
   
    # returns the Stage based on status and contributors
-  def stage
-    con = contributor_count
+  def check_stage(con = contributor_count)
     case 
     when con >= STAGE_0_1
       if self.status == "free"
@@ -71,6 +70,7 @@ class Feed < ActiveRecord::Base
   # used at post creation (contributors only change on "free" feeds) and post evaluation (acceptance and rejection)
   def update_stats
     self.contributor_count = contributors.count
+    self.stage = check_stage(self.contributor_count)
     self.last_activity = Time.now
     self.save
   end

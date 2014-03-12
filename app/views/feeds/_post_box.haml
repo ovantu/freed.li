@@ -4,6 +4,6 @@
 .row
   .small-6.columns.post_footer.post_creator
     = post.creator.name if post.anonymity == "visible" and post.status == "active"
-    = t("post_is_free")
+    = t("post_is_free") if post.status == "free"
   .small-4.columns.post_footer.post_datetime
     = l(post.updated_at, format: :long)

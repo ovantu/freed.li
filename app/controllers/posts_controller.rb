@@ -56,9 +56,9 @@ class PostsController < ApplicationController
               end # .each
             end # if free_post
             # SEND NOTIFICATIONS to contributors for change to Stage 1
-            User.where(id: @contributors).each do |contributor|
-              Notifier.feed_next_stage(@post.feed, contributor).deliver
-            end
+            # User.where(id: @contributors).each do |contributor|
+            #   Notifier.feed_next_stage(@post.feed, contributor).deliver
+            # end
           end # Stage 1
         elsif @post.feed.status == "active"
           # NEW POST: assign the evaluators and create "pending" evaluations and change status to "in_evaluation"

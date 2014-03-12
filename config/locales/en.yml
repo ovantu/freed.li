@@ -166,3 +166,12 @@ en:
   jr_feed_index_title: "Now you control the feed overview page!"
   jr_feed_index_text: "Here you can look for topics that interest you. \n Now let's take a look into a freed! \n \n Click on any freed!"
   jr_to_posts: "To the Freed and beyound!"
+  
+  fns_subject: "Your freed reached the next stage!! Stage: "
+  fns_hello: "Hello "
+  fns_interest: 'With your interest and engagement for "%{feed_goal}" payed off!!'
+  fns_text: "The freed has gathered enough contributors to reach the next stage."
+  fns_evaluations: "Cool, allready %{evaluaiton_number} evaluations are waiting for you!"
+  fns_evaluation: "Look, one evaluation is waiting for you!"
+  fns_follow_link: "Follow this link to your freed:"
+  fns_end: "We are very excited that you contribute on freed.li! Thanks!"

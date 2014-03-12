@@ -164,3 +164,12 @@ de:
   jr_feed_index_title: "Jetzt beherscht du die Freed Übersichtsseite!"
   jr_feed_index_text: "Hier suchst du nach Themen die dich interessieren und erstellst neue Freeds. \n Lass uns nun mal in einen Freed reinschauen. \n \n Klick auf einen beliebigen Freed!"
   jr_to_posts: "Zum Freed und noch viel weiter!"
+  
+  fns_subject: "Dein Freed ist aufgestiegen!! Stage: "
+  fns_hello: "Hallo "
+  fns_interest: 'Dein Interesse und Engagement bei "%{feed_goal}" haben sich ausgezahlt!'
+  fns_text: "Es sind nun genügend Contributors (Mitwirkende) zusammen gekommen, um die nächste Freed-Stage zu erlangen."
+  fns_evaluations: "Es warten sogar schon %{evaluaiton_number} Evaluierungen auf dich!"
+  fns_evaluation: "Es wartet sogar schon eine Evaluierungen auf dich!"
+  fns_follow_link: "Folge diesem Link zu deinem Freed:"
+  fns_end: "Cool, dass du bei freed.li mitmachst! Danke nochmal!"

@@ -1,0 +1,17 @@
+<%= t('fns_hello')%> <%= @user.name %>,
+===============================================
+ 
+<%= t("fns_interest", feed_goal: @feed.goal) %>
+
+<%= t("fns_text") %>
+
+<%- if @evaluations.size > 1%>
+<%= t("fns_evaluations", evaluaiton_number: @evaluations.size) %>
+<%- elsif @evaluations.size == 1%>
+<%= t("fns_evaluation") %>
+<%- end %>
+
+<%= t("fns_follow_link") %>
+<%= feed_url(@feed, locale: @user.lang) %>
+
+<%= t("fns_end") %>

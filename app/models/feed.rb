@@ -69,10 +69,8 @@ class Feed < ActiveRecord::Base
   
   # checks if the contributor is new; takes the real contributor count (a fresh created "in_evaluation" post does not increase contributor count in active feeeds)
   # used at post creation (contributors only change on "free" feeds) and post evaluation (acceptance and rejection)
-  def update_stats(user_id, contributor_array = contributors)
-    unless contributor_array.include? user_id
-      self.contributor_count = contributor_array.count
-    end
+  def update_stats
+    self.contributor_count = contributors.count
     self.last_activity = Time.now
     self.save
   end

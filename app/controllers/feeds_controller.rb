@@ -65,6 +65,8 @@ class FeedsController < ApplicationController
     @feed = Feed.new(feed_params)
     # a freshly created feed is "free" like the posts in it; later it becomes "active" and the posts "in_evaluation" 
     @feed.status = "free"
+    @feed.contributor_count = 0
+    @feed.last_activity = Time.now
     respond_to do |format|
       if @feed.save
         format.html { redirect_to @feed, notice: t('feed_create_success') }

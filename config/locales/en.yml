@@ -115,7 +115,7 @@ en:
   rejected_posts: "Rejected posts:"
   
   user_evaluation_stats: "Your evaluation statistics"
-  evaluated_posts: "Posts evaluated:"
+  evaluated_posts: "All evaluations:"
   accepted_posts: "Posts accepted:"
   pending_posts: "Pending evaluations:"
   declined_posts: "Posts declined:"

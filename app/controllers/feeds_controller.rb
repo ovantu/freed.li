@@ -44,9 +44,9 @@ class FeedsController < ApplicationController
     @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations).order(:created_at)
     # all active posts (TO DO: check is eager_load is better for SQL server) with eager load of their creators (makes one big query instead of a query for each post)
     if @feed.status == "active"
-      @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator).order(:created_at)
+      @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
     elsif @feed.status == "free"
-      @posts = Post.where(status: "free", feed_id: params[:id]).eager_load(:creator).order(:created_at)
+      @posts = Post.where(status: "free", feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
     end
     
     # render stream: true

@@ -75,6 +75,7 @@ class FeedsController < ApplicationController
     # a freshly created feed is "free" like the posts in it; later it becomes "active" and the posts "in_evaluation" 
     @feed.status = "free"
     @feed.contributor_count = 0
+    @feed.stage = 0
     @feed.last_activity = Time.now
     respond_to do |format|
       if @feed.save

@@ -3,7 +3,7 @@
     %h5= t('posts_user_evaluated')
     - @evaluated_posts.each do |ep|
       .evaluated_posts
-        .evaluated_post_content= post_cotent(ep.content )
+        .evaluated_post_content= post_content(ep.content )
         -if ep.evaluations.first.status == "accepted"
           .evaluated_post_status.accepted
             .row

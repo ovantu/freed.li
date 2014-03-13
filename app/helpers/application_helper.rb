@@ -18,7 +18,7 @@ module ApplicationHelper
     urls = text.scan(url_regexp)
     urls.each do |u|
       if u[0] != nil
-        text[u[0]] = "<a href=#{u[0]}>#{u[0]}</a>"
+        text[u[0]] = "<a href=#{u[0]} target='_blank'>#{u[0]}</a>"
       end
     end
     text

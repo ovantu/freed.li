@@ -27,7 +27,7 @@
               .large-6.columns.post_footer.post_creator
                 = post.creator.name
               .large-4.columns.post_footer.post_datetime
-                = l(post.updated_at, format: :long)
+                = l(post.created_at, format: :long)
   .large-6.columns
     .freed_header
       = t('found_feeds')

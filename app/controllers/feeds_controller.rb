@@ -35,18 +35,17 @@ class FeedsController < ApplicationController
   def show
     # posts the user has to evaluate
     # @posts_to_evaluate = current_user.posts_to_be_evaluated_in_feed(params[:id])  FROM user model
-    @posts_to_evaluate = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id]).order(:created_at)
+    @posts_to_evaluate = Post.joins(:evaluations).where(evaluations:{status:"pending", user_id: current_user.id}).where(feed_id: params[:id]).order(created_at: :desc)
     # user's posts which are still in_evaluation to show in a list
     # @users_posts = current_user.own_posts_in_evaluation_and_feed(params[:id])
-    @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id]).order(:created_at)
+    @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id]).order(created_at: :desc)
     # posts the user evaluated (accepted or declined or passed) but are still in_evaluation to show in a list
-    # @evaluated_posts = current_user.posts_in_evaluation(params[:id])
-    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations).order(:created_at)
+    @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations).order(created_at: :desc)
     # all active posts (TO DO: check is eager_load is better for SQL server) with eager load of their creators (makes one big query instead of a query for each post)
     if @feed.status == "active"
-      @posts = Post.where(status: "active", feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
+      @posts = Post.where(status: "active", feed_id: params[:id]).order(created_at: :desc).eager_load(:creator)
     elsif @feed.status == "free"
-      @posts = Post.where(status: ["free", "in_evaluation", "active"], feed_id: params[:id]).eager_load(:creator).order(created_at: :desc)
+      @posts = Post.where(status: ["free", "in_evaluation", "active"], feed_id: params[:id]).order(created_at: :desc).eager_load(:creator)
     end
     
     # render stream: true

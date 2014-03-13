@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   before_action :set_locale
   before_action :check_notifications
+  before_filter :authenticate
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
@@ -10,7 +11,17 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, :alert => exception.message
   end
+  
+  USERS = { "alpha" => "tester!" }
 
+  
+
+  def authenticate
+    authenticate_or_request_with_http_digest("Application") do |name|
+      USERS[name]
+    end
+  end
+  
   # reads out the params locale automatically out of URL or browser setting and compare to the available languages
   def set_locale
     if current_user

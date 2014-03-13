@@ -1,4 +1,3 @@
-
 de:
   page_title: "freed.li"
   feeds: "feeds"
@@ -55,6 +54,11 @@ de:
   user_eval_declined: "abgelehnt"
   user_eval_passed: "weitergeleitet"
   user_eval_too_late: "zu spät"
+  
+  user_tooltip_accepted: "Du hast diesen Post akzpetiert."
+  user_tooltip_declined: "Du hast diesen Post abgelehnt."
+  user_tooltip_passed: "Du hast jemand anderes diesen Post evaluieren lassen."
+  user_tooltip_too_late: "Die 2/3 Mehrheit wurde ohne dich erreicht. Du warst zu langsam ;-)"
   
   new_feed: "Erstelle einen neuen Feed"
   feed_create_success: 'Feed erfolgreich erstellt.'

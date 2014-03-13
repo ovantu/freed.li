@@ -1,4 +1,3 @@
-
 en:
   page_title: "freed.li"
   feeds: "feeds"
@@ -52,6 +51,11 @@ en:
   user_eval_declined: "declined"
   user_eval_passed: "passed on"
   user_eval_too_late: "too late"
+  
+  user_tooltip_accepted: "You accepted this post."
+  user_tooltip_declined: "You declined this post."
+  user_tooltip_passed: "You let somenody else evaluate this post."
+  user_tooltip_too_late: "The 2/3 majority was achieved before you evaluated. You were too slow ;-)"
   
   new_feed: "Create a new feed"
   feed_create_success: 'Feed was successfully created.'
@@ -164,7 +168,7 @@ en:
   jr_feed_create_feed_text: "... (let) collect data for a specific topic? Create a freed and let others help you!"
   
   jr_trust_title: "The higher the better!"
-  jr_trust_text: "This is your current trustworthiness on freed.li based on your behaviour. This value will be important when creating psots and freeds."
+  jr_trust_text: "This is your current trustworthiness on freed.li based on your behaviour. This value will be important when creating posts and freeds."
   
   jr_profile_title: "Your menu"
   jr_profile_text: "You can find here your profile, your settings and the logout button ;-)"

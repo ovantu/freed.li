@@ -22,7 +22,7 @@
           .active_post
             .row
               .large-12.columns.post_content
-                = highlight(post.content, params[:query])
+                = highlight(post.content(post.content, params[:query]))
             .row
               .large-6.columns.post_footer.post_creator
                 = post.creator.name
@@ -34,7 +34,7 @@
     .freed_list
       - @found_feeds.find_each do |feed|
         - if feed.status == "active"
-          - status_class = "freed_entry_color"   
+          - status_class = "active_entry_color"   
         - else 
           - status_class = "free_entry_color"
 

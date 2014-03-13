@@ -9,9 +9,20 @@ module ApplicationHelper
       #{messages}
     </div>
     HTML
-    html.html_safe
+    html
   end
   
+  def post_content(content)
+    text = simple_format(content)
+    url_regexp = /\b((?:https?:\/\/|www\d{0,3}[.]|[a-z0-9.\-]+[.][a-z]{2,4}\/?)(?:[^\s()<>]+|\(([^\s()<>]+|(\([^\s()<>]+\)))*\))+(?:\(([^\s()<>]+|(\([^\s()<>]+\)))*\)|[^\s\`!()\[\]{};:\'\".,<>?«»“”‘’]))/i
+    urls = text.scan(url_regexp)
+    urls.each do |u|
+      if u[0] != nil
+        text[u[0]] = "<a href=#{u[0]}>#{u[0]}</a>"
+      end
+    end
+    text
+  end
   
   def trustworthiness_in_precent
     if current_user

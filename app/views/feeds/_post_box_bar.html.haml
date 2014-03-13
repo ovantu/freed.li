@@ -1,7 +1,7 @@
 .row
   .small-12.columns
     .post_content
-      = simple_format(post.content.html_safe)
+      = post_content(post.content)
 .row
   .small-10.small-offset-1.columns.end
     .progress.radius.no-bottom-margin

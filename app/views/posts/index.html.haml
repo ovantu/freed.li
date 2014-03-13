@@ -12,7 +12,7 @@
 
   - @posts.each do |post|
     %tr
-      %td= simple_format(post.content.html_safe)
+      %td= post.content(post.content)
       %td= post.creator_id
       %td= post.feed_id
       %td= post.status

@@ -3,7 +3,7 @@
     .footer
       %ul.inline-list
         %li
-          %a#jr_start_joyride{href: "#"}= t("jr_page_tour")
+          %a#jr_start_joyride{href: "#"}= t("jr_page_tour") if current_user
         %li= link_to "Impressum", "http://www.ovantu.com"
         %li= link_to "Disclaimer", "http://www.ovantu.com"
         %li= link_to "Contact", "http://www.ovantu.com"

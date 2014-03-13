@@ -44,6 +44,10 @@ class Post < ActiveRecord::Base
     evaluations.where(status: ["accepted", "declined"])
   end
   
+  def real_evaluations
+    evaluations.where(status: ["accepted", "declined", "pending"])
+  end
+  
   def not_trustworthy
     if creator.trustworthiness[0] < TRUST_STAGE[feed.stage]
       errors.add(:base, 'no_save_not_trustworthy')

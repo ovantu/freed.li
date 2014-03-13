@@ -13,4 +13,4 @@
           = t("user_eval_" + @evaluated_active_post[post.id].to_s)
   .small-4.columns
     .post_footer.post_datetime
-      = l(post.created_at, format: :long)
+      = l(post.created_at.localtime, format: :long)

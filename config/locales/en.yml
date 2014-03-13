@@ -48,6 +48,11 @@ en:
   free_needs_contributors: "7 contributors are needed for next level"
   free_needs_accepted_contributors: "7 accepted contributors needed for next level"
   
+  user_eval_accepted: "accepted"
+  user_eval_declined: "declined"
+  user_eval_passed: "passed on"
+  user_eval_too_late: "too late"
+  
   new_feed: "Create a new feed"
   feed_create_success: 'Feed was successfully created.'
   goal_label: "Give us a reason WHY we should participate in this feed"

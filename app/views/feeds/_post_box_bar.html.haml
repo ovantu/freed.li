@@ -7,7 +7,9 @@
     .progress.radius.no-bottom-margin
       .meter{:style => "width: " + ((post.all_evaluated.count.to_f/post.real_evaluations.count.to_f)*100).to_i.to_s + "%"}
 .row
-  .small-5.columns.post_footer.post_creator
+  .small-4.columns.post_footer.post_creator
     = t("post_in_evaluation")
-  .small-5.columns.post_footer.post_datetime
+  .small-3.columns.post_footer
+    = t("user_eval_" + @evaluated_active_post[post.id].to_s) unless @evaluated_active_post[post.id] == nil
+  .small-3.columns.post_footer.post_datetime
     = l(post.created_at, format: :long)

@@ -51,6 +51,11 @@ de:
   free_needs_contributors: "7 Mitwirkende sind nötig für die nächste Stage"
   free_needs_accepted_contributors: "7 AKZEPTIERTE Mitwirkende sind nötig für die nächste Stage"
   
+  user_eval_accepted: "akzeptiert"
+  user_eval_declined: "abgelehnt"
+  user_eval_passed: "weitergeleitet"
+  user_eval_too_late: "zu spät"
+  
   new_feed: "Erstelle einen neuen Feed"
   feed_create_success: 'Feed erfolgreich erstellt.'
   goal_label: "Gib uns einen Grund WARUM wir bei deinem Feed mitwirken sollten"

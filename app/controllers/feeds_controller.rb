@@ -41,6 +41,12 @@ class FeedsController < ApplicationController
     @users_posts = Post.where(status: ["in_evaluation", "free"], creator_id: current_user.id, feed_id: params[:id]).order(created_at: :desc)
     # posts the user evaluated (accepted or declined or passed) but are still in_evaluation to show in a list
     @evaluated_posts = Post.joins(:evaluations).where(evaluations:{status: ["accepted", "declined", "passed"], user_id: current_user.id}).where(status: "in_evaluation", feed_id: params[:id]).eager_load(:evaluations).order(created_at: :desc)
+    # for marking users evaluations
+    eval = Evaluation.where(status: ['accepted', 'declined', "passed", 'too_late'], feed_id: params[:id], user_id: current_user.id).select(:status, :post_id)
+    @evaluated_active_post = Hash.new
+    eval.each do |e|
+      @evaluated_active_post[e.post_id] = e.status
+    end
     # all active posts (TO DO: check is eager_load is better for SQL server) with eager load of their creators (makes one big query instead of a query for each post)
     if @feed.status == "active"
       @posts = Post.where(status: "active", feed_id: params[:id]).order(created_at: :desc).eager_load(:creator)

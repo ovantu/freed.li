@@ -72,5 +72,6 @@ class User < ActiveRecord::Base
     end
     [trust, ac.to_i, re.to_i]
   end
+
   
 end

@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :authenticate_user!
   before_action :set_locale
+  before_action :check_changes
   before_action :check_notifications
   before_filter :authenticate
 
@@ -15,12 +16,27 @@ class ApplicationController < ActionController::Base
   USERS = { "alpha" => "tester!" }
 
   
-
+  # for the closed alpha version
   def authenticate
     authenticate_or_request_with_http_digest("Application") do |name|
       USERS[name]
     end
   end
+  
+  # # TO DO: add activities with new features
+  # def last_activity(user = current_user)
+  #   last_post = Post.select(:updated_at).where(creator_id: user.id, status: ["free", "in_evaluation"]).order(updated_at: :desc).first  # user can't make active, so free and in_evaluation would be his last actions; inacurate as user's post could be altered by others
+  #   last_evaluation = Evaluation.select(:updated_at).where(user_id: user.id, status: ["accepted", "declined", "pass"]).order(updated_at: :desc).first  #again just checking for actions the user can actively do
+  #   last_feed = Feed.select(:updated_at).where(creator_id: user.id, status: "free").order(updated_at: :desc).first
+  #   timestamps = [last_post.updated_at, last_evaluation.updated_at, last_feed.updated_at, user.last_sign_in_at]
+  #   last_Activity = timestamps.last
+  # end
+  # 
+  # def check_changes(user = current_user)
+  #   changed_posts = Post.where("updated_at >= :date", date: user.last_sign_in_at)
+  #   some_date = Time.now
+  #   Item.where("created_at >= :date OR updated_at >= :date", date: some_date.tomorrow.beginning_of_day)
+  # end
   
   # reads out the params locale automatically out of URL or browser setting and compare to the available languages
   def set_locale

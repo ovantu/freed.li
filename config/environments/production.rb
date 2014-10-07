@@ -74,7 +74,7 @@ Wispper::Application.configure do
 
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
-  config.action_mailer.default_url_options = { :host => 'http://cryptic-basin-1066.herokuapp.com/' }
+  config.action_mailer.default_url_options = { :host => 'http://freedli.herokuapp.com/' }
   ActionMailer::Base.smtp_settings = {
     :address        => 'smtp.sendgrid.net',
     :port           => '587',

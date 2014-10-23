@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
   # before_action :check_changes
   before_action :check_notifications
-  before_filter :authenticate
+  # before_filter :authenticate
 
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

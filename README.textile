@@ -1,10 +1,11 @@
 h1. freed.li
 
-Freed.li is a platform that deconstructs elements of online forums, tweets and wikis and recombines them as a tool to evaluate and filter information with the help of the crowd. It is based on the "freed manifesto":https://medium.com/@luniprise/the-freed-manifest-a347bd7f49b4
+Freed.li is a platform that deconstructs elements of online forums, tweets and wikis and recombines them as a tool to evaluate and filter information with the help of the crowd. It is based on the "freed manifesto":https://medium.com/@luniprise/the-freed-manifest-a347bd7f49b4.
 
 h2. Technical details
 
 h3. Information Aggregation freed:
+
 Freed stabilizes at 7 accepted contributors (before it is just an unevaluated stream)
 User can select page language and which freed languages he will be 
 Freed creator defines manifest (in future would be discussed)
@@ -12,12 +13,14 @@ Evaluators automatically selected: SquareRoot(1,5*[contributors-1])
 Evaluation: Accept, decline, pass on to another evaluator
 
 h3. Freeds have several stages:
+
 Stage 0: waiting for 7 contributors
 Stage 1: 7 unevaluated contributors
 Stage 2 (stable): 7 accepted contributors 
 Stage 3:
 
 h3. Trust:
+
 the last 20 interactions (post and evaluations) are taken into account
 declined posts
 wrong evaluation (2/3 majority)

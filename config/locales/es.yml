@@ -6,6 +6,14 @@ es:
   search_button: "search"
   codex: "Codex"
   
+  freed_li-home-text: "freed.li is designed to deconstruct elements of online forums, tweets and wikis and recombine them as a new tool to evaluate and filter information posts with the help of the crowd - before reaching a wide audience."
+  freed-manifesto: "the freed manifesto"
+  freed-manifesto-text: "The basic concept behind a freed."
+  freed_li-blog: "ovantu blog"
+  freed_li-blog-text: "Read the latest news about freed.li."
+  freed_li-github: "freed.li on Github"
+  freed_li-github-text: "Contribute or follow us on Github."
+  
   password_forgotten: "Forgot your password?"
   no_confirmation_email: "Didn't receive confirmation email yet?"
   

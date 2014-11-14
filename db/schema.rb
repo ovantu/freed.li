@@ -20,17 +20,17 @@ ActiveRecord::Schema.define(version: 20140312211439) do
     t.integer  "user_id"
     t.integer  "post_id"
     t.string   "type"
-    t.text     "comment"
-    t.string   "status"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "feed_id"
     t.boolean  "goal"
     t.boolean  "rule1"
     t.boolean  "rule2"
     t.boolean  "rule3"
     t.boolean  "rule4"
     t.boolean  "rule5"
+    t.text     "comment"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "feed_id"
   end
 
   create_table "feeds", force: true do |t|

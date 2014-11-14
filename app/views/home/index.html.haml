@@ -1,6 +1,22 @@
 .row
   .medium-6.large-8.columns
-    %h1= t("page_title")
+    .row
+      .small-12.columns
+        %h1= t("page_title")
+        = t('freed_li-home-text')
+    .row
+      %ul.small-block-grid-3.top-space
+        %li
+          %h4= link_to t("freed-manifesto"), "https://medium.com/@luniprise/the-freed-manifest-a347bd7f49b4", target: "_blank"
+          %p= t("freed-manifesto-text")
+          
+        %li 
+          %h4= t("freed_li-blog")
+          %p= t("freed_li-blog-text")
+        %li 
+          %h4= link_to t("freed_li-github"), "https://github.com/ovantu/freed.li", target: "_blank"
+          %p= t("freed_li-github-text")
+
   .medium-6.large-4.columns
     %dl.accordion{"data-accordion" => ""}
       %dd
